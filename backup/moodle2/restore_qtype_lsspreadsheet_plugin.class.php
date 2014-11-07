@@ -27,8 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 
 /**
- * Restore plugin class that provides the necessary information
- * needed to restore one match qtype plugin.
+ * Restore plugin class that provides the necessary information to restore spreadsheet questions.
  *
  * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -52,7 +51,7 @@ class restore_qtype_lsspreadsheet_plugin extends restore_qtype_plugin {
     }
 
     /**
-     * Process the qtype/matchoptions element
+     * Process the qtype/lsspreadsheetoptions element
      */
     public function process_lsspreadsheetoptions($data) {
         global $DB;
@@ -69,8 +68,8 @@ class restore_qtype_lsspreadsheet_plugin extends restore_qtype_plugin {
         if ($questioncreated) {
             // Adjust some columns.
             $data->questionid = $newquestionid;
-            $newitemid = $DB->insert_record('qtype_lsspreadsheetoptions_options', $data);
-            $this->set_mapping('qtype_lsspreadsheetoptions_options', $oldid, $newitemid);
+            $newitemid = $DB->insert_record('qtype_lsspreadsheet_options', $data);
+            $this->set_mapping('qtype_lsspreadsheet_options', $oldid, $newitemid);
         }
     }
 
@@ -82,7 +81,7 @@ class restore_qtype_lsspreadsheet_plugin extends restore_qtype_plugin {
         $contents = array();
 
         $fields = array('correctfeedback', 'partiallycorrectfeedback', 'incorrectfeedback');
-        $contents[] = new restore_decode_content('qtype_lsspreadsheetoptions_options', $fields, 'qtype_lsspreadsheetoptions_options');
+        $contents[] = new restore_decode_content('qtype_lsspreadsheet_options', $fields, 'qtype_lsspreadsheetoptions_options');
 
         return $contents;
     }

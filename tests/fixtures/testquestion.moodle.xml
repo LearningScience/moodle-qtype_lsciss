@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 1  -->
+  <question type="lsspreadsheet">
+    <name>
+      <text>Imported spreadsheet question</text>
+    </name>
+    <questiontext format="html">
+      <text>Fill in the box</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <correctfeedback format="html">
+      <text>Your answer is correct.</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Your answer is partially correct.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Your answer is incorrect.</text>
+    </incorrectfeedback>
+    <lsspreaddata>
+<![CDATA[[{"cell": {"table0_cell_c0_r0": {"celltype": "Label_1", "chart": "", "col": 0, "feedback": "", "formula": "", "rangetype": "", "row": 0, "textvalue": "Height (m)"}, "table0_cell_c1_r0": { "celltype": "CalcAnswer_1", "chart": "", "col": 1, "feedback": "", "formula": "=0.2", "rangetype": "SigfigRange_2", "row": 0, "textvalue": "=0.2"}}, "chartdata": null, "metadata": { "columns": 2, "rows": 15, "title": ""}}]]]>
+    </lsspreaddata>
+  </question>
+</quiz>

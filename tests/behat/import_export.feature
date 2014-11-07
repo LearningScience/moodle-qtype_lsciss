@@ -33,4 +33,4 @@ Feature: Test importing and exporting spreadsheet questions
     And I navigate to "Export" node in "Course administration > Question bank"
     And I set the field "id_format_xml" to "1"
     And I press "Export questions to file"
-    And following "click here" should download between "1550" and "1650" bytes
+    And following "click here" should download between "1400" and "1450" bytes

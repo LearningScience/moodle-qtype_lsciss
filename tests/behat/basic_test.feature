@@ -24,7 +24,7 @@ Feature: Test all the basic functionality of this question type
     And I add a "Spreadsheet" question filling the form with:
       | Question name                 | Test spreadsheet question |
       | Question text                 | Fill in the box           |
-      | Spreadsheet JSON              | [{"cell": {"table0_cell_c0_r0": {"celltype": "Label_1", "chart": "", "col": 0, "feedback": "", "formula": "", "rangetype": "", "row": 0,, "textvalue": "Height (m)"}, "table0_cell_c1_r0": { "celltype": "CalcAnswer_1", "chart": "", "col": 1, "feedback": "", "formula": "=0.2", "rangetype": "SigfigRange_2", "row": 0, "textvalue": "=0.2"}}, "chartdata": null, "metadata": { "columns": 2, "rows": 15, "title": ""}}] |
+      | Spreadsheet JSON              | [{"cell": {"table0_cell_c0_r0": {"celltype": "Label_1", "chart": "", "col": 0, "feedback": "", "formula": "", "rangetype": "", "row": 0, "textvalue": "Height (m)"}, "table0_cell_c1_r0": { "celltype": "CalcAnswer_1", "chart": "", "col": 1, "feedback": "", "formula": "=0.2", "rangetype": "SigfigRange_2", "row": 0, "textvalue": "=0.2"}}, "chartdata": null, "metadata": { "columns": 2, "rows": 15, "title": ""}}] |
     Then I should see "Test spreadsheet question"
 
     # Preview it. Test correct and incorrect answers.
@@ -36,8 +36,8 @@ Feature: Test all the basic functionality of this question type
       | Marked out of        | 3                 |
       | Marks                | Show mark and max |
     And I press "Start again with these options"
-    And the state of "Fill in the box" question is shown as "Not answered"
-    And the state of "Height (m)" question is shown as "Not answered"
+    And the state of "Fill in the box" question is shown as "Not yet answered"
+    And I should see "Height (m)"
     And I switch to the main window
 
     # Backup the course and restore it.
@@ -56,7 +56,7 @@ Feature: Test all the basic functionality of this question type
     Then the following fields match these values:
       | Question name                 | Test spreadsheet question |
       | Question text                 | Fill in the box           |
-      | Spreadsheet JSON              | [{"cell": {"table0_cell_c0_r0": {"celltype": "Label_1", "chart": "", "col": 0, "feedback": "", "formula": "", "rangetype": "", "row": 0,, "textvalue": "Height (m)"}, "table0_cell_c1_r0": { "celltype": "CalcAnswer_1", "chart": "", "col": 1, "feedback": "", "formula": "=0.2", "rangetype": "SigfigRange_2", "row": 0, "textvalue": "=0.2"}}, "chartdata": null, "metadata": { "columns": 2, "rows": 15, "title": ""}}] |
+      | Spreadsheet JSON              | [{"cell": {"table0_cell_c0_r0": {"celltype": "Label_1", "chart": "", "col": 0, "feedback": "", "formula": "", "rangetype": "", "row": 0, "textvalue": "Height (m)"}, "table0_cell_c1_r0": { "celltype": "CalcAnswer_1", "chart": "", "col": 1, "feedback": "", "formula": "=0.2", "rangetype": "SigfigRange_2", "row": 0, "textvalue": "=0.2"}}, "chartdata": null, "metadata": { "columns": 2, "rows": 15, "title": ""}}] |
     And I set the following fields to these values:
       | Question name | Edited question name |
     And I press "id_submitbutton"

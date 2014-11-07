@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 
 /**
- * Provides the information to backup match questions.
+ * Provides the information to backup spreadsheet questions.
  *
  * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -50,15 +50,15 @@ class backup_qtype_lsspreadsheet_plugin extends backup_qtype_plugin {
 
         // Now create the qtype own structures.
         $lsspreadsheetoptions = new backup_nested_element('lsspreadsheetoptions', array('id'), array(
-            'lsspeaddata', 'correctfeedback', 'correctfeedbackformat',
+            'lsspreaddata', 'correctfeedback', 'correctfeedbackformat',
             'partiallycorrectfeedback', 'partiallycorrectfeedbackformat',
             'incorrectfeedback', 'incorrectfeedbackformat'));
 
         // Now the own qtype tree.
-        $pluginwrapper->add_child(lsspreadsheetoptions);
+        $pluginwrapper->add_child($lsspreadsheetoptions);
 
         // Set source to populate the data.
-        $matchoptions->set_source_table('qtype_lsspreadsheetoptions_options',
+        $lsspreadsheetoptions->set_source_table('qtype_lsspreadsheet_options',
                 array('questionid' => backup::VAR_PARENTID));
 
         // Don't need to annotate ids nor files.

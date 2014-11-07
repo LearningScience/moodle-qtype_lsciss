@@ -40,8 +40,8 @@ class qtype_lsspreadsheet_test_helper extends question_test_helper {
      * @return qtype_lsspreadsheet_question
      */
     public function make_lsspreadsheet_question_basic() {
-        question_bank::load_question_definition_classes('ddmarker');
-        $lsss = new qtype_ddmarker_question();
+        question_bank::load_question_definition_classes('lsspreadsheet');
+        $lsss = new qtype_lsspreadsheet_question();
 
         test_question_maker::initialise_a_question($lsss);
 
@@ -266,62 +266,6 @@ class qtype_lsspreadsheet_test_helper extends question_test_helper {
         }
     }
 ]';
-
-        return $lsss;
-    }
-
-    protected function make_choice_structure($choices) {
-        $choicestructure = array();
-        foreach ($choices as $choice) {
-            $group = $choice->choice_group();
-            if (!isset($choicestructure[$group])) {
-                $choicestructure[$group] = array();
-            }
-            $choicestructure[$group][$choice->no] = $choice;
-        }
-        return $choicestructure;
-    }
-
-    protected function make_place_structure($places) {
-        $placestructure = array();
-        foreach ($places as $place) {
-            $placestructure[$place->no] = $place;
-        }
-        return $placestructure;
-    }
-
-    /**
-     * @return qtype_ddmarker_question
-     */
-    public function make_ddmarker_question_maths() {
-        question_bank::load_question_definition_classes('ddmarker');
-        $lsss = new qtype_ddmarker_question();
-
-        test_question_maker::initialise_a_question($lsss);
-
-        $lsss->name = 'Drag-and-drop markers question';
-        $lsss->questiontext = 'Fill in the operators to make this equation work: ';
-        $lsss->generalfeedback = 'Hmmmm...';
-        $lsss->qtype = question_bank::get_qtype('ddmarker');
-
-        $lsss->shufflechoices = true;
-
-        test_question_maker::set_standard_combined_feedback_fields($lsss);
-
-        $lsss->choices = $this->make_choice_structure(array(
-                    new qtype_ddmarker_drag_item('+', 1, 1, 0),
-                    new qtype_ddmarker_drag_item('-', 2, 1, 0),
-                    new qtype_ddmarker_drag_item('*', 3, 1, 0),
-                    new qtype_ddmarker_drag_item('/', 4, 1, 0)
-
-        ));
-
-        $lsss->places = $this->make_place_structure(array(
-                    new qtype_ddmarker_drop_zone(1, 'circle', '50,50;50'),
-                    new qtype_ddmarker_drop_zone(2, 'rectangle', '100,0;100,100'),
-                    new qtype_ddmarker_drop_zone(3, 'polygon', '0,100;100,100;100,200;0,200')
-        ));
-        $lsss->rightchoices = array(1 => 1, 2 => 1, 3 => 1);
 
         return $lsss;
     }

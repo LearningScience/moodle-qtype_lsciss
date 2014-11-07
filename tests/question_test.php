@@ -41,7 +41,14 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
     public function test_get_expected_data() {
         $question = test_question_maker::make_question('lsspreadsheet');
 
-        $this->assertEquals($question->get_expected_data());
+        $this->assertEquals(array(
+                    'table0_cell_c1_r10' => PARAM_RAW_TRIMMED,
+                    'table0_cell_c1_r5' => PARAM_RAW_TRIMMED,
+                    'table0_cell_c1_r6' => PARAM_RAW_TRIMMED,
+                    'table0_cell_c1_r7' => PARAM_RAW_TRIMMED,
+                    'table0_cell_c1_r8' => PARAM_RAW_TRIMMED,
+                    'table0_cell_c1_r9' => PARAM_RAW_TRIMMED,
+                ), $question->get_expected_data());
     }
 
     public function xtest_is_complete_response() {

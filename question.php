@@ -37,9 +37,19 @@ defined('MOODLE_INTERNAL') || die();
  */
 class qtype_lsspreadsheet_question extends question_graded_automatically_with_countback {
 
+    /** @var string JSON of the spreadsheet. */
+    public $lsspreaddata;
+
     public function get_expected_data() {
-        // TODO.
-        return array();
+        $spreadsheet = new Lsspreadsheet();
+        $fields = $spreadsheet->get_field_names();
+
+        $expected = array();
+        foreach ($fields as $name) {
+            $expected[$name] = PARAM_RAW_TRIMMED;
+        }
+
+        return $expected;
     }
 
     public function summarise_response(array $response) {

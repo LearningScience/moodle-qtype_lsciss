@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/Lsspreadsheet.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetUtils.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCellGrader.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/phpexcel/phpexcel.php');
+require_once($CFG->dirroot . '/question/type/lsspreadsheet/phpexcel/PHPExcel.php');
 use Learnsci\Lsspreadsheet;
 
 

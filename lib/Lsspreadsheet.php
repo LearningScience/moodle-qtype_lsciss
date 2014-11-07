@@ -130,7 +130,13 @@ class Lsspreadsheet {
 	public function get_field_names($lsspreaddata){
 		$json = $this->lsspreadsheetUtils->decodeLsspreaddataJsonString($lsspreaddata);
 		$data = $this->lsspreadsheetUtils->convert_rawdata_from_zero_array_lsspreaddata($json);
-		return array_keys($data);
+		$calculatedCellNames = [];
+		foreach ($data as $key => $value) {
+			if(($value['celltype'] === 'CalcAnswer_1') || (($value['celltype'] === 'StudentInput_1'))){
+				$calculatedCellNames[] = $key;
+			}
+		}
+		return $calculatedCellNames;
 	}
 
 	public function method_mark_cell($moodleinput_excel, $cell_excelref, $cell_formula, $cell_rangetype, $cell_rangeval, $submitted_answer) {

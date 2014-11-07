@@ -17,13 +17,10 @@
 /**
  * Defines the editing form for the lsspreadsheet question type.
  *
- * @package    qtype
- * @subpackage lsspreadsheet
- * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
-
+ * @package   qtype_lsspreadsheet
+ * @copyright THEYEAR YOURNAME (YOURCONTACTINFO)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -32,7 +29,6 @@ defined('MOODLE_INTERNAL') || die();
  * lsspreadsheet question editing form definition.
  *
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
-
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_lsspreadsheet_edit_form extends question_edit_form {

@@ -38,10 +38,9 @@ use Learnsci\Lsspreadsheet;
  * Represents a lsspreadsheet question.
  *
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
-
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_lsspreadsheet_question extends question_graded_automatically_with_countback {
+class qtype_lsspreadsheet_question extends question_graded_automatically {
 
     /** @var string JSON of the spreadsheet. */
     public $lsspreaddata;
@@ -88,8 +87,14 @@ class qtype_lsspreadsheet_question extends question_graded_automatically_with_co
     }
 
     public function summarise_response(array $response) {
-        // TODO.
-        return null;
+        $parts = array();
+        foreach ($this->get_expected_data() as $name => $notused) {
+            if (array_key_exists($name, $response) &&
+                    ($response[$name] || $response[$name] === '0')) {
+                $parts[] = str_replace('table0_cell_', '', $name). ': ' . $response[$name];
+            }
+        }
+        return implode(', ', $parts);
     }
 
     public function check_file_access($qa, $options, $component, $filearea,

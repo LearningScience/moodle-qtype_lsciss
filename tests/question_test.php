@@ -74,7 +74,7 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
     }
 
     public function xtest_is_gradable_response() {
-        $question = qtype_pmatch_test_helper::make_a_pmatch_question();
+        $question = test_question_maker::make_question('lsspreadsheet');
 
         $this->assertFalse($question->is_gradable_response(array()));
         $this->assertFalse($question->is_gradable_response(array('answer' => '')));
@@ -89,7 +89,7 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
     }
 
     public function xtest_grading() {
-        $question = qtype_pmatch_test_helper::make_a_pmatch_question();
+        $question = test_question_maker::make_question('lsspreadsheet');
 
         $this->assertEquals(array(0, question_state::$gradedwrong),
                 $question->grade_response(array('answer' => 'x')));
@@ -102,26 +102,35 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
     }
 
     public function xtest_get_correct_response() {
-        $question = qtype_pmatch_test_helper::make_a_pmatch_question();
+        $question = test_question_maker::make_question('lsspreadsheet');
 
         $this->assertEquals(array('answer' => 'match_w(Tom|Harry)'),
                 $question->get_correct_response());
     }
 
     public function xtest_get_question_summary() {
-        $sa = qtype_pmatch_test_helper::make_a_pmatch_question();
+        $question = test_question_maker::make_question('lsspreadsheet');
+
         $qsummary = $sa->get_question_summary();
         $this->assertEquals('Who was Jane\'s companion : __________', $qsummary);
     }
 
-    public function xtest_summarise_response() {
-        $sa = qtype_pmatch_test_helper::make_a_pmatch_question();
-        $summary = $sa->summarise_response(array('answer' => 'dog'));
-        $this->assertEquals('dog', $summary);
+    public function test_summarise_response() {
+        $question = test_question_maker::make_question('lsspreadsheet');
+
+        $this->assertEquals('c1_r10: 1.0, c1_r5: 2.0, c1_r6: 3.0, c1_r7: 4.0, c1_r8: 5.0, c1_r9: 6.0',
+                $sa->summarise_response(array(
+                        'table0_cell_c1_r10' => '1.0',
+                        'table0_cell_c1_r5' => '2.0',
+                        'table0_cell_c1_r6' => '3.0',
+                        'table0_cell_c1_r7' => '4.0',
+                        'table0_cell_c1_r8' => '5.0',
+                        'table0_cell_c1_r9' => '6.0',
+                    )));
     }
 
     public function xtest_classify_response() {
-        $sa = qtype_pmatch_test_helper::make_a_pmatch_question();
+        $question = test_question_maker::make_question('lsspreadsheet');
         $sa->start_attempt(new question_attempt_step(), 1);
 
         $this->assertEquals(array(

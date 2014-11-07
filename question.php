@@ -58,19 +58,22 @@ class qtype_lsspreadsheet_question extends question_graded_automatically_with_co
         return $expected;
     }
 
-    public function summarise_response(array $response) {
-        // TODO.
-        return null;
-    }
-
     public function is_complete_response(array $response) {
-        // TODO.
+        $complete = true;
+        foreach ($this->get_expected_data() as $name => $notused) {
+            if (!array_key_exists($name, $response) ||
+                    (!$response[$name] && $response[$name] !== '0')) {
+                return false;
+            }
+        }
         return true;
     }
 
     public function get_validation_error(array $response) {
-        // TODO.
-        return '';
+        if ($this->is_complete_response($response)) {
+            return '';
+        }
+        return get_string('pleaseananswerallparts', 'qtype_lsspreadsheet');
     }
 
     public function is_same_response(array $prevresponse, array $newresponse) {
@@ -79,12 +82,15 @@ class qtype_lsspreadsheet_question extends question_graded_automatically_with_co
                 $prevresponse, $newresponse, 'answer');
     }
 
-
     public function get_correct_response() {
         // TODO.
         return array();
     }
 
+    public function summarise_response(array $response) {
+        // TODO.
+        return null;
+    }
 
     public function check_file_access($qa, $options, $component, $filearea,
             $args, $forcedownload) {

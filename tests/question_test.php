@@ -55,16 +55,22 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
         $question = test_question_maker::make_question('lsspreadsheet');
 
         $this->assertFalse($question->is_complete_response(array()));
-        $this->assertFalse($question->is_complete_response(array('answer' => '')));
-        $this->assertTrue($question->is_complete_response(array('answer' => '0')));
-        $this->assertTrue($question->is_complete_response(array('answer' => '0.0')));
-        $this->assertTrue($question->is_complete_response(array('answer' => 'x')));
-
-        $question = qtype_pmatch_test_helper::make_a_pmatch_question($this);
-
-        $this->assertTrue($question->is_complete_response(array('answer' => 'The Queen is dead.')));
-        $this->assertFalse($question->is_complete_response(
-                                                        array('answer' => 'Long kive the Kin.')));
+        $this->assertFalse($question->is_complete_response(array(
+                    'table0_cell_c1_r10' => '1.0',
+                    'table0_cell_c1_r5' => '1.0',
+                    'table0_cell_c1_r6' => '1.0',
+                    'table0_cell_c1_r7' => '1.0',
+                    'table0_cell_c1_r8' => '1.0',
+                    'table0_cell_c1_r9' => '',
+                )));
+        $this->assertTrue($question->is_complete_response(array(
+                    'table0_cell_c1_r10' => '1.0',
+                    'table0_cell_c1_r5' => '1.0',
+                    'table0_cell_c1_r6' => '1.0',
+                    'table0_cell_c1_r7' => '1.0',
+                    'table0_cell_c1_r8' => '1.0',
+                    'table0_cell_c1_r9' => '1.0',
+                )));
     }
 
     public function xtest_is_gradable_response() {

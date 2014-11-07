@@ -28,4 +28,4 @@ $string['pluginname_help'] = 'The grading is based on the spreadsheet you define
 $string['pluginname_link'] = 'question/type/lsspreadsheet';
 $string['pluginnameadding'] = 'Adding a spreadsheet question';
 $string['pluginnameediting'] = 'Editing a spreadsheet question';
-$string['pluginnamesummary'] = 'A question type with a number of sudent inputs, that are graded by comparison with a spreadsheet behind the scenes. This allows some answers to depend on other inputs. For example a student may input some lab obervations, and then computed some other information from those observations, and those calculations will be graded.';'
+$string['pluginnamesummary'] = 'A question type with a number of sudent inputs, that are graded by comparison with a spreadsheet behind the scenes. This allows some answers to depend on other inputs. For example a student may input some lab obervations, and then computed some other information from those observations, and those calculations will be graded.';

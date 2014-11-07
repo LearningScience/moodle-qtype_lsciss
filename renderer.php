@@ -26,6 +26,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 use Learnsci\Lsspreadsheet;
+use Learnsci\LsspreadsheetCellGrader;
+use Learnsci\LsspreadsheetUtils;
+use Learnsci\LsspreadsheetChart;
+use Learnsci\LsspreadsheetChartStats;
 
 /**
  * Generates the output for lsspreadsheet questions.
@@ -43,7 +47,7 @@ class qtype_lsspreadsheet_renderer extends qtype_renderer {
         $questiontext = $question->format_questiontext($qa);
         
         $spreadsheetUtils = new LsspreadsheetUtils();
-        $html = $spreadsheetUtils->getTakeTableFromLsspreaddata($question->lsspreaddata);
+        $html = $spreadsheetUtils->getTakeTableFromLsspreaddata($question->lsspreaddata, $qa->get_field_prefix() );
 
         // $placeholder = false;
         // if (preg_match('/_____+/', $questiontext, $matches)) {

@@ -235,6 +235,9 @@ class Lsspreadsheet {
 			$calcAnswer = $excel->getActiveSheet()->getCell($cell->excelref)->getCalculatedValue();
 
 			$cells[$cellref]['correct_value'] = $calcAnswer;
+			$answer_checked = new \stdClass();
+			$answer_checked->iscorrect = false;
+			$answer_checked->correctanswer = '';
 
 			if ($submitted_answer !== "" and $calcAnswer !== "#DIV/0!") {
 				switch ($cell->celltype) {

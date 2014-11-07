@@ -91,6 +91,8 @@ class qtype_lsspreadsheet extends question_type {
     protected function initialise_question_instance(question_definition $question, $questiondata) {
         // TODO.
         parent::initialise_question_instance($question, $questiondata);
+        $question->lsspreaddata = $questiondata->options->lsspreaddata;
+        $this->initialise_combined_feedback($question, $questiondata);
     }
 
     public function get_random_guess_score($questiondata) {

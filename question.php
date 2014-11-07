@@ -30,6 +30,8 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/Lsspreadsheet.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetUtils.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCellGrader.php');
+require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChart.php');
+require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChartStats.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/phpexcel/PHPExcel.php');
 use Learnsci\Lsspreadsheet;
 
@@ -79,8 +81,8 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
 
     public function is_same_response(array $prevresponse, array $newresponse) {
         // TODO.
-        return question_utils::arrays_same_at_key_missing_is_blank(
-                $prevresponse, $newresponse, 'answer');
+        return question_utils::arrays_have_same_keys_and_values(
+                $prevresponse, $newresponse);
     }
 
     public function get_correct_response() {

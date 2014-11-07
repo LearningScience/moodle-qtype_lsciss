@@ -10,8 +10,8 @@ namespace Learnsci;
  *
  * @author steve
  */
-require_once(dirname(__FILE__) . '/../' . 'lib/pChart/pData.php');
-require_once(dirname(__FILE__) . '/../' . 'lib/pChart/pChart.php');
+// require_once(dirname(__FILE__) . '/../' . 'lib/pChart/pData.php');
+// require_once(dirname(__FILE__) . '/../' . 'lib/pChart/pChart.php');
 // require_once ('src/Lsspreadsheet.php');
 // require_once ('src/LsspreadsheetChartStats.php');
 

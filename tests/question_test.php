@@ -36,10 +36,16 @@ require_once($CFG->dirroot . '/question/type/pmatch/question.php');
  * @copyright  2012 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_pmatch_question_test extends basic_testcase {
+class qtype_lsspreadsheet_question_test extends basic_testcase {
 
-    public function test_is_complete_response() {
-        $question = qtype_pmatch_test_helper::make_a_pmatch_question();
+    public function test_get_expected_data() {
+        $question = test_question_maker::make_question('lsspreadsheet');
+
+        $this->assertEquals($question->is_complete_response(array()));
+    }
+
+    public function xtest_is_complete_response() {
+        $question = test_question_maker::make_question('lsspreadsheet');
 
         $this->assertFalse($question->is_complete_response(array()));
         $this->assertFalse($question->is_complete_response(array('answer' => '')));
@@ -54,7 +60,7 @@ class qtype_pmatch_question_test extends basic_testcase {
                                                         array('answer' => 'Long kive the Kin.')));
     }
 
-    public function test_is_gradable_response() {
+    public function xtest_is_gradable_response() {
         $question = qtype_pmatch_test_helper::make_a_pmatch_question();
 
         $this->assertFalse($question->is_gradable_response(array()));
@@ -69,7 +75,7 @@ class qtype_pmatch_question_test extends basic_testcase {
         $this->assertTrue($question->is_gradable_response(array('answer' => 'Long kive the Kin.')));
     }
 
-    public function test_grading() {
+    public function xtest_grading() {
         $question = qtype_pmatch_test_helper::make_a_pmatch_question();
 
         $this->assertEquals(array(0, question_state::$gradedwrong),
@@ -82,26 +88,26 @@ class qtype_pmatch_question_test extends basic_testcase {
                 $question->grade_response(array('answer' => 'Dick')));
     }
 
-    public function test_get_correct_response() {
+    public function xtest_get_correct_response() {
         $question = qtype_pmatch_test_helper::make_a_pmatch_question();
 
         $this->assertEquals(array('answer' => 'match_w(Tom|Harry)'),
                 $question->get_correct_response());
     }
 
-    public function test_get_question_summary() {
+    public function xtest_get_question_summary() {
         $sa = qtype_pmatch_test_helper::make_a_pmatch_question();
         $qsummary = $sa->get_question_summary();
         $this->assertEquals('Who was Jane\'s companion : __________', $qsummary);
     }
 
-    public function test_summarise_response() {
+    public function xtest_summarise_response() {
         $sa = qtype_pmatch_test_helper::make_a_pmatch_question();
         $summary = $sa->summarise_response(array('answer' => 'dog'));
         $this->assertEquals('dog', $summary);
     }
 
-    public function test_classify_response() {
+    public function xtest_classify_response() {
         $sa = qtype_pmatch_test_helper::make_a_pmatch_question();
         $sa->start_attempt(new question_attempt_step(), 1);
 

@@ -49,7 +49,7 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
                 ), $question->get_expected_data());
     }
 
-    public function xtest_is_complete_response() {
+    public function test_is_complete_response() {
         $question = test_question_maker::make_question('lsspreadsheet');
 
         $this->assertFalse($question->is_complete_response(array()));

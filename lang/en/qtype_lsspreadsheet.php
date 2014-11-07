@@ -15,22 +15,17 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_lsspreadsheet', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'qtype_lsspreadsheet'.
  *
- * @package    qtype
- * @subpackage lsspreadsheet
- * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
-
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   qtype_lsspreadsheet
+ * @copyright THEYEAR YOURNAME (YOURCONTACTINFO)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$string['pluginname'] = 'lsspreadsheet';
-$string['pluginname_help'] = 'Create a cloze question type with embedded response fields in the question text to enter a numeric
-or text value or select a value from a number of options.';
-$string['pluginname_link'] = 'question/type/lsspreadsheet';
-$string['pluginnameadding'] = 'Adding a lsspreadsheet question';
-$string['pluginnameediting'] = 'Editing a lsspreadsheet question';
-$string['pluginnamesummary'] = 'A lsspreadsheet question type which allows the embedding of the response fields for various available
-sub questions in the question text.
 
-So the student can enter a numeric or short text answer or choose an answer or answer(s) from
- using a select box, check boxes or radio boxes.';
+$string['pleaseananswerallparts'] = 'Please answer all parts of the question.';
+$string['pluginname'] = 'Spreadsheet';
+$string['pluginname_help'] = 'The grading is based on the spreadsheet you define at the bottom of the form.';
+$string['pluginname_link'] = 'question/type/lsspreadsheet';
+$string['pluginnameadding'] = 'Adding a spreadsheet question';
+$string['pluginnameediting'] = 'Editing a spreadsheet question';
+$string['pluginnamesummary'] = 'A question type with a number of sudent inputs, that are graded by comparison with a spreadsheet behind the scenes. This allows some answers to depend on other inputs. For example a student may input some lab obervations, and then computed some other information from those observations, and those calculations will be graded.';'

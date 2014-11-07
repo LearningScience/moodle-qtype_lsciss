@@ -56,7 +56,9 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
 
         return $expected;
     }
-
+    /**
+     *  test that all cells have been filled in for all responses
+     */
     public function is_complete_response(array $response) {
         $complete = true;
         foreach ($this->get_expected_data() as $name => $notused) {
@@ -83,7 +85,7 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
 
     public function get_correct_response() {
         // TODO.
-        return array();
+        return null;
     }
 
     public function summarise_response(array $response) {
@@ -111,7 +113,23 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
 
     public function grade_response(array $response) {
         // TODO.
-        $fraction = 0;
+        $spreadsheet = new Lsspreadsheet();
+        $result = $spreadsheet->gradeQuestion($this->lsspreaddata, $response);
+        $total = 0;
+        $maxMark = 0;
+
+        foreach ($result as $key => $value) {
+
+            if($value->celltype === 'CalcAnswer'){
+                $maxMark += 1;
+            }
+
+            if($value->isCorrect === true){
+                $total += 1;
+            }
+        }
+
+        $fraction = $total / $maxMark;
         return array($fraction, question_state::graded_state_for_fraction($fraction));
     }
 

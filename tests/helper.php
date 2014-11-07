@@ -50,7 +50,6 @@ class qtype_lsspreadsheet_test_helper extends question_test_helper {
         $lsss->generalfeedback = 'I hope you learned something.';
         $lsss->qtype = question_bank::get_qtype('lsspreadsheet');
 
-        $lsss->shufflechoices = true;
 
         // test_question_maker::set_standard_combined_feedback_fields($lsss);
 

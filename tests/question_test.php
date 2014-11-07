@@ -71,6 +71,7 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
                 )));
     }
 
+    //see match question type for examples
     public function xtest_is_gradable_response() {
         $question = test_question_maker::make_question('lsspreadsheet');
 
@@ -86,26 +87,21 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
         $this->assertTrue($question->is_gradable_response(array('answer' => 'Long kive the Kin.')));
     }
 
-    public function xtest_grading() {
+    public function test_grading() {
         $question = test_question_maker::make_question('lsspreadsheet');
 
-        $this->assertEquals(array(0, question_state::$gradedwrong),
-                $question->grade_response(array('answer' => 'x')));
-        $this->assertEquals(array(1, question_state::$gradedright),
-                $question->grade_response(array('answer' => 'Tom')));
-        $this->assertEquals(array(1, question_state::$gradedright),
-                $question->grade_response(array('answer' => 'Harry')));
-                $this->assertEquals(array(0.8, question_state::$gradedpartial),
-                $question->grade_response(array('answer' => 'Dick')));
+        $this->assertEquals(array(0.5, question_state::$gradedpartial),
+                $question->grade_response(array(
+                    'table0_cell_c1_r10' => '1.0',
+                    'table0_cell_c1_r5' => '1.0',
+                    'table0_cell_c1_r6' => '1.0',
+                    'table0_cell_c1_r7' => '1.0',
+                    'table0_cell_c1_r8' => '1.0',
+                    'table0_cell_c1_r9' => '1.0',
+                )));
     }
 
-    public function xtest_get_correct_response() {
-        $question = test_question_maker::make_question('lsspreadsheet');
-
-        $this->assertEquals(array('answer' => 'match_w(Tom|Harry)'),
-                $question->get_correct_response());
-    }
-
+    //text summary of question human readable
     public function xtest_get_question_summary() {
         $question = test_question_maker::make_question('lsspreadsheet');
 
@@ -113,6 +109,7 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
         $this->assertEquals('Who was Jane\'s companion : __________', $qsummary);
     }
 
+    //when previewing question can see these (response history)
     public function test_summarise_response() {
         $question = test_question_maker::make_question('lsspreadsheet');
 

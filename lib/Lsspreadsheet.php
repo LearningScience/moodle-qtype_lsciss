@@ -202,7 +202,7 @@ class Lsspreadsheet {
  * @return int
  */
 	public function grade_spreadsheet_question($lsspreaddata, $responses, $gradingtype = "auto") {
-
+		$answersArray = [];
 		$spreadSheet = $this->lsspreadsheetUtils->getObjectFromLsspreaddata($lsspreaddata);
 
 		$excel = null;
@@ -247,7 +247,6 @@ class Lsspreadsheet {
 							$cell->rangetype,
 							$cell->rangeval,
 							$submitted_answer);
-
 						if ($answer_checked->iscorrect == true) {
 							//the range in the correct answer should be 0
 							// the answer in the numerical question should be 1
@@ -257,6 +256,9 @@ class Lsspreadsheet {
 						}
 						break;
 				}
+				$answer_checked->celltype = $cell->celltype;
+				$answer_checked->submitted_answer = $submitted_answer;
+				$answersArray[$cellref] = $answer_checked;
 			}
 		}
 
@@ -266,7 +268,23 @@ class Lsspreadsheet {
 
 		unset($excel);
 		unset($moodleinput_excel);
-		return $responses;
+		return $answersArray;
+	}
+
+	public function gradeQuestion($lsspreaddata, $responses){
+		$gradedQuestion = [];
+		$ans = $this->grade_spreadsheet_question($lsspreaddata, $responses);
+
+		foreach ($ans as $key => $value) {
+			$gradedCell = new \stdClass();
+			$gradedCell->studentResponse = $value->submitted_answer;
+			$gradedCell->cellWeighting = 1;
+			$gradedCell->isCorrect = $value->iscorrect;
+			$gradedCell->celltype = $value->celltype;
+			$gradedCell->correctAnswer = $value->correctanswer;
+			$gradedQuestion[$key] = $gradedCell;
+		}
+		return $gradedQuestion;
 	}
 
 	/**

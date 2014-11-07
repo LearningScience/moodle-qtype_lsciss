@@ -20,19 +20,17 @@
  * @package    qtype
  * @subpackage lsspreadsheet
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
-
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
 defined('MOODLE_INTERNAL') || die();
-
+use Learnsci\Lsspreadsheet;
 
 /**
  * Generates the output for lsspreadsheet questions.
  *
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
-
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_lsspreadsheet_renderer extends qtype_renderer {
@@ -41,19 +39,24 @@ class qtype_lsspreadsheet_renderer extends qtype_renderer {
 
         $question = $qa->get_question();
 
+        //moodle going throughtext and filtering
         $questiontext = $question->format_questiontext($qa);
-        $placeholder = false;
-        if (preg_match('/_____+/', $questiontext, $matches)) {
-            $placeholder = $matches[0];
-        }
-        $input = '**subq controls go in here**';
+        
+        $spreadsheetUtils = new LsspreadsheetUtils();
+        $html = $spreadsheetUtils->getTakeTableFromLsspreaddata($question->lsspreaddata);
 
-        if ($placeholder) {
-            $questiontext = substr_replace($questiontext, $input,
-                    strpos($questiontext, $placeholder), strlen($placeholder));
-        }
+        // $placeholder = false;
+        // if (preg_match('/_____+/', $questiontext, $matches)) {
+        //     $placeholder = $matches[0];
+        // }
+        // $input = '**subq controls go in here**';
 
-        $result = html_writer::tag('div', $questiontext, array('class' => 'qtext'));
+        // if ($placeholder) {
+        //     $questiontext = substr_replace($questiontext, $input,
+        //             strpos($questiontext, $placeholder), strlen($placeholder));
+        // }
+
+        $result = html_writer::tag('div', $questiontext . $html, array('class' => 'qtext'));
 
         /* if ($qa->get_state() == question_state::$invalid) {
             $result .= html_writer::nonempty_tag('div',

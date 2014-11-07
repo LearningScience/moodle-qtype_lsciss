@@ -89,7 +89,6 @@ class qtype_lsspreadsheet extends question_type {
     }
 
     protected function initialise_question_instance(question_definition $question, $questiondata) {
-        // TODO.
         parent::initialise_question_instance($question, $questiondata);
         $question->lsspreaddata = $questiondata->options->lsspreaddata;
         $this->initialise_combined_feedback($question, $questiondata);
@@ -99,8 +98,11 @@ class qtype_lsspreadsheet extends question_type {
         return 0;
     }
 
+    public function can_analyse_responses() {
+        return false;
+    }
+
     public function get_possible_responses($questiondata) {
-        // TODO.
         return array();
     }
 }

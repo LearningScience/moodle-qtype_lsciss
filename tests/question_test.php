@@ -50,6 +50,8 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
     }
 
     public function test_is_complete_response() {
+        // TODO is it actually necessary for the students to complete every box?
+        // If not change the assertions an the code.
         $question = test_question_maker::make_question('lsspreadsheet');
 
         $this->assertFalse($question->is_complete_response(array()));
@@ -72,26 +74,21 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
     }
 
     //see match question type for examples
-    public function xtest_is_gradable_response() {
+    public function test_is_gradable_response() {
+        // TODO here, it is probably even less necessary for the students to
+        // complete every box, change the assertions an the code.
         $question = test_question_maker::make_question('lsspreadsheet');
 
         $this->assertFalse($question->is_gradable_response(array()));
-        $this->assertFalse($question->is_gradable_response(array('answer' => '')));
-        $this->assertTrue($question->is_gradable_response(array('answer' => '0')));
-        $this->assertTrue($question->is_gradable_response(array('answer' => '0.0')));
-        $this->assertTrue($question->is_gradable_response(array('answer' => 'x')));
-
-        $question = qtype_pmatch_test_helper::make_a_pmatch_question($this);
-
-        $this->assertTrue($question->is_gradable_response(array('answer' => 'The Queen is dead.')));
-        $this->assertTrue($question->is_gradable_response(array('answer' => 'Long kive the Kin.')));
-    }
-
-    public function test_grading() {
-        $question = test_question_maker::make_question('lsspreadsheet');
-
-        $this->assertEquals(array(0.5, question_state::$gradedpartial),
-                $question->grade_response(array(
+        $this->assertFalse($question->is_gradable_response(array(
+                    'table0_cell_c1_r10' => '1.0',
+                    'table0_cell_c1_r5' => '1.0',
+                    'table0_cell_c1_r6' => '1.0',
+                    'table0_cell_c1_r7' => '1.0',
+                    'table0_cell_c1_r8' => '1.0',
+                    'table0_cell_c1_r9' => '',
+                )));
+        $this->assertTrue($question->is_gradable_response(array(
                     'table0_cell_c1_r10' => '1.0',
                     'table0_cell_c1_r5' => '1.0',
                     'table0_cell_c1_r6' => '1.0',
@@ -101,12 +98,25 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
                 )));
     }
 
-    //text summary of question human readable
-    public function xtest_get_question_summary() {
+    public function test_grading() {
         $question = test_question_maker::make_question('lsspreadsheet');
 
-        $qsummary = $sa->get_question_summary();
-        $this->assertEquals('Who was Jane\'s companion : __________', $qsummary);
+        list($fraction, $state) = $question->grade_response(array(
+                    'table0_cell_c1_r10' => '1.0',
+                    'table0_cell_c1_r5' => '1.0',
+                    'table0_cell_c1_r6' => '1.0',
+                    'table0_cell_c1_r7' => '1.0',
+                    'table0_cell_c1_r8' => '1.0',
+                    'table0_cell_c1_r9' => '1.0',
+                ));
+        $this->assertEquals(0.3333333, $fraction, '', 0.00000005);
+        $this->assertEquals(question_state::$gradedpartial, $state);
+    }
+
+    //text summary of question human readable
+    public function test_get_question_summary() {
+        $question = test_question_maker::make_question('lsspreadsheet');
+        $this->assertEquals('Fill in the boxes.', $question->get_question_summary());
     }
 
     //when previewing question can see these (response history)
@@ -124,24 +134,15 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
                     )));
     }
 
-    public function xtest_classify_response() {
+    public function test_get_correct_response() {
         $question = test_question_maker::make_question('lsspreadsheet');
-        $sa->start_attempt(new question_attempt_step(), 1);
+        $this->assertNull($question->get_correct_response());
+    }
 
-        $this->assertEquals(array(
-                new question_classified_response(13, 'Tom', 1.0)),
-                $sa->classify_response(array('answer' => 'Tom')));
-        $this->assertEquals(array(
-                new question_classified_response(13, 'Harry', 1.0)),
-                $sa->classify_response(array('answer' => 'Harry')));
-        $this->assertEquals(array(
-                new question_classified_response(14, 'Dick', 0.8)),
-                $sa->classify_response(array('answer' => 'Dick')));
-        $this->assertEquals(array(
-                new question_classified_response(15, 'cat', 0.0)),
-                $sa->classify_response(array('answer' => 'cat')));
-        $this->assertEquals(array(
-                question_classified_response::no_response()),
-                $sa->classify_response(array('answer' => '')));
+    public function test_classify_response() {
+        $question = test_question_maker::make_question('lsspreadsheet');
+        $question->start_attempt(new question_attempt_step(), 1);
+
+        $this->assertEquals(array(), $question->classify_response(array()));
     }
 }

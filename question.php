@@ -86,7 +86,6 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
     }
 
     public function get_correct_response() {
-        // TODO.
         return null;
     }
 
@@ -103,7 +102,6 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
 
     public function check_file_access($qa, $options, $component, $filearea,
             $args, $forcedownload) {
-        // TODO.
         if ($component == 'question' && $filearea == 'hint') {
             return $this->check_hint_file_access($qa, $options, $args);
 
@@ -114,7 +112,6 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
     }
 
     public function grade_response(array $response) {
-        // TODO.
         $spreadsheet = new Lsspreadsheet();
         $result = $spreadsheet->gradeQuestion($this->lsspreaddata, $response);
         $total = 0;
@@ -133,10 +130,5 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
 
         $fraction = $total / $maxMark;
         return array($fraction, question_state::graded_state_for_fraction($fraction));
-    }
-
-    public function compute_final_grade($responses, $totaltries) {
-        // TODO.
-        return 0;
     }
 }

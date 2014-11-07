@@ -17,7 +17,7 @@
 /**
  * Unit tests for the spread-sheet question type class.
  *
- * @package   qtype_spreadsheet
+ * @package   qtype_lsspreadsheet
  * @copyright  2012 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,7 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 global $CFG;
 
-require_once($CFG->dirroot . '/question/type/pmatch/questiontype.php');
+require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
+require_once($CFG->dirroot . '/question/type/lsspreadsheet/questiontype.php');
 
 
 /**
@@ -35,48 +36,32 @@ require_once($CFG->dirroot . '/question/type/pmatch/questiontype.php');
  * @copyright  2012 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_pmatch_questiontype_test extends basic_testcase {
+class qtype_lsspreadsheet_questiontype_test extends basic_testcase {
     protected $qtype;
 
     protected function setUp() {
-        $this->qtype = new qtype_pmatch();
+        $this->qtype = new qtype_lsspreadsheet();
     }
 
     protected function tearDown() {
         $this->qtype = null;
     }
 
-    protected function get_test_question_data() {
-        $q = new stdClass();
-        $q->id = 1;
-        $q->options = new stdClass();
-        $q->options->answers[1] = (object) array('answer' => 'match(frog)', 'fraction' => 1);
-        $q->options->answers[2] = (object) array('answer' => '*', 'fraction' => 0);
-
-        return $q;
-    }
-
     public function test_name() {
-        $this->assertEquals($this->qtype->name(), 'pmatch');
+        $this->assertEquals($this->qtype->name(), 'lsspreadsheet');
     }
 
     public function test_can_analyse_responses() {
-        $this->assertTrue($this->qtype->can_analyse_responses());
+        $this->assertFalse($this->qtype->can_analyse_responses());
     }
 
     public function test_get_random_guess_score() {
-        $q = $this->get_test_question_data();
-        $this->assertEquals(0, $this->qtype->get_random_guess_score($q));
+        $questiondata = test_question_maker::get_question_data('lsspreadsheet');;
+        $this->assertEquals(0, $this->qtype->get_random_guess_score($questiondata));
     }
 
     public function test_get_possible_responses() {
-        $q = $this->get_test_question_data();
-
-        $this->assertEquals(array(
-            $q->id => array(
-                1 => new question_possible_response('match(frog)', 1),
-                2 => new question_possible_response('*', 0),
-                null => question_possible_response::no_response()),
-        ), $this->qtype->get_possible_responses($q));
+        $questiondata = test_question_maker::get_question_data('lsspreadsheet');;
+        $this->assertEquals(array(), $this->qtype->get_possible_responses($questiondata));
     }
 }

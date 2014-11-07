@@ -27,6 +27,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/Lsspreadsheet.php');
+require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetUtils.php');
+require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCellGrader.php');
+require_once($CFG->dirroot . '/question/type/lsspreadsheet/phpexcel/phpexcel.php');
+use Learnsci\Lsspreadsheet;
+
 
 /**
  * Represents a lsspreadsheet question.
@@ -42,7 +48,7 @@ class qtype_lsspreadsheet_question extends question_graded_automatically_with_co
 
     public function get_expected_data() {
         $spreadsheet = new Lsspreadsheet();
-        $fields = $spreadsheet->get_field_names();
+        $fields = $spreadsheet->get_field_names($this->lsspreaddata);
 
         $expected = array();
         foreach ($fields as $name) {

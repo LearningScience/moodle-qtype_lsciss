@@ -19,7 +19,6 @@
  *
  * @package    qtype_lsspreadsheet
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
-
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

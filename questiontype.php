@@ -17,10 +17,8 @@
 /**
  * Question type class for the lsspreadsheet question type.
  *
- * @package    qtype
- * @subpackage lsspreadsheet
- * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
-
+ * @package   qtype_lsspreadsheet
+ * @copyright THEYEAR YOURNAME (YOURCONTACTINFO)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -43,16 +41,51 @@ class qtype_lsspreadsheet extends question_type {
 
     public function move_files($questionid, $oldcontextid, $newcontextid) {
         parent::move_files($questionid, $oldcontextid, $newcontextid);
+        $this->move_files_in_combined_feedback($questionid, $oldcontextid, $newcontextid);
         $this->move_files_in_hints($questionid, $oldcontextid, $newcontextid);
     }
 
     protected function delete_files($questionid, $contextid) {
         parent::delete_files($questionid, $contextid);
+        $this->delete_files_in_combined_feedback($questionid, $contextid);
         $this->delete_files_in_hints($questionid, $contextid);
     }
 
+    public function get_question_options($question) {
+        global $DB;
+        parent::get_question_options($question);
+        $question->options = $DB->get_record('qtype_lsspreadsheet_options',
+                array('questionid' => $question->id));
+        return true;
+    }
+
     public function save_question_options($question) {
+        global $DB;
+        $context = $question->context;
+
+        $options = $DB->get_record('qtype_lsspreadsheet_options',
+                array('questionid' => $question->id));
+        if (!$options) {
+            $options = new stdClass();
+            $options->questionid = $question->id;
+            $options->lsspreaddata = '';
+            $options->correctfeedback = '';
+            $options->partiallycorrectfeedback = '';
+            $options->incorrectfeedback = '';
+            $options->id = $DB->insert_record('qtype_lsspreadsheet_options', $options);
+        }
+    
+        $options->lsspreaddata = $question->lsspreaddata;
+        $options = $this->save_combined_feedback_helper($options, $question, $context);
+        $DB->update_record('qtype_lsspreadsheet_options', $options);
+
         $this->save_hints($question);
+    }
+
+    public function delete_question($questionid, $contextid) {
+        global $DB;
+        return parent::delete_question($questionid, $contextid);
+        $DB->delete_records('qtype_lsspreadsheet_options', array('questionid' => $questionid));
     }
 
     protected function initialise_question_instance(question_definition $question, $questiondata) {
@@ -61,7 +94,6 @@ class qtype_lsspreadsheet extends question_type {
     }
 
     public function get_random_guess_score($questiondata) {
-        // TODO.
         return 0;
     }
 

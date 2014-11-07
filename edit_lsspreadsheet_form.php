@@ -38,14 +38,30 @@ defined('MOODLE_INTERNAL') || die();
 class qtype_lsspreadsheet_edit_form extends question_edit_form {
 
     protected function definition_inner($mform) {
+        $mform->addElement('textarea', 'lsspreaddata', 'Spreadsheet JSON');
+
+        $this->add_combined_feedback_fields();
         $this->add_interactive_settings();
     }
 
     protected function data_preprocessing($question) {
         $question = parent::data_preprocessing($question);
+        $question = $this->data_preprocessing_combined_feedback($question);
         $question = $this->data_preprocessing_hints($question);
-
+        if (isset($question->options->lsspreaddata)) {
+            $question->lsspreaddata = $question->options->lsspreaddata;
+        }
         return $question;
+    }
+
+    public function validation($data, $files) {
+        $errors = parent::validation($data, $files);
+
+        if (json_decode($data['lsspreaddata']) === null) {
+            $errors['lsspreaddata'] = 'Invalid JSON.';
+        }
+
+        return $errors;
     }
 
     public function qtype() {

@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the editing form for the YOURQTYPENAME question type.
+ * Defines the editing form for the lsspreadsheet question type.
  *
  * @package    qtype
- * @subpackage YOURQTYPENAME
+ * @subpackage lsspreadsheet
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -29,13 +29,13 @@ defined('MOODLE_INTERNAL') || die();
 
 
 /**
- * YOURQTYPENAME question editing form definition.
+ * lsspreadsheet question editing form definition.
  *
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_YOURQTYPENAME_edit_form extends question_edit_form {
+class qtype_lsspreadsheet_edit_form extends question_edit_form {
 
     protected function definition_inner($mform) {
         $this->add_interactive_settings();
@@ -49,6 +49,6 @@ class qtype_YOURQTYPENAME_edit_form extends question_edit_form {
     }
 
     public function qtype() {
-        return 'YOURQTYPENAME';
+        return 'lsspreadsheet';
     }
 }

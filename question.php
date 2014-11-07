@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * YOURQTYPENAME question definition class.
+ * lsspreadsheet question definition class.
  *
  * @package    qtype
- * @subpackage YOURQTYPENAME
+ * @subpackage lsspreadsheet
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -29,13 +29,13 @@ defined('MOODLE_INTERNAL') || die();
 
 
 /**
- * Represents a YOURQTYPENAME question.
+ * Represents a lsspreadsheet question.
  *
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_YOURQTYPENAME_question extends question_graded_automatically_with_countback {
+class qtype_lsspreadsheet_question extends question_graded_automatically_with_countback {
 
     public function get_expected_data() {
         // TODO.

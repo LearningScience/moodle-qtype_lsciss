@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Question type class for the YOURQTYPENAME question type.
+ * Question type class for the lsspreadsheet question type.
  *
  * @package    qtype
- * @subpackage YOURQTYPENAME
+ * @subpackage lsspreadsheet
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -29,17 +29,17 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/questionlib.php');
 require_once($CFG->dirroot . '/question/engine/lib.php');
-require_once($CFG->dirroot . '/question/type/YOURQTYPENAME/question.php');
+require_once($CFG->dirroot . '/question/type/lsspreadsheet/question.php');
 
 
 /**
- * The YOURQTYPENAME question type.
+ * The lsspreadsheet question type.
  *
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_YOURQTYPENAME extends question_type {
+class qtype_lsspreadsheet extends question_type {
 
     public function move_files($questionid, $oldcontextid, $newcontextid) {
         parent::move_files($questionid, $oldcontextid, $newcontextid);

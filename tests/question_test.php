@@ -27,8 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 
 require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
-require_once($CFG->dirroot . '/question/type/pmatch/tests/helper.php');
-require_once($CFG->dirroot . '/question/type/pmatch/question.php');
 
 /**
  * Unit tests for the spread-sheet question definition class.
@@ -119,7 +117,7 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
         $question = test_question_maker::make_question('lsspreadsheet');
 
         $this->assertEquals('c1_r10: 1.0, c1_r5: 2.0, c1_r6: 3.0, c1_r7: 4.0, c1_r8: 5.0, c1_r9: 6.0',
-                $sa->summarise_response(array(
+                $question->summarise_response(array(
                         'table0_cell_c1_r10' => '1.0',
                         'table0_cell_c1_r5' => '2.0',
                         'table0_cell_c1_r6' => '3.0',

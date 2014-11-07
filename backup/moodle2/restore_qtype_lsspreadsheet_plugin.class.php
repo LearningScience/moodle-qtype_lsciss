@@ -54,7 +54,7 @@ class restore_qtype_lsspreadsheet_plugin extends restore_qtype_plugin {
     /**
      * Process the qtype/matchoptions element
      */
-    public function process_matchoptions($data) {
+    public function process_lsspreadsheetoptions($data) {
         global $DB;
 
         $data = (object)$data;

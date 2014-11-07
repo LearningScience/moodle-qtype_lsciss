@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains tests that walks a spread-sheet question through various
+ * This file contains tests that walks a spreadsheet question through various
  * behaviours.
  *
  * @package   qtype_lsspreadsheet
@@ -32,7 +32,7 @@ require_once($CFG->dirroot . '/question/type/lsspreadsheet/tests/helper.php');
 
 
 /**
- * Unit tests for the spread-sheet question type.
+ * Unit tests for the spreadsheet question type.
  *
  * @copyright 2012 The Open University
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

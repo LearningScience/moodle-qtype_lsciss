@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/questionlib.php');
 require_once($CFG->dirroot . '/question/engine/lib.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/question.php');
+require_once($CFG->dirroot . '/question/format/xml/format.php');
 
 
 /**
@@ -104,5 +105,36 @@ class qtype_lsspreadsheet extends question_type {
 
     public function get_possible_responses($questiondata) {
         return array();
+    }
+
+    public function import_from_xml($data, $question, qformat_xml $format, $extra=null) {
+        if (!isset($data['@']['type']) || $data['@']['type'] != 'lsspreadsheet') {
+            return false;
+        }
+
+        $question = $format->import_headers($data);
+        $question->qtype = 'lsspreadsheet';
+
+        $question->lsspreaddata = $format->getpath($data,
+                array('#', 'lsspreaddata', 0, '#'), '', false, 'lsspreaddata is required');
+
+        $format->import_combined_feedback($question, $data, false);
+
+        $format->import_hints($question, $data, false, false,
+                $format->get_format($question->questiontextformat));
+
+        return $question;
+    }
+
+    public function export_to_xml($question, qformat_xml $format, $extra = null) {
+        $output = '';
+
+        $output .= $format->write_combined_feedback($question->options,
+                                                    $question->id,
+                                                    $question->contextid);
+        $output .= "    <lsspreaddata>\n" . $format->xml_escape($question->options->lsspreaddata) .
+            "\n    </lsspreaddata>\n";
+
+        return $output;
     }
 }

@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Contains the helper class for the spread-sheet question type tests.
+ * Contains the helper class for the spreadsheet question type tests.
  *
  * @package   qtype_lsspreadsheet
  * @copyright 2013 The Open University
@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 
 /**
- * Question maker for unit tests for the spread-sheet question definition class.
+ * Question maker for unit tests for the spreadsheet question definition class.
  *
  * @copyright 2013 The Open University
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -45,14 +45,20 @@ class qtype_lsspreadsheet_test_helper extends question_test_helper {
 
         test_question_maker::initialise_a_question($lsss);
 
-        $lsss->name = 'Spread-sheet question';
+        $lsss->name = 'Spreadsheet question';
         $lsss->questiontext = 'Fill in the boxes.';
         $lsss->generalfeedback = 'I hope you learned something.';
         $lsss->qtype = question_bank::get_qtype('lsspreadsheet');
 
         test_question_maker::set_standard_combined_feedback_fields($lsss);
+        unset($lsss->shownumcorrect);
 
         $lsss->lsspreaddata = file_get_contents(__DIR__ . '/fixtures/sample_sheet_data.json');
+
+        $lsss->hints = array(
+            new question_hint(1, 'Try again.', FORMAT_HTML),
+            new question_hint(2, 'Hint 2.', FORMAT_HTML),
+        );
 
         return $lsss;
     }
@@ -62,7 +68,7 @@ class qtype_lsspreadsheet_test_helper extends question_test_helper {
 
         $q = new stdClass();
         test_question_maker::initialise_question_data($q);
-        $q->name = 'Spread-sheet question';
+        $q->name = 'Spreadsheet question';
         $q->qtype = 'lsspreadsheet';
         $q->parent = 0;
         $q->questiontext = 'Fill in the boxes.';
@@ -79,7 +85,36 @@ class qtype_lsspreadsheet_test_helper extends question_test_helper {
         $q->options = new stdClass();
         $q->options->lsspreaddata = file_get_contents(__DIR__ . '/fixtures/sample_sheet_data.json');
         test_question_maker::set_standard_combined_feedback_fields($q->options);
+        unset($q->options->shownumcorrect);
+
+        $q->hints = array(
+            new question_hint(1, 'Try again.', FORMAT_HTML),
+            new question_hint(2, 'Hint 2.', FORMAT_HTML),
+        );
 
         return $q;
+    }
+
+    public function get_lsspreadsheet_question_form_data_basic() {
+        global $USER;
+
+        $fromform = new stdClass();
+        $fromform->name = 'Spreadsheet question';
+        $fromform->qtype = 'lsspreadsheet';
+        $fromform->questiontext = array('text' => 'Fill in the boxes.', 'format' => FORMAT_HTML);
+        $fromform->generalfeedback = array('text' => 'I hope you learned something.', 'format' => FORMAT_HTML);
+        $fromform->defaultmark = 1;
+        $fromform->penalty = 0.3333333;
+
+        $fromform->lsspreaddata = file_get_contents(__DIR__ . '/fixtures/sample_sheet_data.json');
+        test_question_maker::set_standard_combined_feedback_form_data($fromform);
+        unset($fromform->shownumcorrect);
+
+        $fromform->hint = array(
+            array('text' => 'Try again.', 'format' => FORMAT_HTML),
+            array('text' => 'Hint 2.', 'format' => FORMAT_HTML),
+        );
+
+        return $fromform;
     }
 }

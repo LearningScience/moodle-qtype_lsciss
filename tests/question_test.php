@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Unit tests for the spread-sheet question definition class.
+ * Unit tests for the spreadsheet question definition class.
  *
  * @package   qtype_lsspreadsheet
  * @copyright 2012 The Open University
@@ -29,7 +29,7 @@ global $CFG;
 require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 
 /**
- * Unit tests for the spread-sheet question definition class.
+ * Unit tests for the spreadsheet question definition class.
  *
  * @copyright  2012 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

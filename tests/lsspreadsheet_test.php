@@ -55,12 +55,12 @@ class LsspreadsheetTest extends basic_testcase {
 	public function testGradeSpreadsheetQuestion()
 	{
 		$responses = Array (
-			'table0_cell_c1_r5' => 89,
-			'table0_cell_c1_r6' => 10,
-			'table0_cell_c1_r7' => 3,
-			'table0_cell_c1_r8' => 5,
-			'table0_cell_c1_r9' => 6,
-			'table0_cell_c1_r10' => 4);
+			'table0_cell_c1_r5' => 'male',
+			'table0_cell_c1_r6' => 1,
+			'table0_cell_c1_r7' => 1,
+			'table0_cell_c1_r8' => 1,
+			'table0_cell_c1_r9' => 0.2,
+			'table0_cell_c1_r10' => 0.4);
 		$answers = $this->spreadsheet->grade_spreadsheet_question(
 			$this->lsspreaddata,
 			$responses,

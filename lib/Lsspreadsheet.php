@@ -21,17 +21,6 @@ class Lsspreadsheet {
 		$this->lsspreadsheetCellGrader = new LsspreadsheetCellGrader();
 	}
 
-	public function get_cloze_positions($options) {
-		$clozeposition = array();
-		foreach ($options as $key => $value) {
-			$qtext = $value->questiontext;
-			$qtext = explode("#", $qtext);
-			$qtext = explode("||", $qtext[1]);
-			$clozeposition[$qtext[0]] = $key;
-		}
-		return $clozeposition;
-	}
-
 	/**
 	 * @brief function to extract the chart input ids
 	 */
@@ -51,28 +40,6 @@ class Lsspreadsheet {
 		return json_encode($chartinputid);
 	}
 
-	/**
-	 * Function to generate a fake cloze question for the chart
-	 * @return string
-	 */
-	public function generate_cloze_chart_question($lsspreaddata) {
-		/**
-		 * Ok this is a weird fuction that fakes a cloze question.  Its similar
-		 * in concept to the other ones but uses a short answer question type rather
-		 * than a numeric type.
-		 */
-		$cloze = '';
-
-		$chartdata = json_decode($lsspreaddata);
-
-		if (isset($chartdata->series[0]->mark)) {
-			$mark = $chartdata->series[0]->mark;
-			$mark = 1;
-			$cloze = "{" . $mark . ":SHORTANSWER:%100%graph#}";
-		}
-
-		return $cloze;
-	}
 
 	/**
 	 * Creates a PHPExcel spreadsheet in memory that has all the right forumalae in
@@ -141,13 +108,9 @@ class Lsspreadsheet {
 
 	public function method_mark_cell($moodleinput_excel, $cell_excelref, $cell_formula, $cell_rangetype, $cell_rangeval, $submitted_answer) {
 
-		//error_log("submitted_answer" . " " . print_r($cell->excelref, true) . " = " . print_r($submitted_answer, true));
-
 		$inputvalue = $moodleinput_excel->getActiveSheet()->getCell($cell_excelref)->getCalculatedValue();
 		$moodleinput_excel->getActiveSheet()->setCellValue($cell_excelref, strtoupper($cell_formula));
 		$calculated_answer = $moodleinput_excel->getActiveSheet()->getCell($cell_excelref)->getCalculatedValue();
-
-		//error_log("calc answer" . " " . print_r($cell_excelref, true) . " = " . print_r($calculated_answer, true));
 
 		$answer = $this->get_cell_correctness($submitted_answer, $calculated_answer, $cell_rangetype, $cell_rangeval);
 		$moodleinput_excel->getActiveSheet()->setCellValue($cell_excelref, $inputvalue);

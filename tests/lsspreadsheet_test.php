@@ -5,6 +5,7 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/Lsspreadsheet.php');
+require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCell.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetUtils.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCellGrader.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChart.php');
@@ -45,11 +46,12 @@ class LsspreadsheetTest extends basic_testcase {
 		$excel = $spreadsheetUtils->create_excel_marking_sheet_from_spreadsheet($spreadsheet);
 	}
 
-	public function testGetHtmlOfPhpExcel() {
+	public function testGetTakeTableFromLsspreaddata() {
 		$spreadsheetUtils = new LsspreadsheetUtils();
 		$tableHtml = $spreadsheetUtils->getTakeTableFromLsspreaddata($this->lsspreaddata);
-		$html = '<html><body>' . $tableHtml . '</body></html>';
-		file_put_contents('/tmp/lsspreadsheet.html', $html);
+		$expectedTableHtml = file_get_contents(__DIR__ . '/fixtures/take-table.html');
+		file_put_contents('/tmp/lsspreadsheet.html', $tableHtml);
+		$this->assertEquals($tableHtml, $expectedTableHtml);
 	}
 
 	public function testGradeSpreadsheetQuestion()

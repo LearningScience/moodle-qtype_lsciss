@@ -69,7 +69,7 @@ class Lsspreadsheet {
 				$cellvalue = strtoupper($cell->formula);
 			}
 
-			$moodleinput_excel->getActiveSheet()->setCellValue($cell->excelref, $cellvalue);
+			$moodleinput_excel->getActiveSheet()->setCellValue($cell->getExcelref(), $cellvalue);
 		}
 		//PHPExcel_Calculation::getInstance()->clearCalculationCache();
 
@@ -181,7 +181,7 @@ class Lsspreadsheet {
 
 				//dont overwrite the calculation cells!
 				if ($spreadSheet[$cellref]->celltype == "StudentInput") {
-					$excel->getActiveSheet()->setCellValue($spreadSheet[$cellref]->excelref, $value);
+					$excel->getActiveSheet()->setCellValue($spreadSheet[$cellref]->getExcelref(), $value);
 				}
 			}
 		}
@@ -195,7 +195,7 @@ class Lsspreadsheet {
 			}
 
 			\PHPExcel_Calculation::getInstance()->clearCalculationCache();
-			$calcAnswer = $excel->getActiveSheet()->getCell($cell->excelref)->getCalculatedValue();
+			$calcAnswer = $excel->getActiveSheet()->getCell($cell->getExcelref())->getCalculatedValue();
 
 			$cells[$cellref]['correct_value'] = $calcAnswer;
 			$answer_checked = new \stdClass();
@@ -208,7 +208,7 @@ class Lsspreadsheet {
 						$answer_checked = $this->get_cell_correctness($submitted_answer, $calcAnswer, $cell->rangetype, $cell->rangeval);
 						$answer_checked = $this->method_mark_cell(
 							$moodleinput_excel,
-							$cell->excelref,
+							$cell->getExcelref(),
 							$cell->formula,
 							$cell->rangetype,
 							$cell->rangeval,
@@ -264,7 +264,7 @@ class Lsspreadsheet {
 		\PHPExcel_Calculation::getInstance()->clearCalculationCache();
 
 		foreach ($spreadSheet as $cellref => $cell) {
-			$spreadSheet[$cellref]->textvalue = $objPHPExcel->getActiveSheet()->getCell($cell->excelref)->getCalculatedValue();
+			$spreadSheet[$cellref]->textvalue = $objPHPExcel->getActiveSheet()->getCell($cell->getExcelref())->getCalculatedValue();
 		}
 
 		return $spreadSheet;

@@ -102,15 +102,40 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
         $question = test_question_maker::make_question('lsspreadsheet');
 
         list($fraction, $state) = $question->grade_response(array(
-                    'table0_cell_c1_r10' => '1.0',
-                    'table0_cell_c1_r5' => '1.0',
+                    'table0_cell_c1_r5' => 'male',
                     'table0_cell_c1_r6' => '1.0',
                     'table0_cell_c1_r7' => '1.0',
                     'table0_cell_c1_r8' => '1.0',
-                    'table0_cell_c1_r9' => '1.0',
+                    'table0_cell_c1_r9' => '0.3',
+                    'table0_cell_c1_r10' => '0.5'
                 ));
         $this->assertEquals(0.3333333, $fraction, '', 0.00000005);
         $this->assertEquals(question_state::$gradedpartial, $state);
+
+        list($fraction, $state) = $question->grade_response(array(
+                    'table0_cell_c1_r5' => 'male',
+                    'table0_cell_c1_r6' => '1.0',
+                    'table0_cell_c1_r7' => '1.0',
+                    'table0_cell_c1_r8' => '0.1',
+                    'table0_cell_c1_r9' => '0.3',
+                    'table0_cell_c1_r10' => '0.5'
+                ));
+        $this->assertEquals(0, $fraction, '', 0.00000005);
+        $this->assertEquals(question_state::$gradedwrong, $state);
+
+     
+        list($fraction, $state) = $question->grade_response(array(
+                    'table0_cell_c1_r5' => 'male',
+                    'table0_cell_c1_r6' => '1.0',
+                    'table0_cell_c1_r7' => '1.0',
+                    'table0_cell_c1_r8' => '1.0',
+                    'table0_cell_c1_r9' => '0.2',
+                    'table0_cell_c1_r10' => '0.4'
+                ));
+        $this->assertEquals(1, $fraction, '', 0.00000005);
+        $this->assertEquals(question_state::$gradedright, $state);
+
+
     }
 
     //text summary of question human readable

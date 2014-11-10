@@ -23,12 +23,6 @@ class LsspreadsheetTest extends basic_testcase {
 
 	}
 
-	// public function testGenerateCloze()
-	// {
-	//     $lsspreaddata = '';
-	//     generate_cloze($lsspreaddata);
-	// }
-
 	public function testConvertRawdata() {
 		$spreadsheetUtils = new LsspreadsheetUtils();
 		$json = $spreadsheetUtils->decodeLsspreaddataJsonString($this->lsspreaddata);

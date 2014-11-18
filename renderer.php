@@ -47,18 +47,17 @@ class qtype_lsspreadsheet_renderer extends qtype_renderer {
         $questiontext = $question->format_questiontext($qa);
         
         $spreadsheetUtils = new LsspreadsheetUtils();
-        $html = $spreadsheetUtils->getTakeTableFromLsspreaddata($question->lsspreaddata, $qa->get_field_prefix() );
+        $spreadSheet = new Lsspreadsheet();
+        $graded = $spreadSheet->grade_spreadsheet_question($question->lsspreaddata, $qa->get_last_qt_data());
 
-        // $placeholder = false;
-        // if (preg_match('/_____+/', $questiontext, $matches)) {
-        //     $placeholder = $matches[0];
-        // }
-        // $input = '**subq controls go in here**';
+        $feedbackStyles = [
+            'correctFeedbackClass' => $this->feedback_class(1),
+            'correctFeedbackImage' => $this->feedback_image(1),
+            'wrongFeedbackClass' => $this->feedback_class(0),
+            'wrongFeedbackImage' => $this->feedback_image(0)
+        ];
 
-        // if ($placeholder) {
-        //     $questiontext = substr_replace($questiontext, $input,
-        //             strpos($questiontext, $placeholder), strlen($placeholder));
-        // }
+        $html = $spreadsheetUtils->getTakeTableFromLsspreaddata($question->lsspreaddata, $qa->get_field_prefix(), $options, $qa, $graded, $feedbackStyles);
 
         $result = html_writer::tag('div', $questiontext . $html, array('class' => 'qtext'));
 

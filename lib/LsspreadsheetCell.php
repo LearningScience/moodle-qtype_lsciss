@@ -17,7 +17,12 @@ class LsspreadsheetCell
     $this->popup = "";
     $this->colspan = 1;
     $this->tdclass = "";
-
+    $this->correctAnswer = '';
+    $this->feedbackstring = '';
+    $this->feedbackClass = '';
+    $this->feedbackImage = '';
+    $this->iscorrect = null;
+    $this->submitted_anser = '';
     $this->row = '';
     $this->col = '';
   }
@@ -35,23 +40,23 @@ class LsspreadsheetCell
     return \PHPExcel_Cell::stringFromColumnIndex($c) . $r;
   }
 
-  public function getTdForCell($cellname, $numberOfColumns){
+  public function getTdForCell($cellname, $numberOfColumns, $isReadOnly){
     $colspan = 1;
     switch ($this->celltype) {
       case "FixedAnswer":
         $tdclass = '';
-        $cellcontent = $this->getInputTagCell('', $cellname);
+        $cellcontent = $this->getCellHtml('', $cellname, $isReadOnly);
         break;
       case "CalcAnswer":
         $tdclass = "lsCalcAnswerTd";
-        $cellcontent = $this->getInputTagCell('lsCalcAnswerInput', $cellname);
+        $cellcontent = $this->getCellHtml('lsCalcAnswerInput', $cellname, $isReadOnly);
         break;
       case "NumberAnswer":
-        $cellcontent = $this->getInputTagCell('', $cell);
+        $cellcontent = $this->getCellHtml('', $cell);
         break;
       case "StudentInput":
         $tdclass = "lsStudentInputTd";
-        $cellcontent = $this->getInputTagCell('lsInputStudentCell', $cellname);
+        $cellcontent = $this->getCellHtml('lsInputStudentCell', $cellname, $isReadOnly);
         break;
       case "Label":
         $tdclass = "lsLabelTd_" . $this->labelalign;
@@ -73,6 +78,24 @@ class LsspreadsheetCell
   private function getInputTagCell($cssClass, $cellname){
     $styles = trim($cssClass . $this->style);
     return '<input type="text" class="' . $styles  . '" ' . $this->popup . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>' . $this->markedimg;
+  }
+
+  private function getInputTagCellReadOnly($cssClass, $cellname){
+    $styles = trim($cssClass . $this->style);
+    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . $this->popup . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>' . $this->markedimg;
+  }  
+
+  private function getInputTagCellReadOnlyMarked($cssClass, $cellname){
+    $styles = trim($cssClass . $this->style . ' ' . $this->feedbackClass );
+    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . $this->popup . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>'. $this->feedbackImage . ' ' . $this->correctanswer;
+  }
+
+  private function getCellHtml($cssClass, $cellname, $isReadOnly){
+    if($isReadOnly === true){
+      return $this->getInputTagCellReadOnlyMarked($cssClass, $cellname);
+    } else {
+      return $this->getInputTagCell($cssClass, $cellname);
+    }
   }
 
 }

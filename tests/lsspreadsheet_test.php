@@ -11,6 +11,7 @@ require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCell
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChart.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChartStats.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/phpexcel/PHPExcel.php');
+require_once($CFG->dirroot . '/question/type/lsspreadsheet/tests/mocks/QaMock.php');
 use Learnsci\Lsspreadsheet;
 use Learnsci\LsspreadsheetUtils;
 
@@ -48,7 +49,12 @@ class LsspreadsheetTest extends basic_testcase {
 
 	public function testGetTakeTableFromLsspreaddata() {
 		$spreadsheetUtils = new LsspreadsheetUtils();
-		$tableHtml = $spreadsheetUtils->getTakeTableFromLsspreaddata($this->lsspreaddata);
+		$options = new stdClass();
+		$options->readonly = false;
+		$qa = new QaMock();
+		$graded = [];
+		$feedbackStyles = [];
+		$tableHtml = $spreadsheetUtils->getTakeTableFromLsspreaddata($this->lsspreaddata, '', $options, $qa, $graded, $feedbackStyles);
 		$expectedTableHtml = file_get_contents(__DIR__ . '/fixtures/take-table.html');
 		file_put_contents('/tmp/lsspreadsheet.html', $tableHtml);
 		$this->assertEquals($tableHtml, $expectedTableHtml);

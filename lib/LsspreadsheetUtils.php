@@ -142,12 +142,12 @@ class LsspreadsheetUtils {
 	 * Was previously get_spreadsheet_table
 	 * @param  [type]  $excel              PHP Excel obj
 	 * @param  [type]  $nameprefix              [description]
-	 * @param  boolean $markingquestion         [description]
 	 * @param  string  $json_chart_instructions [description]
 	 * @param  string  $lschartdata             [description]
+	 * @param  Object  $options             [description]
 	 * @return [type]                           [description]
 	 */
-	public function getTakeTableFromLsspreaddata($lsspreaddata, $nameprefix = '', $markingquestion = false, $json_chart_instructions = "", $lschartdata = "") {
+	public function getTakeTableFromLsspreaddata($lsspreaddata, $nameprefix = '', $options, $qa, $graded, $feedbackStyles, $json_chart_instructions = "", $lschartdata = "") {
 
 		$lschart = new LsspreadsheetChart();
 		//this is the method that draws the question that the student actually sees.
@@ -174,11 +174,25 @@ class LsspreadsheetUtils {
 				if (isset($spreadSheet[$cellref])) {
 					$cell = $spreadSheet[$cellref];
 					$cellname = $nameprefix . $cellref;
+					$cell->response = $qa->get_last_qt_var($cellref);
+					if(array_key_exists($cellref, $graded)){
+						$cell->iscorrect = $graded[$cellref]->iscorrect;
+						$cell->correctanswer = $graded[$cellref]->correctanswer;
+						if($cell->iscorrect === true){
+							$cell->feedbackClass = $feedbackStyles['correctFeedbackClass'];
+							$cell->feedbackImage = $feedbackStyles['correctFeedbackImage'];
+						} else if($cell->iscorrect === false) {
+							$cell->feedbackClass = $feedbackStyles['wrongFeedbackClass'];
+							$cell->feedbackImage = $feedbackStyles['wrongFeedbackImage'];
+						}
+						// var_dump($cellref);
+						// var_dump($cell);
+						// var_dump($graded[$cellref]);
+					}
 				} else {
 					$cell = new LsspreadsheetCell();
 				}
-
-				$htmltable .= $cell->getTdForCell($cellname, $metadata->columns);
+				$htmltable .= $cell->getTdForCell($cellname, $metadata->columns, $options->readonly);
 			}
 			$htmltable .= "\n</tr>\n";
 		}

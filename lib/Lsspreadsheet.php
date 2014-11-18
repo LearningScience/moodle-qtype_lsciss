@@ -199,8 +199,9 @@ class Lsspreadsheet {
 
 			$cells[$cellref]['correct_value'] = $calcAnswer;
 			$answer_checked = new \stdClass();
-			$answer_checked->iscorrect = false;
+			$answer_checked->iscorrect = null;
 			$answer_checked->correctanswer = '';
+			$answer_checked->feedbackstring = '';
 
 			if ($submitted_answer !== "" and $calcAnswer !== "#DIV/0!") {
 				switch ($cell->celltype) {

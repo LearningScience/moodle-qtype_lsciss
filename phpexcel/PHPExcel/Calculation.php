@@ -1400,6 +1400,10 @@ class PHPExcel_Calculation {
 												 'functionCall'		=>	'PHPExcel_Calculation_MathTrig::ROUNDUP',
 												 'argumentCount'	=>	'2'
 												),
+				'ROUNDSIGFIG'		=> array('category'			=>	PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,
+												 'functionCall'		=>	'PHPExcel_Calculation_MathTrig::ROUNDSIGFIG',
+												 'argumentCount'	=>	'2'
+												),
 				'ROW'					=> array('category'			=>	PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,
 												 'functionCall'		=>	'PHPExcel_Calculation_LookupRef::ROW',
 												 'argumentCount'	=>	'-1',

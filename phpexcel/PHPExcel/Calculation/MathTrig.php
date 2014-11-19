@@ -965,6 +965,24 @@ class PHPExcel_Calculation_MathTrig {
 		return PHPExcel_Calculation_Functions::VALUE();
 	}	//	function ROUNDDOWN()
 
+  /**
+	 *	ROUNDSIGFIG
+	 *
+	 *	Rounds a number up to a specified number of decimal places
+	 *
+	 *	@param	float	$number			Number to round
+	 *	@param	int		$digits			Number of sig figs to which you want to round $number
+	 *	@return	float	Rounded Number to sig figs
+	 */
+	public static function ROUNDSIGFIG($number,$sigfig) {
+		$number	= PHPExcel_Calculation_Functions::flattenSingleValue($number);
+		$sigfig	= PHPExcel_Calculation_Functions::flattenSingleValue($sigfig);
+
+		if ((is_numeric($number)) && (is_numeric($sigfig))) {
+			return round($number,($sigfig-1-PHPExcel_Calculation_MathTrig::INT(self::LOG_BASE(abs($number), 10))));
+		}
+		return PHPExcel_Calculation_Functions::VALUE();
+	}	//	function ROUNDSIGFIG()
 
 	/**
 	 * SERIESSUM

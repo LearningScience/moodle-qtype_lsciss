@@ -1,0 +1,57 @@
+From 75eddb8e0c324b50f53e3f4cb2075407cab6ca32 Mon Sep 17 00:00:00 2001
+From: Steve Henshaw <steve.henshaw@learnsci.co.uk>
+Date: Wed, 19 Nov 2014 14:50:20 +0000
+Subject: [PATCH] added the ROUNDSIGFIG function
+
+---
+ phpexcel/PHPExcel/Calculation.php          |  4 ++++
+ phpexcel/PHPExcel/Calculation/MathTrig.php | 18 ++++++++++++++++++
+ 2 files changed, 22 insertions(+)
+
+diff --git a/phpexcel/PHPExcel/Calculation.php b/phpexcel/PHPExcel/Calculation.php
+index 6159be9..48b74c9 100644
+--- a/phpexcel/PHPExcel/Calculation.php
++++ b/phpexcel/PHPExcel/Calculation.php
+@@ -1400,6 +1400,10 @@ class PHPExcel_Calculation {
+ 												 'functionCall'		=>	'PHPExcel_Calculation_MathTrig::ROUNDUP',
+ 												 'argumentCount'	=>	'2'
+ 												),
++				'ROUNDSIGFIG'		=> array('category'			=>	PHPExcel_Calculation_Function::CATEGORY_MATH_AND_TRIG,
++												 'functionCall'		=>	'PHPExcel_Calculation_MathTrig::ROUNDSIGFIG',
++												 'argumentCount'	=>	'2'
++												),
+ 				'ROW'					=> array('category'			=>	PHPExcel_Calculation_Function::CATEGORY_LOOKUP_AND_REFERENCE,
+ 												 'functionCall'		=>	'PHPExcel_Calculation_LookupRef::ROW',
+ 												 'argumentCount'	=>	'-1',
+diff --git a/phpexcel/PHPExcel/Calculation/MathTrig.php b/phpexcel/PHPExcel/Calculation/MathTrig.php
+index b2bb19d..c5b284e 100644
+--- a/phpexcel/PHPExcel/Calculation/MathTrig.php
++++ b/phpexcel/PHPExcel/Calculation/MathTrig.php
+@@ -965,6 +965,24 @@ class PHPExcel_Calculation_MathTrig {
+ 		return PHPExcel_Calculation_Functions::VALUE();
+ 	}	//	function ROUNDDOWN()
+ 
++  /**
++	 *	ROUNDSIGFIG
++	 *
++	 *	Rounds a number up to a specified number of decimal places
++	 *
++	 *	@param	float	$number			Number to round
++	 *	@param	int		$digits			Number of sig figs to which you want to round $number
++	 *	@return	float	Rounded Number to sig figs
++	 */
++	public static function ROUNDSIGFIG($number,$sigfig) {
++		$number	= PHPExcel_Calculation_Functions::flattenSingleValue($number);
++		$sigfig	= PHPExcel_Calculation_Functions::flattenSingleValue($sigfig);
++
++		if ((is_numeric($number)) && (is_numeric($sigfig))) {
++			return round($number,($sigfig-1-PHPExcel_Calculation_MathTrig::INT(self::LOG_BASE(abs($number), 10))));
++		}
++		return PHPExcel_Calculation_Functions::VALUE();
++	}	//	function ROUNDSIGFIG()
+ 
+ 	/**
+ 	 * SERIESSUM
+-- 
+1.9.1
+

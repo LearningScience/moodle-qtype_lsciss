@@ -22,7 +22,8 @@ class LsspreadsheetTest extends basic_testcase {
 	protected function setUp() {
 		$this->spreadsheet = new Lsspreadsheet();
 		$this->lsspreaddata = file_get_contents(__DIR__ . '/fixtures/sample_sheet_data.json');
-
+		$this->lsspreaddataFermentation = file_get_contents(__DIR__ . '/fixtures/measuring_fermentation_lsspreaddata.json');
+		$this->lsspreaddataBigQuestion = file_get_contents(__DIR__ . '/fixtures/big_question_lsspreaddata.json');
 	}
 
 	public function testConvertRawdata() {
@@ -34,11 +35,8 @@ class LsspreadsheetTest extends basic_testcase {
 	public function testConvertLsspreaddataJsonToObject() {
 		$spreadsheetUtils = new LsspreadsheetUtils();
 		$json = $spreadsheetUtils->decodeLsspreaddataJsonString($this->lsspreaddata);
-		//print_r($json);
 		$lsspreaddata = $spreadsheetUtils->convert_rawdata_from_zero_array_lsspreaddata($json);
-		//print_r($lsspreaddata['table0_cell_c0_r3']);
 		$spreadSheet = $spreadsheetUtils->convert_lsspreaddata_json_to_object($lsspreaddata);
-		//print_r($spreadSheet['table0_cell_c0_r3']);
 	}
 
 	public function testCreateExcelFromSpreadsheet() {
@@ -76,7 +74,55 @@ class LsspreadsheetTest extends basic_testcase {
 
 		//table0_cell_c1_r10 should be 0.4 times table0_cell_c1_r6
 		$this->assertEquals($answers['table0_cell_c1_r10']->iscorrect, true);
+	}
+	private function getTestResponsesFromLsspreaddata($lsspreaddata){
+		$spreadsheetUtils = new LsspreadsheetUtils();
+		$responses = [];
+		$cellRefs = array_keys($spreadsheetUtils->getObjectFromLsspreaddata($lsspreaddata));
+		foreach ($cellRefs as $id => $cellRef) {
+			$responses[$cellRef] = 1.0;
+		}
+		return $responses;
+	}
 
+	public function testFermentationQuestionTakeTable(){
+		$spreadsheetUtils = new LsspreadsheetUtils();
+		$ss = $spreadsheetUtils->getObjectFromLsspreaddata($this->lsspreaddataFermentation);
+
+		$options = new stdClass();
+		$options->readonly = false;
+		$qa = new QaMock();
+		$graded = [];
+		$feedbackStyles = [];
+		$tableHtml = $spreadsheetUtils->getTakeTableFromLsspreaddata($this->lsspreaddataFermentation, '', $options, $qa, $graded, $feedbackStyles);
+	}
+
+	public function testBigQuestionTakeTable(){
+		$spreadsheetUtils = new LsspreadsheetUtils();
+		$ss = $spreadsheetUtils->getObjectFromLsspreaddata($this->lsspreaddataBigQuestion);
+
+		$options = new stdClass();
+		$options->readonly = false;
+		$qa = new QaMock();
+		$graded = [];
+		$feedbackStyles = [];
+		$tableHtml = $spreadsheetUtils->getTakeTableFromLsspreaddata($this->lsspreaddataBigQuestion, '', $options, $qa, $graded, $feedbackStyles);
+	}
+
+	public function testGradeFermentationQuestion(){
+		$responses = $this->getTestResponsesFromLsspreaddata($this->lsspreaddataFermentation);
+		$answers = $this->spreadsheet->grade_spreadsheet_question(
+		$this->lsspreaddataFermentation,
+		$responses,
+		$gradingtype = "auto");
+	}
+
+	public function testGradeBigQuestion(){
+		$responses = $this->getTestResponsesFromLsspreaddata($this->lsspreaddataBigQuestion);
+		$answers = $this->spreadsheet->grade_spreadsheet_question(
+		$this->lsspreaddataBigQuestion,
+		$responses,
+		$gradingtype = "auto");
 	}
 
 	public function testGetCellCorrectness(){

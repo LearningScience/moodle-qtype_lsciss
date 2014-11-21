@@ -26,24 +26,27 @@ class LsspreadsheetTest extends basic_testcase {
 	}
 
 	public function testConvertLsspreaddataJsonToObject() {
-		$json = json_decode($this->lsspreaddata);
-		$spreadsheet = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddata);
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
+		$spreadsheet = $this->spreadsheet->getObjectFromLsspreaddata();
 	}
 
 	public function testCreateExcelFromSpreadsheet() {
-		$spreadsheet = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddata);
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
+		$spreadsheet = $this->spreadsheet->getObjectFromLsspreaddata();
 		$excel = $this->spreadsheet->create_excel_marking_sheet_from_spreadsheet($spreadsheet);
 	}
 
 	public function testGetMetaData(){
-		$result = $this->spreadsheet->get_metadataObject($this->lsspreaddata);
-		$this->assertEquals($result->columns, 2);
-		$this->assertEquals($result->rows, 15);
-		$this->assertEquals($result->title, '');
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
+
+		$this->assertEquals($this->spreadsheet->numberOfColumns, 2);
+		$this->assertEquals($this->spreadsheet->numberOfRows, 15);
+		$this->assertEquals($this->spreadsheet->title, '');
 	}
 
 	public function testGetChartData(){
-		$result = $this->spreadsheet->getChartDataObject($this->lsspreaddata);
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
+		$result = $this->spreadsheet->getChartDataObject();
 		$this->assertEquals($result, '');
 	}
 
@@ -53,7 +56,8 @@ class LsspreadsheetTest extends basic_testcase {
 		$qa = new QaMock();
 		$graded = [];
 		$feedbackStyles = [];
-		$tableHtml = $this->spreadsheet->getTakeTableFromLsspreaddata($this->lsspreaddata, '', $options, $qa, $graded, $feedbackStyles);
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
+		$tableHtml = $this->spreadsheet->getTakeTableFromLsspreaddata('', $options, $qa, $graded, $feedbackStyles);
 		$expectedTableHtml = file_get_contents(__DIR__ . '/fixtures/take-table.html');
 		file_put_contents('/tmp/lsspreadsheet.html', $tableHtml);
 		$this->assertEquals($tableHtml, $expectedTableHtml);
@@ -68,8 +72,8 @@ class LsspreadsheetTest extends basic_testcase {
 			'table0_cell_c1_r8' => 1,
 			'table0_cell_c1_r9' => 0.2,
 			'table0_cell_c1_r10' => 0.4);
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
 		$answers = $this->spreadsheet->grade_spreadsheet_question(
-			$this->lsspreaddata,
 			$responses,
 			$gradingtype = "auto");
 
@@ -86,39 +90,41 @@ class LsspreadsheetTest extends basic_testcase {
 	}
 
 	public function testFermentationQuestionTakeTable(){
-		$ss = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddataFermentation);
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddataFermentation);
+		$ss = $this->spreadsheet->getObjectFromLsspreaddata();
 
 		$options = new stdClass();
 		$options->readonly = false;
 		$qa = new QaMock();
 		$graded = [];
 		$feedbackStyles = [];
-		$tableHtml = $this->spreadsheet->getTakeTableFromLsspreaddata($this->lsspreaddataFermentation, '', $options, $qa, $graded, $feedbackStyles);
+		$tableHtml = $this->spreadsheet->getTakeTableFromLsspreaddata('', $options, $qa, $graded, $feedbackStyles);
 	}
 
 	public function testBigQuestionTakeTable(){
-		$ss = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddataBigQuestion);
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddataBigQuestion);
+		$ss = $this->spreadsheet->getObjectFromLsspreaddata();
 
 		$options = new stdClass();
 		$options->readonly = false;
 		$qa = new QaMock();
 		$graded = [];
 		$feedbackStyles = [];
-		$tableHtml = $this->spreadsheet->getTakeTableFromLsspreaddata($this->lsspreaddataBigQuestion, '', $options, $qa, $graded, $feedbackStyles);
+		$tableHtml = $this->spreadsheet->getTakeTableFromLsspreaddata('', $options, $qa, $graded, $feedbackStyles);
 	}
 
 	public function testGradeFermentationQuestion(){
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddataFermentation);
 		$responses = $this->getTestResponsesFromLsspreaddata($this->lsspreaddataFermentation);
 		$answers = $this->spreadsheet->grade_spreadsheet_question(
-		$this->lsspreaddataFermentation,
 		$responses,
 		$gradingtype = "auto");
 	}
 
 	public function testGradeBigQuestion(){
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddataFermentation);
 		$responses = $this->getTestResponsesFromLsspreaddata($this->lsspreaddataBigQuestion);
 		$answers = $this->spreadsheet->grade_spreadsheet_question(
-		$this->lsspreaddataBigQuestion,
 		$responses,
 		$gradingtype = "auto");
 	}
@@ -141,14 +147,15 @@ class LsspreadsheetTest extends basic_testcase {
 			'table0_cell_c1_r8' => 5,
 			'table0_cell_c1_r9' => 6,
 			'table0_cell_c1_r10' => 1);
-		$spreadSheet = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddata);
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
+
 
 		$cell_rangetype = 'SigfigRange';
 		$cell_rangeval = '2';
 		$cell_excelref = 'B11';
 		$cell_formula = '=0.4 * B7';
 		$submitted_answer = 4;
-		$moodleinput_excel = $this->spreadsheet->create_excel_populated_all_moodle_inputs($spreadSheet, $responses, false);
+		$moodleinput_excel = $this->spreadsheet->create_excel_populated_all_moodle_inputs($responses, false);
 		$methodAnswer = $this->spreadsheet->method_mark_cell($moodleinput_excel, $cell_excelref, $cell_formula, $cell_rangetype, $cell_rangeval, $submitted_answer);
 	}
 
@@ -160,14 +167,14 @@ class LsspreadsheetTest extends basic_testcase {
 			'table0_cell_c1_r8' => 5,
 			'table0_cell_c1_r9' => 6,
 			'table0_cell_c1_r10' => 1);
-		$spreadSheet = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddata);
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
 
 		$cell_rangetype = 'SigfigRange';
 		$cell_rangeval = '2';
 		$cell_excelref = 'B11';
 		$cell_formula = '=0.4 * B7';
 		$submitted_answer = 4;
-		$moodleinput_excel = $this->spreadsheet->create_excel_populated_all_moodle_inputs($spreadSheet, $responses, false);
+		$moodleinput_excel = $this->spreadsheet->create_excel_populated_all_moodle_inputs($responses, false);
 		$methodAnswer = $this->spreadsheet->method_mark_cell($moodleinput_excel, $cell_excelref, $cell_formula, $cell_rangetype, $cell_rangeval, $submitted_answer);
 	}
 

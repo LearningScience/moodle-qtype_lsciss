@@ -42,12 +42,12 @@ class Lsspreadsheet {
 	 * @param <type> $spreadsheet
 	 * @return <type>
 	 */
-	public function create_excel_populated_all_moodle_inputs($spreadsheet, $responses, $doClone = true) {
+	public function create_excel_populated_all_moodle_inputs($responses, $doClone = true) {
 		$moodleinput_excel = new \PHPExcel();
 
 		//PHPExcel_Calculation::getInstance()->clearCalculationCache();
 
-		foreach ($spreadsheet as $cellref => $cell) {
+		foreach ($this->spreadsheet as $cellref => $cell) {
 
 			if (in_array($cellref, array_keys($responses))) {
 
@@ -76,19 +76,6 @@ class Lsspreadsheet {
 		return $ret;
 	}
 
-	public function getChartDataObject($lsspreaddata) {
-		$json = json_decode($lsspreaddata)[0];
-		return $json->chartdata;
-	}
-
-
-	/**
- * @brief function to extract the metadata
- */
-	public function get_metadataObject($lsspreaddata) {
-		$json = json_decode($lsspreaddata)[0];
-		return $json->metadata;
-	}
 
 
 	public function get_field_names($lsspreaddata){
@@ -182,20 +169,19 @@ class Lsspreadsheet {
 	/**
  * Grade the spreadsheet question
  *
- * @param <type> $lsspreaddata
  * @param <type> $options
  * @param <type> $responses
  * @param <type> $gradingtype
  * @return int
  */
-	public function grade_spreadsheet_question($lsspreaddata, $responses, $gradingtype = "auto") {
+	public function grade_spreadsheet_question($responses, $gradingtype = "auto") {
 		$answersArray = [];
-		$spreadSheet = $this->getObjectFromLsspreaddata($lsspreaddata);
+		$spreadSheet = $this->spreadsheet;
 
 		$excel = null;
 		$excel = $this->create_excel_marking_sheet_from_spreadsheet($spreadSheet, false);
 
-		$moodleinput_excel = $this->create_excel_populated_all_moodle_inputs($spreadSheet, $responses, false);
+		$moodleinput_excel = $this->create_excel_populated_all_moodle_inputs($responses, false);
 		\PHPExcel_Calculation::getInstance()->clearCalculationCache();
 		//populate the excel sheet with the StudentInput Data
 		foreach ($responses as $cellref => $value) {
@@ -264,7 +250,7 @@ class Lsspreadsheet {
 
 	public function gradeQuestion($lsspreaddata, $responses){
 		$gradedQuestion = [];
-		$ans = $this->grade_spreadsheet_question($lsspreaddata, $responses);
+		$ans = $this->grade_spreadsheet_question($responses);
 
 		foreach ($ans as $key => $value) {
 			$gradedCell = new \stdClass();
@@ -296,26 +282,51 @@ class Lsspreadsheet {
 		return $spreadSheet;
 	}
 
-	public function getObjectFromLsspreaddata($lsspreaddata_string_from_db) {
+	public function setJsonStringFromDb($lsspreaddata_string_from_db){
 		$json = json_decode($lsspreaddata_string_from_db, true);
 		//the javascript editor wraps the data in an array which represents worksheets
 		//we only use 1 worksheet so only need the 0 index of the array
-		$json = $json[0]['cell'];
+		$this->lsspreaddata = $json[0];
+		$this->initSpreadsheetFromLsspreadata();
+		$this->initMetaDataObject();
+		$this->initChartDataObject();
+	}
+
+	private function initSpreadsheetFromLsspreadata() {
+		$jsonCells = $this->lsspreaddata['cell'];
 
 		$spreadsheet = array();
 
-		foreach ($json as $cellref => $cell) {
+		foreach ($jsonCells as $cellref => $cell) {
 
 			$lsspreadsheetCell = new LsspreadsheetCell();
 			$lsspreadsheetCell->initCellFromJsonObject($cell);
 			$spreadsheet[$cellref] = $lsspreadsheetCell;
 		}
 
-		return $spreadsheet;
+		$this->spreadsheet = $spreadsheet;
+	}
+
+	private function initMetaDataObject(){
+		$this->numberOfColumns = $this->lsspreaddata['metadata']['columns'];
+		$this->numberOfRows = $this->lsspreaddata['metadata']['rows'];
+		$this->title = $this->lsspreaddata['metadata']['title'];
+	}
+
+	private function initChartDataObject(){
+		$this->chartData = $this->lsspreaddata['chartdata'];
+	}
+
+	public function getChartDataObject() {
+		return $this->chartData;
+	}
+
+	public function getObjectFromLsspreaddata() {
+		return $this->spreadsheet;
 	}
 
 	/**
-	 * Was previously get_spreadsheet_table
+	 * Returns HTML for table
 	 * @param  [type]  $excel              PHP Excel obj
 	 * @param  [type]  $nameprefix              [description]
 	 * @param  string  $json_chart_instructions [description]
@@ -323,14 +334,11 @@ class Lsspreadsheet {
 	 * @param  Object  $options             [description]
 	 * @return [type]                           [description]
 	 */
-	public function getTakeTableFromLsspreaddata($lsspreaddata, $nameprefix = '', $options, $qa, $graded, $feedbackStyles, $json_chart_instructions = "", $lschartdata = "") {
+	public function getTakeTableFromLsspreaddata($nameprefix = '', $options, $qa, $graded, $feedbackStyles, $json_chart_instructions = "", $lschartdata = "") {
 
 		$lschart = new LsspreadsheetChart();
-		//this is the method that draws the question that the student actually sees.
 
-		$metadata = $this->get_metadataObject($lsspreaddata);
-
-		$spreadSheet = $this->getObjectFromLsspreaddata($lsspreaddata);
+		$spreadSheet = $this->spreadsheet;
 
 		$htmltable = "";
 
@@ -338,9 +346,9 @@ class Lsspreadsheet {
 			//$htmltable .= $lschart->get_chart_javascript($question->id, $CFG->wwwroot, $json_chart_instructions, $lschartdata);
 		}
 		$htmltable .= "<div class=\"lsspreadsheet_table\"><table>";
-		for ($row = 0; $row < $metadata->rows; $row++) {
+		for ($row = 0; $row < $this->numberOfRows; $row++) {
 				$htmltable .= '<tr>';
-			for ($col = 0; $col < $metadata->columns; $col++) {
+			for ($col = 0; $col < $this->numberOfColumns; $col++) {
 				$rowind = "r" . $row;
 				$colind = "c" . $col;
 				$cellref = 'table0_cell_' . $colind . '_' . $rowind;
@@ -366,7 +374,7 @@ class Lsspreadsheet {
 					$cell = new LsspreadsheetCell();
 					$cell->response = $qa->get_last_qt_var($cellref);
 				}
-				$htmltable .= $cell->getTdForCell($cellname, $metadata->columns, $options->readonly);
+				$htmltable .= $cell->getTdForCell($cellname, $this->numberOfColumns, $options->readonly);
 			}
 			$htmltable .= "\n</tr>\n";
 		}

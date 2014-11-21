@@ -42,18 +42,32 @@ class LsspreadsheetCell
 
   public function getTdForCell($cellname, $numberOfColumns, $isReadOnly){
     $colspan = 1;
+    $tdClass = '';
+
+    $inLineTdStyle = '';
     switch ($this->celltype) {
-      case "FixedAnswer":
-        $tdclass = '';
-        $cellcontent = $this->getCellHtml('', $cellname, $isReadOnly);
-        break;
+      // case "FixedAnswer":
+      //   echo "NumberAnserFound";
+      //   exit();
+      //   $tdclass = '';
+      //   $cellcontent = $this->getCellHtml('', $cellname, $isReadOnly);
+      //   break;
       case "CalcAnswer":
         $tdclass = "lsCalcAnswerTd";
+        if($isReadOnly === true){
+          //$inLineTdStyle .= ' style="border: 1px solid #000"';
+          $inLineTdStyle .= ' style="text-align:center;background-color: #D3E6FF; border: 2px solid #6C7AB5;"';
+        }
         $cellcontent = $this->getCellHtml('lsCalcAnswerInput', $cellname, $isReadOnly);
         break;
-      case "NumberAnswer":
-        $cellcontent = $this->getCellHtml('', $cell);
-        break;
+      // case "NumberAnswer":
+      //   echo "NumberAnserFound";
+      //   exit();
+      //   $cellcontent = $this->getCellHtml('', $cell);
+      //   if($isReadOnly === true){
+      //     $inLineTdStyle .= ' style="text-align:center;background-color: #D3E6FF; border: 2px solid #6C7AB5;"';
+      //   }
+      //   break;
       case "StudentInput":
         $tdclass = "lsStudentInputTd";
         $cellcontent = $this->getCellHtml('lsInputStudentCell', $cellname, $isReadOnly);

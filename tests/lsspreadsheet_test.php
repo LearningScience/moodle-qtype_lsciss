@@ -6,14 +6,13 @@ global $CFG;
 
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/Lsspreadsheet.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCell.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetUtils.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCellGrader.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChart.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChartStats.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/phpexcel/PHPExcel.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/tests/mocks/QaMock.php');
 use Learnsci\Lsspreadsheet;
-use Learnsci\LsspreadsheetUtils;
+
 
 class LsspreadsheetTest extends basic_testcase {
 
@@ -27,39 +26,34 @@ class LsspreadsheetTest extends basic_testcase {
 	}
 
 	public function testConvertLsspreaddataJsonToObject() {
-		$spreadsheetUtils = new LsspreadsheetUtils();
 		$json = json_decode($this->lsspreaddata);
-		$spreadsheet = $spreadsheetUtils->getObjectFromLsspreaddata($this->lsspreaddata);
+		$spreadsheet = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddata);
 	}
 
 	public function testCreateExcelFromSpreadsheet() {
-		$spreadsheetUtils = new LsspreadsheetUtils();
-		$spreadsheet = $spreadsheetUtils->getObjectFromLsspreaddata($this->lsspreaddata);
-		$excel = $spreadsheetUtils->create_excel_marking_sheet_from_spreadsheet($spreadsheet);
+		$spreadsheet = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddata);
+		$excel = $this->spreadsheet->create_excel_marking_sheet_from_spreadsheet($spreadsheet);
 	}
 
 	public function testGetMetaData(){
-		$spreadsheetUtils = new LsspreadsheetUtils();
-		$result = $spreadsheetUtils->get_metadataObject($this->lsspreaddata);
+		$result = $this->spreadsheet->get_metadataObject($this->lsspreaddata);
 		$this->assertEquals($result->columns, 2);
 		$this->assertEquals($result->rows, 15);
 		$this->assertEquals($result->title, '');
 	}
 
 	public function testGetChartData(){
-		$spreadsheetUtils = new LsspreadsheetUtils();
-		$result = $spreadsheetUtils->getChartDataObject($this->lsspreaddata);
+		$result = $this->spreadsheet->getChartDataObject($this->lsspreaddata);
 		$this->assertEquals($result, '');
 	}
 
 	public function testGetTakeTableFromLsspreaddata() {
-		$spreadsheetUtils = new LsspreadsheetUtils();
 		$options = new stdClass();
 		$options->readonly = false;
 		$qa = new QaMock();
 		$graded = [];
 		$feedbackStyles = [];
-		$tableHtml = $spreadsheetUtils->getTakeTableFromLsspreaddata($this->lsspreaddata, '', $options, $qa, $graded, $feedbackStyles);
+		$tableHtml = $this->spreadsheet->getTakeTableFromLsspreaddata($this->lsspreaddata, '', $options, $qa, $graded, $feedbackStyles);
 		$expectedTableHtml = file_get_contents(__DIR__ . '/fixtures/take-table.html');
 		file_put_contents('/tmp/lsspreadsheet.html', $tableHtml);
 		$this->assertEquals($tableHtml, $expectedTableHtml);
@@ -83,9 +77,8 @@ class LsspreadsheetTest extends basic_testcase {
 		$this->assertEquals($answers['table0_cell_c1_r10']->iscorrect, true);
 	}
 	private function getTestResponsesFromLsspreaddata($lsspreaddata){
-		$spreadsheetUtils = new LsspreadsheetUtils();
 		$responses = [];
-		$cellRefs = array_keys($spreadsheetUtils->getObjectFromLsspreaddata($lsspreaddata));
+		$cellRefs = array_keys($this->spreadsheet->getObjectFromLsspreaddata($lsspreaddata));
 		foreach ($cellRefs as $id => $cellRef) {
 			$responses[$cellRef] = 1.0;
 		}
@@ -93,27 +86,25 @@ class LsspreadsheetTest extends basic_testcase {
 	}
 
 	public function testFermentationQuestionTakeTable(){
-		$spreadsheetUtils = new LsspreadsheetUtils();
-		$ss = $spreadsheetUtils->getObjectFromLsspreaddata($this->lsspreaddataFermentation);
+		$ss = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddataFermentation);
 
 		$options = new stdClass();
 		$options->readonly = false;
 		$qa = new QaMock();
 		$graded = [];
 		$feedbackStyles = [];
-		$tableHtml = $spreadsheetUtils->getTakeTableFromLsspreaddata($this->lsspreaddataFermentation, '', $options, $qa, $graded, $feedbackStyles);
+		$tableHtml = $this->spreadsheet->getTakeTableFromLsspreaddata($this->lsspreaddataFermentation, '', $options, $qa, $graded, $feedbackStyles);
 	}
 
 	public function testBigQuestionTakeTable(){
-		$spreadsheetUtils = new LsspreadsheetUtils();
-		$ss = $spreadsheetUtils->getObjectFromLsspreaddata($this->lsspreaddataBigQuestion);
+		$ss = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddataBigQuestion);
 
 		$options = new stdClass();
 		$options->readonly = false;
 		$qa = new QaMock();
 		$graded = [];
 		$feedbackStyles = [];
-		$tableHtml = $spreadsheetUtils->getTakeTableFromLsspreaddata($this->lsspreaddataBigQuestion, '', $options, $qa, $graded, $feedbackStyles);
+		$tableHtml = $this->spreadsheet->getTakeTableFromLsspreaddata($this->lsspreaddataBigQuestion, '', $options, $qa, $graded, $feedbackStyles);
 	}
 
 	public function testGradeFermentationQuestion(){
@@ -150,8 +141,7 @@ class LsspreadsheetTest extends basic_testcase {
 			'table0_cell_c1_r8' => 5,
 			'table0_cell_c1_r9' => 6,
 			'table0_cell_c1_r10' => 1);
-		$spreadsheetUtils = new LsspreadsheetUtils();
-		$spreadSheet = $spreadsheetUtils->getObjectFromLsspreaddata($this->lsspreaddata);
+		$spreadSheet = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddata);
 
 		$cell_rangetype = 'SigfigRange';
 		$cell_rangeval = '2';
@@ -170,8 +160,7 @@ class LsspreadsheetTest extends basic_testcase {
 			'table0_cell_c1_r8' => 5,
 			'table0_cell_c1_r9' => 6,
 			'table0_cell_c1_r10' => 1);
-		$spreadsheetUtils = new LsspreadsheetUtils();
-		$spreadSheet = $spreadsheetUtils->getObjectFromLsspreaddata($this->lsspreaddata);
+		$spreadSheet = $this->spreadsheet->getObjectFromLsspreaddata($this->lsspreaddata);
 
 		$cell_rangetype = 'SigfigRange';
 		$cell_rangeval = '2';

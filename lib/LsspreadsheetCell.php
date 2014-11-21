@@ -24,12 +24,14 @@ class LsspreadsheetCell
     $this->submitted_anser = '';
     $this->row = '';
     $this->col = '';
+    $this->textvalue = '';
   }
 
 
   public function getCellValue()
   {
-    return html_entity_decode(str_ireplace('&nbsp;', " ", $this->textvalue));
+    $text = is_null($this->textvalue) ? $this->textvalue : '';
+    return html_entity_decode(str_ireplace('&nbsp;', " ", $text));
   }
 
   public function getExcelRef()

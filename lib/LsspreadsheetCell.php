@@ -17,7 +17,7 @@ class LsspreadsheetCell
     $this->popup = "";
     $this->colspan = 1;
     $this->tdclass = "";
-    $this->correctAnswer = '';
+    $this->correctanswer = '';
     $this->feedbackstring = '';
     $this->feedbackClass = '';
     $this->feedbackImage = '';

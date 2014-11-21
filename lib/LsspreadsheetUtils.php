@@ -8,11 +8,7 @@ class LsspreadsheetUtils {
 	}
 
 	public function decodeLsspreaddataJsonString($jsonString) {
-		if (strpos($jsonString, '\"')) {
-			$jsonString = stripslashes($jsonString);
-		}
-		$json = json_decode($jsonString);
-		return $json;
+		return json_decode($jsonString);
 	}
 
 	public function getObjectFromLsspreaddata($rawdata) {

@@ -6,31 +6,60 @@ class LsspreadsheetCell
   private $cellvalue;
   private $excelref;
 
+  //to delete
+  private $style;
+  private $colspan;
+  private $tdclass;
+  private $feedbackstring;
+  ///
+  
+  //make function
+  public $celltype;
+  public $response;
+  public $correctanswer;
+  public $feedbackClass;
+  public $feedbackImage;
+  public $iscorrect;
+  public $row;
+  public $col;
+  public $textvalue;
+  public $formula;
+  public $feedback;
+  public $labelalign;
+  public $marks;
+  public $chart;
+  public $rangetype;
+  public $rangeval;
+
+
+  public function __set($name, $value) {
+        throw new \Exception("Cannot add new property \$$name to instance of " . __CLASS__);
+    }
+
   public function __construct(){
     $this->celltype = "";
     $this->cellvalue = "";
-    $this->cellname = "";
-    $this->style = "";
-    $this->markedimg = "";
-    $this->correct_value = "";
     $this->response = '';
-    $this->colspan = 1;
-    $this->tdclass = "";
     $this->correctanswer = '';
-    $this->feedbackstring = '';
     $this->feedbackClass = '';
     $this->feedbackImage = '';
     $this->iscorrect = null;
-    $this->submitted_anser = '';
     $this->row = '';
     $this->col = '';
     $this->textvalue = '';
+    $this->formula = '';
+    $this->feedback = '';
+    $this->labelalign = '';
+    $this->marks = 0;
+    $this->chart = '';
+    $this->rangetype = '';
+    $this->rangeval = 0;
   }
 
 
   public function getCellValue()
   {
-    $text = is_null($this->textvalue) ? $this->textvalue : '';
+    $text = is_null($this->textvalue) ? ''  : $this->textvalue;
     return html_entity_decode(str_ireplace('&nbsp;', " ", $text));
   }
 
@@ -39,6 +68,48 @@ class LsspreadsheetCell
     $r = $this->row + 1;
     $c = $this->col;
     return \PHPExcel_Cell::stringFromColumnIndex($c) . $r;
+  }
+
+  public function initCellFromJsonObject($jsonCell){
+      $this->col = $jsonCell['col'];
+      $this->row = $jsonCell['row'];
+
+      $this->textvalue = $jsonCell['textvalue'];
+      $this->formula = $jsonCell['formula'];
+      $this->feedback = str_replace("'", "\\'", $jsonCell['feedback']);
+      $this->labelalign = "";
+      $this->marks = 0;
+
+      if (isset($jsonCell['chart'])) {
+        $this->chart = $jsonCell['chart'];
+      }
+      $celltype = $jsonCell['celltype'];
+      $range = $jsonCell['rangetype'];
+
+      if ($celltype !== "") {
+        $celltype = explode("_", $celltype);
+        $this->celltype = $celltype[0];
+        if ($this->celltype == "Label") {
+          if ((isset($celltype[1]) === false) || ($celltype[1] === "1")) {
+            $this->labelalign = "left";
+          } else {
+            $this->labelalign = $celltype[1];
+          }
+        } else if ($this->celltype == "CalcAnswer") {
+          $this->marks = $celltype[1];
+          if ($range === "") {
+            //Setting the defualt range is to make sure that any questions set with
+            //the earliest versions of the javascript interface are OK
+            $range = "AbsoluteRange_0";
+          }
+        } 
+      } 
+      if ($range !== "") {
+        //range data stored in one string using "_" as sep
+        $range = explode("_", $range);
+        $this->rangetype = $range[0];
+        $this->rangeval = $range[1];
+      }
   }
 
   public function getTdForCell($cellname, $numberOfColumns, $isReadOnly){
@@ -79,17 +150,17 @@ class LsspreadsheetCell
   }
 
   private function getInputTagCell($cssClass, $cellname){
-    $styles = trim($cssClass . $this->style);
-    return '<input type="text" class="' . $styles  . '" ' . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>' . $this->markedimg;
+    $styles = trim($cssClass);
+    return '<input type="text" class="' . $styles  . '" ' . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>';
   }
 
   private function getInputTagCellReadOnly($cssClass, $cellname){
-    $styles = trim($cssClass . $this->style);
-    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' .' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>' . $this->markedimg;
+    $styles = trim($cssClass);
+    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' .' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>';
   }  
 
   private function getInputTagCellReadOnlyMarked($cssClass, $cellname){
-    $styles = trim($cssClass . $this->style . ' ' . $this->feedbackClass );
+    $styles = trim($cssClass . ' ' . $this->feedbackClass );
     return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>'. $this->feedbackImage . '<br/>' . '<span>' . $this->correctanswer . '</span>';
   }
 

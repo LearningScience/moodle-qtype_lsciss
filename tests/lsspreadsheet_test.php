@@ -26,23 +26,30 @@ class LsspreadsheetTest extends basic_testcase {
 		$this->lsspreaddataBigQuestion = file_get_contents(__DIR__ . '/fixtures/big_question_lsspreaddata.json');
 	}
 
-	public function testConvertRawdata() {
-		$spreadsheetUtils = new LsspreadsheetUtils();
-		$json = $spreadsheetUtils->decodeLsspreaddataJsonString($this->lsspreaddata);
-		$spreadsheetUtils->convert_rawdata_from_zero_array_lsspreaddata($json);
-	}
-
 	public function testConvertLsspreaddataJsonToObject() {
 		$spreadsheetUtils = new LsspreadsheetUtils();
-		$json = $spreadsheetUtils->decodeLsspreaddataJsonString($this->lsspreaddata);
-		$lsspreaddata = $spreadsheetUtils->convert_rawdata_from_zero_array_lsspreaddata($json);
-		$spreadSheet = $spreadsheetUtils->convert_lsspreaddata_json_to_object($lsspreaddata);
+		$json = json_decode($this->lsspreaddata);
+		$spreadsheet = $spreadsheetUtils->getObjectFromLsspreaddata($this->lsspreaddata);
 	}
 
 	public function testCreateExcelFromSpreadsheet() {
 		$spreadsheetUtils = new LsspreadsheetUtils();
 		$spreadsheet = $spreadsheetUtils->getObjectFromLsspreaddata($this->lsspreaddata);
 		$excel = $spreadsheetUtils->create_excel_marking_sheet_from_spreadsheet($spreadsheet);
+	}
+
+	public function testGetMetaData(){
+		$spreadsheetUtils = new LsspreadsheetUtils();
+		$result = $spreadsheetUtils->get_metadataObject($this->lsspreaddata);
+		$this->assertEquals($result->columns, 2);
+		$this->assertEquals($result->rows, 15);
+		$this->assertEquals($result->title, '');
+	}
+
+	public function testGetChartData(){
+		$spreadsheetUtils = new LsspreadsheetUtils();
+		$result = $spreadsheetUtils->getChartDataObject($this->lsspreaddata);
+		$this->assertEquals($result, '');
 	}
 
 	public function testGetTakeTableFromLsspreaddata() {

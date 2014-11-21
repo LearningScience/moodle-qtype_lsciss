@@ -1,0 +1,482 @@
+[
+    {
+        "cell": {
+            "table0_cell_c0_r1": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 1,
+                "textvalue": "1&nbsp;ml&nbsp;culture&nbsp;A"
+            },
+            "table0_cell_c0_r10": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 10,
+                "textvalue": "Moles&nbsp;acetoin&nbsp;produced&nbsp;per&nbsp;ml&nbsp;culture"
+            },
+            "table0_cell_c0_r11": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 11,
+                "textvalue": "Moles&nbsp;glucose&nbsp;utilised&nbsp;per&nbsp;ml&nbsp;culture"
+            },
+            "table0_cell_c0_r12": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 12,
+                "textvalue": "Y&lt;sub&gt;acetoin&lt;/sub&gt;"
+            },
+            "table0_cell_c0_r2": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 2,
+                "textvalue": "5&nbsp;ml&nbsp;culture&nbsp;A"
+            },
+            "table0_cell_c0_r3": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 3,
+                "textvalue": "1&nbsp;ml&nbsp;culture&nbsp;B"
+            },
+            "table0_cell_c0_r4": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 4,
+                "textvalue": "5&nbsp;ml&nbsp;culture&nbsp;B"
+            },
+            "table0_cell_c0_r5": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 5,
+                "textvalue": "1&nbsp;ml&nbsp;culture&nbsp;C"
+            },
+            "table0_cell_c0_r6": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 6,
+                "textvalue": "5&nbsp;ml&nbsp;culture&nbsp;C"
+            },
+            "table0_cell_c0_r7": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 7,
+                "textvalue": "&lt;br&gt;"
+            },
+            "table0_cell_c0_r9": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 9,
+                "textvalue": "Yield&nbsp;of&nbsp;acetoin&nbsp;per&nbsp;ml&nbsp;culture&nbsp;(\u00b5g)"
+            },
+            "table0_cell_c1_r0": {
+                "celltype": "Label_centre",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 0,
+                "textvalue": "OD&nbsp;at&nbsp;540&nbsp;nm"
+            },
+            "table0_cell_c1_r1": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 1,
+                "textvalue": ""
+            },
+            "table0_cell_c1_r10": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "=(1/88e6)*B10",
+                "rangetype": "AbsoluteRange_5e-10",
+                "row": 10,
+                "textvalue": "=(1/88e6)*B10"
+            },
+            "table0_cell_c1_r11": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "=5.6e-6",
+                "rangetype": "AbsoluteRange_5e-7",
+                "row": 11,
+                "textvalue": "=5.6e-6"
+            },
+            "table0_cell_c1_r12": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "=B11/B12",
+                "rangetype": "AbsoluteRange_1e-5",
+                "row": 12,
+                "textvalue": "=B11/B12"
+            },
+            "table0_cell_c1_r2": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 2,
+                "textvalue": ""
+            },
+            "table0_cell_c1_r3": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 3,
+                "textvalue": ""
+            },
+            "table0_cell_c1_r4": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 4,
+                "textvalue": ""
+            },
+            "table0_cell_c1_r5": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 5,
+                "textvalue": ""
+            },
+            "table0_cell_c1_r6": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 6,
+                "textvalue": ""
+            },
+            "table0_cell_c1_r8": {
+                "celltype": "Label_centre",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 8,
+                "textvalue": "Culture&nbsp;A"
+            },
+            "table0_cell_c1_r9": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "=((C2*5)+C3)/2",
+                "rangetype": "AbsoluteRange_0",
+                "row": 9,
+                "textvalue": "=((C2*5)+C3)/2"
+            },
+            "table0_cell_c2_r0": {
+                "celltype": "Label_centre",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 0,
+                "textvalue": "Concentration&nbsp;of&nbsp;acetoin&nbsp;&lt;br&gt;(\u00b5g/ml)"
+            },
+            "table0_cell_c2_r1": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 1,
+                "textvalue": ""
+            },
+            "table0_cell_c2_r10": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "=(1/88e6)*C10",
+                "rangetype": "AbsoluteRange_1e-9",
+                "row": 10,
+                "textvalue": "=(1/88e6)*C10"
+            },
+            "table0_cell_c2_r11": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "=5.6e-6",
+                "rangetype": "AbsoluteRange_5e-7",
+                "row": 11,
+                "textvalue": "=5.6e-6"
+            },
+            "table0_cell_c2_r12": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "=C11/C12",
+                "rangetype": "AbsoluteRange_5e-5",
+                "row": 12,
+                "textvalue": "=C11/C12"
+            },
+            "table0_cell_c2_r2": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 2,
+                "textvalue": ""
+            },
+            "table0_cell_c2_r3": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 3,
+                "textvalue": ""
+            },
+            "table0_cell_c2_r4": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 4,
+                "textvalue": ""
+            },
+            "table0_cell_c2_r5": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 5,
+                "textvalue": ""
+            },
+            "table0_cell_c2_r6": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 6,
+                "textvalue": ""
+            },
+            "table0_cell_c2_r8": {
+                "celltype": "Label_centre",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 8,
+                "textvalue": "Culture&nbsp;B"
+            },
+            "table0_cell_c2_r9": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "=((C4*5)+C5)/2",
+                "rangetype": "AbsoluteRange_0",
+                "row": 9,
+                "textvalue": "=((C4*5)+C5)/2"
+            },
+            "table0_cell_c3_r0": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 0,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r1": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "AbsoluteRange_0",
+                "row": 1,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r10": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "=(1/88e6)*D10",
+                "rangetype": "AbsoluteRange_2e-9",
+                "row": 10,
+                "textvalue": "=(1/88e6)*D10"
+            },
+            "table0_cell_c3_r11": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "=5.6e-6",
+                "rangetype": "AbsoluteRange_5e-7",
+                "row": 11,
+                "textvalue": "=5.6e-6"
+            },
+            "table0_cell_c3_r12": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "=D11/D12",
+                "rangetype": "AbsoluteRange_1e-4",
+                "row": 12,
+                "textvalue": "=D11/D12"
+            },
+            "table0_cell_c3_r2": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "AbsoluteRange_0",
+                "row": 2,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r3": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "AbsoluteRange_0",
+                "row": 3,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r4": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "AbsoluteRange_0",
+                "row": 4,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r5": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "AbsoluteRange_0",
+                "row": 5,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r6": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "AbsoluteRange_0",
+                "row": 6,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r8": {
+                "celltype": "Label_centre",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 8,
+                "textvalue": "Culture&nbsp;C"
+            },
+            "table0_cell_c3_r9": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "=((C6*5)+C7)/2",
+                "rangetype": "AbsoluteRange_0",
+                "row": 9,
+                "textvalue": "=((C6*5)+C7)/2"
+            }
+        },
+        "chartdata": null,
+        "metadata": {
+            "columns": 4,
+            "rows": 13,
+            "title": ""
+        }
+    }
+]

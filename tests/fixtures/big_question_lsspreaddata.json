@@ -1,0 +1,2132 @@
+[
+    {
+        "cell": {
+            "table0_cell_c0_r10": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 10,
+                "textvalue": "Reaction latency 3"
+            },
+            "table0_cell_c0_r11": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 11,
+                "textvalue": "Reaction latency 4"
+            },
+            "table0_cell_c0_r12": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 12,
+                "textvalue": "Reaction latency 5"
+            },
+            "table0_cell_c0_r13": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 13,
+                "textvalue": "Reaction latency 6"
+            },
+            "table0_cell_c0_r14": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 14,
+                "textvalue": "Reaction latency 7"
+            },
+            "table0_cell_c0_r15": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 15,
+                "textvalue": "Reaction latency 8"
+            },
+            "table0_cell_c0_r16": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 16,
+                "textvalue": "Reaction latency 9"
+            },
+            "table0_cell_c0_r17": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 17,
+                "textvalue": "Reaction latency 10"
+            },
+            "table0_cell_c0_r18": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 18,
+                "textvalue": "Reaction latency 11"
+            },
+            "table0_cell_c0_r19": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 19,
+                "textvalue": "Reaction latency 12"
+            },
+            "table0_cell_c0_r20": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 20,
+                "textvalue": "Reaction latency 13"
+            },
+            "table0_cell_c0_r21": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 21,
+                "textvalue": "Reaction latency 14"
+            },
+            "table0_cell_c0_r22": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 22,
+                "textvalue": "Reaction latency 15"
+            },
+            "table0_cell_c0_r23": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 23,
+                "textvalue": "Reaction latency 16"
+            },
+            "table0_cell_c0_r24": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 24,
+                "textvalue": "Reaction latency 17"
+            },
+            "table0_cell_c0_r25": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 25,
+                "textvalue": "Reaction latency 18"
+            },
+            "table0_cell_c0_r26": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 26,
+                "textvalue": "Reaction latency 19"
+            },
+            "table0_cell_c0_r27": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 27,
+                "textvalue": "Reaction latency 20"
+            },
+            "table0_cell_c0_r28": {
+                "celltype": "SectionHeading_undefined",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 28,
+                "textvalue": "&lt;br&gt;"
+            },
+            "table0_cell_c0_r29": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 29,
+                "textvalue": "&lt;b&gt;MEAN&lt;/b&gt;"
+            },
+            "table0_cell_c0_r3": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 3,
+                "textvalue": ""
+            },
+            "table0_cell_c0_r30": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 30,
+                "textvalue": "&lt;b&gt;STANDARD DEVIATION&lt;/b&gt;"
+            },
+            "table0_cell_c0_r31": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 31,
+                "textvalue": "&lt;b&gt;STANDARD ERROR OF THE MEAN&lt;/b&gt;"
+            },
+            "table0_cell_c0_r32": {
+                "celltype": "SectionHeading_undefined",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 32,
+                "textvalue": "&lt;br&gt;"
+            },
+            "table0_cell_c0_r33": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 33,
+                "textvalue": ""
+            },
+            "table0_cell_c0_r34": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 34,
+                "textvalue": "&lt;b&gt;Probability (p value)&lt;/b&gt;"
+            },
+            "table0_cell_c0_r5": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 5,
+                "textvalue": ""
+            },
+            "table0_cell_c0_r6": {
+                "celltype": "SectionHeading_undefined",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 6,
+                "textvalue": "&lt;b&gt;TABLE 1 - MEASUREMENT OF REACTION LATENCIES TO VARIOUS STIMULI&lt;/b&gt;"
+            },
+            "table0_cell_c0_r8": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 8,
+                "textvalue": "Reaction latency 1"
+            },
+            "table0_cell_c0_r9": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 0,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 9,
+                "textvalue": "Reaction latency 2"
+            },
+            "table0_cell_c1_r10": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 10,
+                "textvalue": "2"
+            },
+            "table0_cell_c1_r11": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 11,
+                "textvalue": "3"
+            },
+            "table0_cell_c1_r12": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 12,
+                "textvalue": "2"
+            },
+            "table0_cell_c1_r13": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 13,
+                "textvalue": "3"
+            },
+            "table0_cell_c1_r14": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 14,
+                "textvalue": "4"
+            },
+            "table0_cell_c1_r15": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 15,
+                "textvalue": "5"
+            },
+            "table0_cell_c1_r16": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 16,
+                "textvalue": "4"
+            },
+            "table0_cell_c1_r17": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 17,
+                "textvalue": "3"
+            },
+            "table0_cell_c1_r18": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 18,
+                "textvalue": "2"
+            },
+            "table0_cell_c1_r19": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 19,
+                "textvalue": "2.4"
+            },
+            "table0_cell_c1_r20": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 20,
+                "textvalue": "2"
+            },
+            "table0_cell_c1_r21": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 21,
+                "textvalue": "3"
+            },
+            "table0_cell_c1_r22": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 22,
+                "textvalue": "2"
+            },
+            "table0_cell_c1_r23": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 23,
+                "textvalue": "3"
+            },
+            "table0_cell_c1_r24": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 24,
+                "textvalue": "2"
+            },
+            "table0_cell_c1_r25": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 25,
+                "textvalue": "3"
+            },
+            "table0_cell_c1_r26": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 26,
+                "textvalue": "2"
+            },
+            "table0_cell_c1_r27": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 27,
+                "textvalue": "3"
+            },
+            "table0_cell_c1_r28": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "SigfigRange_2",
+                "row": 28,
+                "textvalue": ""
+            },
+            "table0_cell_c1_r29": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "=AVERAGE(B9:B28)",
+                "rangetype": "SigfigRange_3",
+                "row": 29,
+                "textvalue": "=AVERAGE(B9:B28)"
+            },
+            "table0_cell_c1_r30": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "=ROUNDSIGFIG((STDEV(B9:B28)),3)",
+                "rangetype": "SigfigRange_3",
+                "row": 30,
+                "textvalue": "=ROUNDSIGFIG((STDEV(B9:B28)),3)"
+            },
+            "table0_cell_c1_r31": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "=B31/SQRT(20)",
+                "rangetype": "SigfigRange_3",
+                "row": 31,
+                "textvalue": "=B31/SQRT(20)"
+            },
+            "table0_cell_c1_r33": {
+                "celltype": "Label_centre",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 33,
+                "textvalue": "&lt;b&gt;Red vs. green&lt;/b&gt;"
+            },
+            "table0_cell_c1_r34": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "=TTEST(B9:B28,C9:C28,2,2)",
+                "rangetype": "SigfigRange_3",
+                "row": 34,
+                "textvalue": "=TTEST(B9:B28,C9:C28,2,2)"
+            },
+            "table0_cell_c1_r7": {
+                "celltype": "Label_centre",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 7,
+                "textvalue": "Red stimulus &lt;br&gt;(ms)"
+            },
+            "table0_cell_c1_r8": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 8,
+                "textvalue": "2"
+            },
+            "table0_cell_c1_r9": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 1,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 9,
+                "textvalue": "3"
+            },
+            "table0_cell_c2_r10": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 10,
+                "textvalue": "4"
+            },
+            "table0_cell_c2_r11": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 11,
+                "textvalue": "2"
+            },
+            "table0_cell_c2_r12": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 12,
+                "textvalue": "2"
+            },
+            "table0_cell_c2_r13": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 13,
+                "textvalue": "1"
+            },
+            "table0_cell_c2_r14": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 14,
+                "textvalue": "3"
+            },
+            "table0_cell_c2_r15": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 15,
+                "textvalue": "2"
+            },
+            "table0_cell_c2_r16": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 16,
+                "textvalue": "2"
+            },
+            "table0_cell_c2_r17": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 17,
+                "textvalue": "3"
+            },
+            "table0_cell_c2_r18": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 18,
+                "textvalue": "2"
+            },
+            "table0_cell_c2_r19": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 19,
+                "textvalue": "2.1"
+            },
+            "table0_cell_c2_r20": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 20,
+                "textvalue": "2"
+            },
+            "table0_cell_c2_r21": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 21,
+                "textvalue": "3.1"
+            },
+            "table0_cell_c2_r22": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 22,
+                "textvalue": "1.9"
+            },
+            "table0_cell_c2_r23": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 23,
+                "textvalue": "3.2"
+            },
+            "table0_cell_c2_r24": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 24,
+                "textvalue": "2.4"
+            },
+            "table0_cell_c2_r25": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 25,
+                "textvalue": "3.1"
+            },
+            "table0_cell_c2_r26": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 26,
+                "textvalue": "2.3"
+            },
+            "table0_cell_c2_r27": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 27,
+                "textvalue": "3.2"
+            },
+            "table0_cell_c2_r28": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 28,
+                "textvalue": ""
+            },
+            "table0_cell_c2_r29": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "=AVERAGE(C9:C28)",
+                "rangetype": "SigfigRange_3",
+                "row": 29,
+                "textvalue": "=AVERAGE(C9:C28)"
+            },
+            "table0_cell_c2_r30": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "=ROUNDSIGFIG((STDEV(C9:C28)),3)",
+                "rangetype": "SigfigRange_3",
+                "row": 30,
+                "textvalue": "=ROUNDSIGFIG((STDEV(C9:C28)),3)"
+            },
+            "table0_cell_c2_r31": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "=C31/SQRT(20)",
+                "rangetype": "SigfigRange_3",
+                "row": 31,
+                "textvalue": "=C31/SQRT(20)"
+            },
+            "table0_cell_c2_r33": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 33,
+                "textvalue": "&lt;b&gt;Visual vs. auditory&lt;/b&gt;"
+            },
+            "table0_cell_c2_r34": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "=TTEST(F9:F28,D9:D28,2,2)",
+                "rangetype": "SigfigRange_3",
+                "row": 34,
+                "textvalue": "=TTEST(F9:F28,D9:D28,2,2)"
+            },
+            "table0_cell_c2_r7": {
+                "celltype": "Label_centre",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 7,
+                "textvalue": "Green stimulus &lt;br&gt;(ms)"
+            },
+            "table0_cell_c2_r8": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 8,
+                "textvalue": "2"
+            },
+            "table0_cell_c2_r9": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 2,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 9,
+                "textvalue": "3"
+            },
+            "table0_cell_c3_r10": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 10,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r11": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 11,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r12": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 12,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r13": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 13,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r14": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 14,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r15": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 15,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r16": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 16,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r17": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 17,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r18": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 18,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r19": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 19,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r20": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 20,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r21": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 21,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r22": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 22,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r23": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 23,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r24": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 24,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r25": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 25,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r26": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 26,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r27": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 27,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r28": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 28,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r29": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "=AVERAGE(D9:D28)",
+                "rangetype": "SigfigRange_3",
+                "row": 29,
+                "textvalue": "=AVERAGE(D9:D28)"
+            },
+            "table0_cell_c3_r30": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "=ROUNDSIGFIG((STDEV(D9:D28)),3)",
+                "rangetype": "SigfigRange_3",
+                "row": 30,
+                "textvalue": "=ROUNDSIGFIG((STDEV(D9:D28)),3)"
+            },
+            "table0_cell_c3_r31": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "=D31/SQRT(20)",
+                "rangetype": "SigfigRange_3",
+                "row": 31,
+                "textvalue": "=D31/SQRT(20)"
+            },
+            "table0_cell_c3_r33": {
+                "celltype": "Label_left",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 33,
+                "textvalue": "&lt;b&gt;Visual vs. tactile&lt;/b&gt;"
+            },
+            "table0_cell_c3_r34": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "=TTEST(F9:F28,E9:E28,2,2)",
+                "rangetype": "SigfigRange_3",
+                "row": 34,
+                "textvalue": "=TTEST(F9:F28,E9:E28,2,2)"
+            },
+            "table0_cell_c3_r35": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "DecimalRange_2",
+                "row": 35,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r36": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "AbsoluteRange_0",
+                "row": 36,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r7": {
+                "celltype": "Label_centre",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 7,
+                "textvalue": "Auditory stimulus &lt;br&gt;(ms)"
+            },
+            "table0_cell_c3_r8": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 8,
+                "textvalue": ""
+            },
+            "table0_cell_c3_r9": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 3,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 9,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r10": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 10,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r11": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 11,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r12": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 12,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r13": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 13,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r14": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 14,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r15": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 15,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r16": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 16,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r17": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 17,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r18": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 18,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r19": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 19,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r20": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 20,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r21": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 21,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r22": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 22,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r23": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 23,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r24": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 24,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r25": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 25,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r26": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 26,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r27": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 27,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r28": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 28,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r29": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "=AVERAGE(E9:E28)",
+                "rangetype": "SigfigRange_3",
+                "row": 29,
+                "textvalue": "=AVERAGE(E9:E28)"
+            },
+            "table0_cell_c4_r30": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "=ROUNDSIGFIG((STDEV(E9:E28)),3)",
+                "rangetype": "SigfigRange_3",
+                "row": 30,
+                "textvalue": "=ROUNDSIGFIG((STDEV(E9:E28)),3)"
+            },
+            "table0_cell_c4_r31": {
+                "celltype": "CalcAnswer_1",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "=E31/SQRT(20)",
+                "rangetype": "SigfigRange_3",
+                "row": 31,
+                "textvalue": "=E31/SQRT(20)"
+            },
+            "table0_cell_c4_r33": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 33,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r34": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "DecimalRange_2",
+                "row": 34,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r7": {
+                "celltype": "Label_centre",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 7,
+                "textvalue": "Tactile stimulus &lt;br&gt;(ms)"
+            },
+            "table0_cell_c4_r8": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 8,
+                "textvalue": ""
+            },
+            "table0_cell_c4_r9": {
+                "celltype": "StudentInput_undefined",
+                "chart": "",
+                "col": 4,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 9,
+                "textvalue": ""
+            },
+            "table0_cell_c5_r10": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B11:C11)",
+                "rangetype": "",
+                "row": 10,
+                "textvalue": "=AVERAGE(B11:C11)"
+            },
+            "table0_cell_c5_r11": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B12:C12)",
+                "rangetype": "",
+                "row": 11,
+                "textvalue": "=AVERAGE(B12:C12)"
+            },
+            "table0_cell_c5_r12": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B13:C13)",
+                "rangetype": "",
+                "row": 12,
+                "textvalue": "=AVERAGE(B13:C13)"
+            },
+            "table0_cell_c5_r13": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B14:C14)",
+                "rangetype": "",
+                "row": 13,
+                "textvalue": "=AVERAGE(B14:C14)"
+            },
+            "table0_cell_c5_r14": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B15:C15)",
+                "rangetype": "",
+                "row": 14,
+                "textvalue": "=AVERAGE(B15:C15)"
+            },
+            "table0_cell_c5_r15": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B16:C16)",
+                "rangetype": "",
+                "row": 15,
+                "textvalue": "=AVERAGE(B16:C16)"
+            },
+            "table0_cell_c5_r16": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B17:C17)",
+                "rangetype": "",
+                "row": 16,
+                "textvalue": "=AVERAGE(B17:C17)"
+            },
+            "table0_cell_c5_r17": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B18:C18)",
+                "rangetype": "",
+                "row": 17,
+                "textvalue": "=AVERAGE(B18:C18)"
+            },
+            "table0_cell_c5_r18": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B19:C19)",
+                "rangetype": "",
+                "row": 18,
+                "textvalue": "=AVERAGE(B19:C19)"
+            },
+            "table0_cell_c5_r19": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B20:C20)",
+                "rangetype": "",
+                "row": 19,
+                "textvalue": "=AVERAGE(B20:C20)"
+            },
+            "table0_cell_c5_r20": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B21:C21)",
+                "rangetype": "",
+                "row": 20,
+                "textvalue": "=AVERAGE(B21:C21)"
+            },
+            "table0_cell_c5_r21": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B22:C22)",
+                "rangetype": "",
+                "row": 21,
+                "textvalue": "=AVERAGE(B22:C22)"
+            },
+            "table0_cell_c5_r22": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B23:C23)",
+                "rangetype": "",
+                "row": 22,
+                "textvalue": "=AVERAGE(B23:C23)"
+            },
+            "table0_cell_c5_r23": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B24:C24)",
+                "rangetype": "",
+                "row": 23,
+                "textvalue": "=AVERAGE(B24:C24)"
+            },
+            "table0_cell_c5_r24": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B25:C25)",
+                "rangetype": "",
+                "row": 24,
+                "textvalue": "=AVERAGE(B25:C25)"
+            },
+            "table0_cell_c5_r25": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B26:C26)",
+                "rangetype": "",
+                "row": 25,
+                "textvalue": "=AVERAGE(B26:C26)"
+            },
+            "table0_cell_c5_r26": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B27:C27)",
+                "rangetype": "",
+                "row": 26,
+                "textvalue": "=AVERAGE(B27:C27)"
+            },
+            "table0_cell_c5_r27": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B28:C28)",
+                "rangetype": "",
+                "row": 27,
+                "textvalue": "=AVERAGE(B28:C28)"
+            },
+            "table0_cell_c5_r7": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 7,
+                "textvalue": "Average visual"
+            },
+            "table0_cell_c5_r8": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B9:C9)",
+                "rangetype": "",
+                "row": 8,
+                "textvalue": "=AVERAGE(B9:C9)"
+            },
+            "table0_cell_c5_r9": {
+                "celltype": "",
+                "chart": "",
+                "col": 5,
+                "feedback": "",
+                "formula": "=AVERAGE(B10:C10)",
+                "rangetype": "",
+                "row": 9,
+                "textvalue": "=AVERAGE(B10:C10)"
+            },
+            "table0_cell_c6_r10": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 10,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r11": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 11,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r12": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 12,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r13": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 13,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r14": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 14,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r15": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 15,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r16": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 16,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r17": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 17,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r18": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 18,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r19": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 19,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r20": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 20,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r21": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 21,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r22": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 22,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r23": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 23,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r24": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 24,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r25": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 25,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r26": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 26,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r27": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 27,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r29": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "SigfigRange_3",
+                "row": 29,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r30": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "SigfigRange_3",
+                "row": 30,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r31": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "SigfigRange_3",
+                "row": 31,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r7": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 7,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r8": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 8,
+                "textvalue": ""
+            },
+            "table0_cell_c6_r9": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 6,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 9,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r10": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 10,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r11": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 11,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r12": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 12,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r13": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 13,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r14": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 14,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r15": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 15,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r16": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 16,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r17": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 17,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r18": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 18,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r19": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 19,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r20": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 20,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r21": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 21,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r22": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 22,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r23": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 23,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r24": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 24,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r25": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 25,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r26": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 26,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r27": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 27,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r29": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "SigfigRange_3",
+                "row": 29,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r30": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "SigfigRange_3",
+                "row": 30,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r31": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "SigfigRange_3",
+                "row": 31,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r32": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "SigfigRange_3",
+                "row": 32,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r7": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 7,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r8": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 8,
+                "textvalue": ""
+            },
+            "table0_cell_c7_r9": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 7,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 9,
+                "textvalue": ""
+            },
+            "table0_cell_c8_r10": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 8,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 10,
+                "textvalue": ""
+            },
+            "table0_cell_c8_r18": {
+                "celltype": "None_undefined",
+                "chart": "",
+                "col": 8,
+                "feedback": "",
+                "formula": "",
+                "rangetype": "",
+                "row": 18,
+                "textvalue": ""
+            }
+        },
+        "chartdata": null,
+        "metadata": {
+            "columns": 9,
+            "rows": 37,
+            "title": ""
+        }
+    }
+]

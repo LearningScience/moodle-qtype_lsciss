@@ -95,11 +95,10 @@ class Lsspreadsheet {
 	}
 
 	public function get_field_names($lsspreaddata){
-		$json = $this->lsspreadsheetUtils->decodeLsspreaddataJsonString($lsspreaddata);
-		$data = $this->lsspreadsheetUtils->convert_rawdata_from_zero_array_lsspreaddata($json);
+		$spreadsheet = $this->lsspreadsheetUtils->getObjectFromLsspreaddata($lsspreaddata);
 		$calculatedCellNames = [];
-		foreach ($data as $key => $value) {
-			if(($value['celltype'] === 'CalcAnswer_1') || (($value['celltype'] === 'StudentInput_1'))){
+		foreach ($spreadsheet as $key => $cell) {
+			if(($cell->celltype === 'CalcAnswer') || (($cell->celltype === 'StudentInput'))){
 				$calculatedCellNames[] = $key;
 			}
 		}
@@ -245,6 +244,7 @@ class Lsspreadsheet {
 		foreach ($ans as $key => $value) {
 			$gradedCell = new \stdClass();
 			$gradedCell->studentResponse = $value->submitted_answer;
+			//@TODO - this weighting needs work!!!
 			$gradedCell->cellWeighting = 1;
 			$gradedCell->isCorrect = $value->iscorrect;
 			$gradedCell->celltype = $value->celltype;

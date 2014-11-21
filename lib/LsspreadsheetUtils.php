@@ -187,6 +187,7 @@ class LsspreadsheetUtils {
 					}
 				} else {
 					$cell = new LsspreadsheetCell();
+					$cell->response = $qa->get_last_qt_var($cellref);
 				}
 				$htmltable .= $cell->getTdForCell($cellname, $metadata->columns, $options->readonly);
 			}

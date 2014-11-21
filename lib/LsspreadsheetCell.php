@@ -14,7 +14,6 @@ class LsspreadsheetCell
     $this->markedimg = "";
     $this->correct_value = "";
     $this->response = '';
-    $this->popup = "";
     $this->colspan = 1;
     $this->tdclass = "";
     $this->correctanswer = '';
@@ -79,17 +78,17 @@ class LsspreadsheetCell
 
   private function getInputTagCell($cssClass, $cellname){
     $styles = trim($cssClass . $this->style);
-    return '<input type="text" class="' . $styles  . '" ' . $this->popup . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>' . $this->markedimg;
+    return '<input type="text" class="' . $styles  . '" ' . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>' . $this->markedimg;
   }
 
   private function getInputTagCellReadOnly($cssClass, $cellname){
     $styles = trim($cssClass . $this->style);
-    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . $this->popup . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>' . $this->markedimg;
+    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' .' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>' . $this->markedimg;
   }  
 
   private function getInputTagCellReadOnlyMarked($cssClass, $cellname){
     $styles = trim($cssClass . $this->style . ' ' . $this->feedbackClass );
-    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . $this->popup . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>'. $this->feedbackImage . '<br/>' . '<span>' . $this->correctanswer . '</span>';
+    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>'. $this->feedbackImage . '<br/>' . '<span>' . $this->correctanswer . '</span>';
   }
 
   private function getCellHtml($cssClass, $cellname, $isReadOnly){

@@ -72,7 +72,9 @@ class LsspreadsheetCell
         $cellcontent = "";
         
       }
-    return "\n  <td colspan=" . $colspan . " class=" . $tdclass . ">" . $cellcontent . "</td>";
+
+    return "\n  <td colspan=" . $colspan . " class=\"" . $tdclass . "\"". $inLineTdStyle . ">" . $cellcontent . "</td>";
+    //return "\n  <td colspan=" . $colspan . " class=" . $tdclass . ">" . $cellcontent . "</td>";
   }
 
   private function getInputTagCell($cssClass, $cellname){
@@ -87,7 +89,7 @@ class LsspreadsheetCell
 
   private function getInputTagCellReadOnlyMarked($cssClass, $cellname){
     $styles = trim($cssClass . $this->style . ' ' . $this->feedbackClass );
-    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . $this->popup . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>'. $this->feedbackImage . ' ' . $this->correctanswer;
+    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . $this->popup . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>'. $this->feedbackImage . '<br/>' . '<span>' . $this->correctanswer . '</span>';
   }
 
   private function getCellHtml($cssClass, $cellname, $isReadOnly){

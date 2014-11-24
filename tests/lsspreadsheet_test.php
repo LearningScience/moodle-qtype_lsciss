@@ -138,6 +138,32 @@ class LsspreadsheetTest extends basic_testcase {
 		$answer = $this->spreadsheet->get_cell_correctness($submitted_answer, $calcAnswer, $cell_rangetype, $cell_rangeval);
 	}
 
+	public function test_get_field_names(){
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
+		$expected = array (
+			'table0_cell_c1_r10',
+	    'table0_cell_c1_r5',
+	    'table0_cell_c1_r6',
+	    'table0_cell_c1_r7',
+	    'table0_cell_c1_r8',
+	    'table0_cell_c1_r9'
+    );
+		$result = $this->spreadsheet->get_field_names();
+		$this->assertEquals($expected, $result);
+	}
+
+	public function test_get_fractional_grade(){
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
+		$responses = Array (
+			'table0_cell_c1_r5' => 'male0',
+			'table0_cell_c1_r6' => 1,
+			'table0_cell_c1_r7' => 1,
+			'table0_cell_c1_r8' => 1,
+			'table0_cell_c1_r9' => 0.2,
+			'table0_cell_c1_r10' => 0.4);
+		$result = $this->spreadsheet->get_fractional_grade($responses);
+		$this->assertEquals($result, 1);
+	}
 
 	public function testMethodMarkCell(){
 		$responses = Array (

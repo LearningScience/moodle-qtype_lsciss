@@ -29,7 +29,6 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/Lsspreadsheet.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCell.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetUtils.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCellGrader.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChart.php');
 require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChartStats.php');
@@ -50,7 +49,8 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
 
     public function get_expected_data() {
         $spreadsheet = new Lsspreadsheet();
-        $fields = $spreadsheet->get_field_names($this->lsspreaddata);
+        $spreadsheet->setJsonStringFromDb($this->lsspreaddata);
+        $fields = $spreadsheet->get_field_names();
 
         $expected = array();
         foreach ($fields as $name) {
@@ -114,22 +114,9 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
 
     public function grade_response(array $response) {
         $spreadsheet = new Lsspreadsheet();
-        $result = $spreadsheet->gradeQuestion($this->lsspreaddata, $response);
-        $total = 0;
-        $maxMark = 0;
-
-        foreach ($result as $key => $value) {
-
-            if($value->celltype === 'CalcAnswer'){
-                $maxMark += 1;
-            }
-
-            if($value->isCorrect === true){
-                $total += 1;
-            }
-        }
-
-        $fraction = $total / $maxMark;
+        $spreadsheet->setJsonStringFromDb($this->lsspreaddata);
+        $fraction = $spreadsheet->get_fractional_grade($response);
+        
         return array($fraction, question_state::graded_state_for_fraction($fraction));
     }
 }

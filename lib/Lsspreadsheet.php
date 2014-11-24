@@ -78,10 +78,9 @@ class Lsspreadsheet {
 
 
 
-	public function get_field_names($lsspreaddata){
-		$spreadsheet = $this->getObjectFromLsspreaddata($lsspreaddata);
+	public function get_field_names(){
 		$calculatedCellNames = [];
-		foreach ($spreadsheet as $key => $cell) {
+		foreach ($this->spreadsheet as $key => $cell) {
 			if(($cell->celltype === 'CalcAnswer') || (($cell->celltype === 'StudentInput'))){
 				$calculatedCellNames[] = $key;
 			}
@@ -248,7 +247,7 @@ class Lsspreadsheet {
 		return $answersArray;
 	}
 
-	public function gradeQuestion($lsspreaddata, $responses){
+	public function get_fractional_grade($responses){
 		$gradedQuestion = [];
 		$ans = $this->grade_spreadsheet_question($responses);
 
@@ -262,7 +261,23 @@ class Lsspreadsheet {
 			$gradedCell->correctAnswer = $value->correctanswer;
 			$gradedQuestion[$key] = $gradedCell;
 		}
-		return $gradedQuestion;
+		$total = 0;
+    $maxMark = 0;
+
+    foreach ($gradedQuestion as $key => $value) {
+
+        if($value->celltype === 'CalcAnswer'){
+            $maxMark += 1;
+        }
+
+        if($value->isCorrect === true){
+            $total += 1;
+        }
+    }
+
+    $fraction = $total / $maxMark;
+        
+		return $fraction;
 	}
 
 	/**

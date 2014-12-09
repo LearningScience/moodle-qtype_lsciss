@@ -42,7 +42,6 @@ class LsspreadsheetCellTest extends basic_testcase {
     $numberOfColumns = 99;
     $isReadOnly = false;
     $result = $this->cell->getTdForCell($cellName, $numberOfColumns, $isReadOnly);
-    print_r($result);
 	}
 
 	public function testInitFromJsonObjectLabelCell(){

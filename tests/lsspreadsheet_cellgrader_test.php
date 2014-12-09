@@ -46,7 +46,7 @@ class LsspreadsheetCellGraderTest extends PHPUnit_Framework_TestCase {
     $correct_answer_string = 'correct answer string';
     $answer = $this->cellGrader->getAbsoluteCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string);
     $this->assertEquals($answer->iscorrect, true);
-    $this->assertEquals($answer->correctanswer, " correct answer string exactly ");
+    $this->assertEquals(" correct answer string exactly ", $answer->correctanswer);
 
     $submitted_answer = 1;
     $correct_answer = 2;
@@ -54,7 +54,7 @@ class LsspreadsheetCellGraderTest extends PHPUnit_Framework_TestCase {
     $correct_answer_string = 'correct answer string';
     $answer = $this->cellGrader->getAbsoluteCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string);
     $this->assertEquals($answer->iscorrect, false);
-    $this->assertEquals($answer->correctanswer, " correct answer string exactly ");
+    $this->assertEquals(" correct answer string exactly ", $answer->correctanswer);
 
     $submitted_answer = 1;
     $correct_answer = 2;
@@ -62,7 +62,7 @@ class LsspreadsheetCellGraderTest extends PHPUnit_Framework_TestCase {
     $correct_answer_string = 'correct answer string';
     $answer = $this->cellGrader->getAbsoluteCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string);
     $this->assertEquals($answer->iscorrect, true);
-    $this->assertEquals($answer->correctanswer, "  between 1.00 and 3.00");
+    $this->assertEquals("  between 1.00 and 3.00", $answer->correctanswer);
 
     $submitted_answer = 1;
     $correct_answer = 3;
@@ -70,7 +70,7 @@ class LsspreadsheetCellGraderTest extends PHPUnit_Framework_TestCase {
     $correct_answer_string = 'correct answer string';
     $answer = $this->cellGrader->getAbsoluteCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string);
     $this->assertEquals($answer->iscorrect, false);
-    $this->assertEquals($answer->correctanswer, "  between 2.00 and 4.00");
+    $this->assertEquals("  between 2.00 and 4.00", $answer->correctanswer);
   }
 
 }

@@ -94,7 +94,7 @@ class LsspreadsheetCellGrader {
     if ($rangeval != 0) {
       $answer->correctanswer = "  between " . sprintf("%.2f", ($correct_answer - $rangeval)) . " and " . sprintf("%.2f", (($correct_answer + $rangeval)));
     } else {
-      //$answer->correctanswer = " " . $correct_answer_string . " exactly ";
+      $answer->correctanswer = " " . $correct_answer_string . " exactly ";
     }
     if (($submitted_answer === $correct_answer) ||
       ($submitted_answer >= ($correct_answer - $rangeval)) && ($submitted_answer <= ($correct_answer + $rangeval))) {

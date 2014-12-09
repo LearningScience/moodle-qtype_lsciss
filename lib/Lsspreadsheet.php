@@ -212,31 +212,23 @@ class Lsspreadsheet {
 			$answer_checked->correctanswer = '';
 			$answer_checked->feedbackstring = '';
 
-			if ($submitted_answer !== "" and $calcAnswer !== "#DIV/0!") {
-				switch ($cell->celltype) {
-					case "CalcAnswer":
-						$answer_checked = $this->get_cell_correctness($submitted_answer, $calcAnswer, $cell->rangetype, $cell->rangeval);
-						$answer_checked = $this->method_mark_cell(
-							$moodleinput_excel,
-							$cell->getExcelref(),
-							$cell->formula,
-							$cell->rangetype,
-							$cell->rangeval,
-							$submitted_answer);
-						if ($answer_checked->iscorrect == true) {
-							//the range in the correct answer should be 0
-							// the answer in the numerical question should be 1
-							$responses[$cellref] = 1;
-						} else {
-							$responses[$cellref] = 0;
-						}
-						break;
+			switch ($cell->celltype) {
+				case "CalcAnswer":
+					$answer_checked = $this->get_cell_correctness($submitted_answer, $calcAnswer, $cell->rangetype, $cell->rangeval);
+					$answer_checked = $this->method_mark_cell(
+						$moodleinput_excel,
+						$cell->getExcelref(),
+						$cell->formula,
+						$cell->rangetype,
+						$cell->rangeval,
+						$submitted_answer);
+					break;
 				}
 				$answer_checked->celltype = $cell->celltype;
 				$answer_checked->submitted_answer = $submitted_answer;
 				$answersArray[$cellref] = $answer_checked;
 			}
-		}
+
 
 
 		$excel->disconnectWorksheets();
@@ -251,33 +243,30 @@ class Lsspreadsheet {
 		$gradedQuestion = [];
 		$ans = $this->grade_spreadsheet_question($responses);
 
-		foreach ($ans as $key => $value) {
-			$gradedCell = new \stdClass();
-			$gradedCell->studentResponse = $value->submitted_answer;
-			//@TODO - this weighting needs work!!!
-			$gradedCell->cellWeighting = 1;
-			$gradedCell->isCorrect = $value->iscorrect;
-			$gradedCell->celltype = $value->celltype;
-			$gradedCell->correctAnswer = $value->correctanswer;
-			$gradedQuestion[$key] = $gradedCell;
-		}
-		$total = 0;
+		$userTotal = 0;
     $maxMark = 0;
 
-    foreach ($gradedQuestion as $key => $value) {
+    foreach ($ans as $key => $value) {
 
-        if($value->celltype === 'CalcAnswer'){
-            $maxMark += 1;
-        }
+      if($value->celltype === 'CalcAnswer'){
+          $maxMark += $this->spreadsheet[$key]->marks;
+      }
 
-        if($value->isCorrect === true){
-            $total += 1;
-        }
+      if($value->iscorrect === true){
+          $userTotal += $this->spreadsheet[$key]->marks;
+      }
     }
-
-    $fraction = $total / $maxMark;
         
-		return $fraction;
+		return $this->getGradeFractionFromUserTotalAndMaxMark($userTotal, $maxMark);
+	}
+
+	private function getGradeFractionFromUserTotalAndMaxMark($userTotal, $maxMark){
+		if($maxMark === 0){
+    	$fraction = 1;
+    } else {
+	    $fraction = $userTotal / $maxMark;
+    }
+    return $fraction;
 	}
 
 	/**

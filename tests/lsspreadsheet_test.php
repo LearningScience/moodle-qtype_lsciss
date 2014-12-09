@@ -23,6 +23,20 @@ class LsspreadsheetTest extends basic_testcase {
 		$this->lsspreaddata = file_get_contents(__DIR__ . '/fixtures/sample_sheet_data.json');
 		$this->lsspreaddataFermentation = file_get_contents(__DIR__ . '/fixtures/measuring_fermentation_lsspreaddata.json');
 		$this->lsspreaddataBigQuestion = file_get_contents(__DIR__ . '/fixtures/big_question_lsspreaddata.json');
+
+
+
+		// lsspreaddataDifferentlyMarkedCells
+	  //     A         B
+	  //  +--------+----------+
+	  // 1|  input |  =A1*1   | <- worth 1 mark
+	  //  |--------|----------|
+	  // 2|  input |  =A2*2   | <- worth 2 marks
+	  //  +--------+----------+
+	  // 3|  input |  =A3*3   | <- worth 3 marks
+	  //  +--------+----------+
+		
+		$this->lsspreaddataDifferentlyMarkedCells = file_get_contents(__DIR__ . '/fixtures/question_with_differently_marked_cells.json');
 	}
 
 	public function testConvertLsspreaddataJsonToObject() {
@@ -162,7 +176,76 @@ class LsspreadsheetTest extends basic_testcase {
 			'table0_cell_c1_r9' => 0.2,
 			'table0_cell_c1_r10' => 0.4);
 		$result = $this->spreadsheet->get_fractional_grade($responses);
-		$this->assertEquals($result, 1);
+		$this->assertEquals(1, $result);
+	}
+
+	public function test_get_fractional_grade_with_no_responses(){
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddataDifferentlyMarkedCells);
+		$responses = Array (
+			'table0_cell_c0_r0' => '',
+			'table0_cell_c0_r1' => '',
+			'table0_cell_c0_r2' => '',
+			'table0_cell_c1_r0' => '',
+			'table0_cell_c1_r1' => '',
+			'table0_cell_c1_r2' => '');
+
+		$result = $this->spreadsheet->get_fractional_grade($responses);
+		$this->assertEquals(0, $result);
+	}
+
+	public function test_get_fractional_grade_with_responses(){
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddataDifferentlyMarkedCells);
+		$responses = Array (
+			'table0_cell_c0_r0' => '1',
+			'table0_cell_c0_r1' => '1',
+			'table0_cell_c0_r2' => '1',
+			'table0_cell_c1_r0' => '1',
+			'table0_cell_c1_r1' => '99',
+			'table0_cell_c1_r2' => '99');
+
+		//this whole question is worth 1 + 2 + 3 = 6 marks
+		//getting c1_r0 correct is 1 mark so fraction should be 1/6
+		$result = $this->spreadsheet->get_fractional_grade($responses);
+		$this->assertEquals(0.16, $result,'', 0.01);
+
+		$responses = Array (
+			'table0_cell_c0_r0' => '1',
+			'table0_cell_c0_r1' => '1',
+			'table0_cell_c0_r2' => '1',
+			'table0_cell_c1_r0' => '1',
+			'table0_cell_c1_r1' => '2',
+			'table0_cell_c1_r2' => '99');
+
+		//this whole question is worth 1 + 2 + 3 = 6 marks
+		//getting c1_r0 and c1_r1 are  correct is 1 + 2 mark so fraction should be 3/6
+		$result = $this->spreadsheet->get_fractional_grade($responses);
+		$this->assertEquals(0.5, $result);
+		
+		$responses = Array (
+			'table0_cell_c0_r0' => '1',
+			'table0_cell_c0_r1' => '1',
+			'table0_cell_c0_r2' => '1',
+			'table0_cell_c1_r0' => '99',
+			'table0_cell_c1_r1' => '99',
+			'table0_cell_c1_r2' => '3');
+
+		//this whole question is worth 1 + 2 + 3 = 6 marks
+		//getting c1_r2 correct is 3 marks so fraction should be 3/6
+		$result = $this->spreadsheet->get_fractional_grade($responses);
+		$this->assertEquals(0.5, $result);
+
+		$responses = Array (
+			'table0_cell_c0_r0' => '1',
+			'table0_cell_c0_r1' => '1',
+			'table0_cell_c0_r2' => '1',
+			'table0_cell_c1_r0' => '99',
+			'table0_cell_c1_r1' => '2',
+			'table0_cell_c1_r2' => '3');
+
+		//this whole question is worth 1 + 2 + 3 = 6 marks
+		//getting c1_r1 and c1_r2 correct is  2 + 3 marks so fraction should be 5/6
+		$result = $this->spreadsheet->get_fractional_grade($responses);
+		$this->assertEquals(0.83, $result,'',0.01);
 	}
 
 	public function testMethodMarkCell(){
@@ -174,7 +257,6 @@ class LsspreadsheetTest extends basic_testcase {
 			'table0_cell_c1_r9' => 6,
 			'table0_cell_c1_r10' => 1);
 		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
-
 
 		$cell_rangetype = 'SigfigRange';
 		$cell_rangeval = '2';

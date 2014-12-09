@@ -1,0 +1,80 @@
+[
+  {
+    "metadata": {
+      "columns": 2,
+      "rows": 3,
+      "title": ""
+    },
+    "cell": {
+      "table0_cell_c0_r0": {
+        "celltype": "StudentInput_undefined",
+        "rangetype": "",
+        "textvalue": "",
+        "formula": "",
+        "col": 0,
+        "row": 0,
+        "feedback": "",
+        "chart": ""
+      },
+      "table0_cell_c1_r0": {
+        "celltype": "CalcAnswer_1",
+        "rangetype": "AbsoluteRange_0",
+        "textvalue": "=A1*1",
+        "formula": "=A1*1",
+        "col": 1,
+        "row": 0,
+        "feedback": "",
+        "chart": ""
+      },
+      "table0_cell_c0_r1": {
+        "celltype": "StudentInput_undefined",
+        "rangetype": "",
+        "textvalue": "",
+        "formula": "",
+        "col": 0,
+        "row": 1,
+        "feedback": "",
+        "chart": ""
+      },
+      "table0_cell_c1_r1": {
+        "celltype": "CalcAnswer_2",
+        "rangetype": "AbsoluteRange_0",
+        "textvalue": "=A2*2",
+        "formula": "=A2*2",
+        "col": 1,
+        "row": 1,
+        "feedback": "",
+        "chart": ""
+      },
+      "table0_cell_c0_r2": {
+        "celltype": "StudentInput_undefined",
+        "rangetype": "",
+        "textvalue": "",
+        "formula": "",
+        "col": 0,
+        "row": 2,
+        "feedback": "",
+        "chart": ""
+      },
+      "table0_cell_c1_r2": {
+        "celltype": "CalcAnswer_3",
+        "rangetype": "AbsoluteRange_0",
+        "textvalue": "=A3*3",
+        "formula": "=A3*3",
+        "col": 1,
+        "row": 2,
+        "feedback": "",
+        "chart": ""
+      }
+    },
+    "chartdata": {
+      "series": [
+        {
+          "title": "",
+          "xaxistitle": "X-Axis",
+          "yaxistitle": "Y-Axis"
+        }
+      ]
+    }
+  }
+]

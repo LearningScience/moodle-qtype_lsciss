@@ -1,7 +1,7 @@
 <?php
 namespace Learnsci;
 
-class LsspreadsheetCell 
+class Cell 
 {
   private $cellvalue;
   private $excelref;

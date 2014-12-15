@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="question/type/gapselect/db" VERSION="20141107" COMMENT="XMLDB file for Moodle question/type/gapselect"
+<XMLDB PATH="question/type/lsciss/db" VERSION="20141107" COMMENT="XMLDB file for Moodle question/type/lsciss"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="qtype_lsspreadsheet_options" COMMENT="Question-type specific data for the lsspreadsheet question type.">
+    <TABLE NAME="qtype_lsciss_options" COMMENT="Question-type specific data for the lsciss question type.">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="questionid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>

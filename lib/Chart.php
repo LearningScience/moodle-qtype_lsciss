@@ -6,7 +6,7 @@ namespace Learnsci;
  */
 
 /**
- * Description of LsspreadsheetChart
+ * Description of Chart
  *
  * @author steve
  */
@@ -15,7 +15,7 @@ namespace Learnsci;
 // require_once ('src/Lsspreadsheet.php');
 // require_once ('src/LsspreadsheetChartStats.php');
 
-class LsspreadsheetChart {
+class Chart {
 
 	public function __construct() {
 

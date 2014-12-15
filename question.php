@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * lsspreadsheet question definition class.
+ * lsciss question definition class.
  *
  * @package    qtype
- * @subpackage lsspreadsheet
+ * @subpackage lsciss
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -27,28 +27,28 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/Lsspreadsheet.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCell.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCellGrader.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChart.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChartStats.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/phpexcel/PHPExcel.php');
-use Learnsci\Lsspreadsheet;
+require_once($CFG->dirroot . '/question/type/lsciss/lib/Spreadsheet.php');
+require_once($CFG->dirroot . '/question/type/lsciss/lib/Cell.php');
+require_once($CFG->dirroot . '/question/type/lsciss/lib/CellGrader.php');
+require_once($CFG->dirroot . '/question/type/lsciss/lib/Chart.php');
+require_once($CFG->dirroot . '/question/type/lsciss/lib/ChartStats.php');
+require_once($CFG->dirroot . '/question/type/lsciss/phpexcel/PHPExcel.php');
+use Learnsci\Spreadsheet;
 
 
 /**
- * Represents a lsspreadsheet question.
+ * Represents a lsciss question.
  *
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_lsspreadsheet_question extends question_graded_automatically {
+class qtype_lsciss_question extends question_graded_automatically {
 
     /** @var string JSON of the spreadsheet. */
     public $lsspreaddata;
 
     public function get_expected_data() {
-        $spreadsheet = new Lsspreadsheet();
+        $spreadsheet = new Spreadsheet();
         $spreadsheet->setJsonStringFromDb($this->lsspreaddata);
         $fields = $spreadsheet->get_field_names();
 
@@ -77,7 +77,7 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
         if ($this->is_complete_response($response)) {
             return '';
         }
-        return get_string('pleaseananswerallparts', 'qtype_lsspreadsheet');
+        return get_string('pleaseananswerallparts', 'qtype_lsciss');
     }
 
     public function is_same_response(array $prevresponse, array $newresponse) {
@@ -113,7 +113,7 @@ class qtype_lsspreadsheet_question extends question_graded_automatically {
     }
 
     public function grade_response(array $response) {
-        $spreadsheet = new Lsspreadsheet();
+        $spreadsheet = new Spreadsheet();
         $spreadsheet->setJsonStringFromDb($this->lsspreaddata);
         $fraction = $spreadsheet->get_fractional_grade($response);
         

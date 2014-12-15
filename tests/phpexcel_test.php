@@ -3,7 +3,7 @@
 defined('MOODLE_INTERNAL') || die();
 global $CFG;
 
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/phpexcel/PHPExcel.php');
+require_once($CFG->dirroot . '/question/type/lsciss/phpexcel/PHPExcel.php');
 
 class PhpExcelTest extends PHPUnit_Framework_TestCase {
 

@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Restore code for the lsspreadsheet question type.
+ * Restore code for the lsciss question type.
  *
- * @package   qtype_lsspreadsheet
+ * @package   qtype_lsciss
  * @category  backup
  * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class restore_qtype_lsspreadsheet_plugin extends restore_qtype_plugin {
+class restore_qtype_lsciss_plugin extends restore_qtype_plugin {
 
     /**
      * Returns the paths to be handled by the plugin at question level.
@@ -42,18 +42,18 @@ class restore_qtype_lsspreadsheet_plugin extends restore_qtype_plugin {
         $paths = array();
 
         // Add own qtype stuff.
-        $elename = 'lsspreadsheetoptions';
+        $elename = 'lscissoptions';
         // We used get_recommended_name() so this works.
-        $elepath = $this->get_pathfor('/lsspreadsheetoptions');
+        $elepath = $this->get_pathfor('/lscissoptions');
         $paths[] = new restore_path_element($elename, $elepath);
 
         return $paths;
     }
 
     /**
-     * Process the qtype/lsspreadsheetoptions element
+     * Process the qtype/lscissoptions element
      */
-    public function process_lsspreadsheetoptions($data) {
+    public function process_lscissoptions($data) {
         global $DB;
 
         $data = (object)$data;
@@ -68,8 +68,8 @@ class restore_qtype_lsspreadsheet_plugin extends restore_qtype_plugin {
         if ($questioncreated) {
             // Adjust some columns.
             $data->questionid = $newquestionid;
-            $newitemid = $DB->insert_record('qtype_lsspreadsheet_options', $data);
-            $this->set_mapping('qtype_lsspreadsheet_options', $oldid, $newitemid);
+            $newitemid = $DB->insert_record('qtype_lsciss_options', $data);
+            $this->set_mapping('qtype_lsciss_options', $oldid, $newitemid);
         }
     }
 
@@ -81,7 +81,7 @@ class restore_qtype_lsspreadsheet_plugin extends restore_qtype_plugin {
         $contents = array();
 
         $fields = array('correctfeedback', 'partiallycorrectfeedback', 'incorrectfeedback');
-        $contents[] = new restore_decode_content('qtype_lsspreadsheet_options', $fields, 'qtype_lsspreadsheetoptions_options');
+        $contents[] = new restore_decode_content('qtype_lsciss_options', $fields, 'qtype_lscissoptions_options');
 
         return $contents;
     }

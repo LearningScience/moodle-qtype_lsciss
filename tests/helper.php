@@ -17,7 +17,7 @@
 /**
  * Contains the helper class for the spreadsheet question type tests.
  *
- * @package   qtype_lsspreadsheet
+ * @package   qtype_lsciss
  * @copyright 2013 The Open University
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -31,24 +31,24 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright 2013 The Open University
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_lsspreadsheet_test_helper extends question_test_helper {
+class qtype_lsciss_test_helper extends question_test_helper {
     public function get_test_questions() {
         return array('basic');
     }
 
     /**
-     * @return qtype_lsspreadsheet_question
+     * @return qtype_lsciss_question
      */
-    public function make_lsspreadsheet_question_basic() {
-        question_bank::load_question_definition_classes('lsspreadsheet');
-        $lsss = new qtype_lsspreadsheet_question();
+    public function make_lsciss_question_basic() {
+        question_bank::load_question_definition_classes('lsciss');
+        $lsss = new qtype_lsciss_question();
 
         test_question_maker::initialise_a_question($lsss);
 
         $lsss->name = 'Spreadsheet question';
         $lsss->questiontext = 'Fill in the boxes.';
         $lsss->generalfeedback = 'I hope you learned something.';
-        $lsss->qtype = question_bank::get_qtype('lsspreadsheet');
+        $lsss->qtype = question_bank::get_qtype('lsciss');
 
         test_question_maker::set_standard_combined_feedback_fields($lsss);
         unset($lsss->shownumcorrect);
@@ -63,13 +63,13 @@ class qtype_lsspreadsheet_test_helper extends question_test_helper {
         return $lsss;
     }
 
-    public function get_lsspreadsheet_question_data_basic() {
+    public function get_lsciss_question_data_basic() {
         global $USER;
 
         $q = new stdClass();
         test_question_maker::initialise_question_data($q);
         $q->name = 'Spreadsheet question';
-        $q->qtype = 'lsspreadsheet';
+        $q->qtype = 'lsciss';
         $q->parent = 0;
         $q->questiontext = 'Fill in the boxes.';
         $q->questiontextformat = FORMAT_HTML;
@@ -95,12 +95,12 @@ class qtype_lsspreadsheet_test_helper extends question_test_helper {
         return $q;
     }
 
-    public function get_lsspreadsheet_question_form_data_basic() {
+    public function get_lsciss_question_form_data_basic() {
         global $USER;
 
         $fromform = new stdClass();
         $fromform->name = 'Spreadsheet question';
-        $fromform->qtype = 'lsspreadsheet';
+        $fromform->qtype = 'lsciss';
         $fromform->questiontext = array('text' => 'Fill in the boxes.', 'format' => FORMAT_HTML);
         $fromform->generalfeedback = array('text' => 'I hope you learned something.', 'format' => FORMAT_HTML);
         $fromform->defaultmark = 1;

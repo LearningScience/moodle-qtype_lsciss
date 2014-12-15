@@ -17,7 +17,7 @@
 /**
  * Unit tests for the spreadsheet question type class.
  *
- * @package   qtype_lsspreadsheet
+ * @package   qtype_lsciss
  * @copyright  2012 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 
 require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/questiontype.php');
+require_once($CFG->dirroot . '/question/type/lsciss/questiontype.php');
 
 
 /**
@@ -36,11 +36,11 @@ require_once($CFG->dirroot . '/question/type/lsspreadsheet/questiontype.php');
  * @copyright  2012 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_lsspreadsheet_questiontype_test extends question_testcase {
+class qtype_lsciss_questiontype_test extends question_testcase {
     protected $qtype;
 
     protected function setUp() {
-        $this->qtype = new qtype_lsspreadsheet();
+        $this->qtype = new qtype_lsciss();
     }
 
     protected function tearDown() {
@@ -53,7 +53,7 @@ class qtype_lsspreadsheet_questiontype_test extends question_testcase {
     }
 
     public function test_name() {
-        $this->assertEquals($this->qtype->name(), 'lsspreadsheet');
+        $this->assertEquals($this->qtype->name(), 'lsciss');
     }
 
     public function test_can_analyse_responses() {
@@ -61,12 +61,12 @@ class qtype_lsspreadsheet_questiontype_test extends question_testcase {
     }
 
     public function test_get_random_guess_score() {
-        $questiondata = test_question_maker::get_question_data('lsspreadsheet');;
+        $questiondata = test_question_maker::get_question_data('lsciss');;
         $this->assertEquals(0, $this->qtype->get_random_guess_score($questiondata));
     }
 
     public function test_get_possible_responses() {
-        $questiondata = test_question_maker::get_question_data('lsspreadsheet');
+        $questiondata = test_question_maker::get_question_data('lsciss');
         $this->assertEquals(array(), $this->qtype->get_possible_responses($questiondata));
     }
 
@@ -76,9 +76,9 @@ class qtype_lsspreadsheet_questiontype_test extends question_testcase {
 
         $importer = new qformat_xml();
         $q = $importer->try_importing_using_qtypes(
-                $xmldata['question'], null, null, 'lsspreadsheet');
+                $xmldata['question'], null, null, 'lsciss');
 
-        $expectedq = test_question_maker::get_question_form_data('lsspreadsheet');
+        $expectedq = test_question_maker::get_question_form_data('lsciss');
         $expectedq->questiontextformat = $expectedq->questiontext['format'];
         $expectedq->questiontext = $expectedq->questiontext['text'];
         $expectedq->generalfeedbackformat = $expectedq->generalfeedback['format'];
@@ -89,7 +89,7 @@ class qtype_lsspreadsheet_questiontype_test extends question_testcase {
     }
 
     public function test_xml_export() {
-        $questiondata = test_question_maker::get_question_data('lsspreadsheet');
+        $questiondata = test_question_maker::get_question_data('lsciss');
 
         $exporter = new qformat_xml();
         $xml = $exporter->writequestion($questiondata);
@@ -105,7 +105,7 @@ class qtype_lsspreadsheet_questiontype_test extends question_testcase {
      */
     protected function get_sample_xml() {
         return '<!-- question: 0  -->
-  <question type="lsspreadsheet">
+  <question type="lsciss">
     <name>
       <text>Spreadsheet question</text>
     </name>

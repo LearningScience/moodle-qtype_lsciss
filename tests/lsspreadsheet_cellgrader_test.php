@@ -3,14 +3,14 @@
 defined('MOODLE_INTERNAL') || die();
 global $CFG;
 
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCellGrader.php');
+require_once($CFG->dirroot . '/question/type/lsciss/lib/CellGrader.php');
 
-use Learnsci\LsspreadsheetCellGrader;
+use Learnsci\CellGrader;
 
-class LsspreadsheetCellGraderTest extends PHPUnit_Framework_TestCase {
+class CellGraderTest extends PHPUnit_Framework_TestCase {
 
   protected function setUp() {
-    $this->cellGrader = new LsspreadsheetCellGrader();
+    $this->cellGrader = new CellGrader();
   }
   public function testGetSigFigCellCorrectness(){
     $submitted_answer = 2.11;

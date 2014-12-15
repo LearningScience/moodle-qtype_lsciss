@@ -12,8 +12,8 @@ Note that this is currently work-in-progress.
 To install using git for the latest version (the master branch), type this command in the
 root of your Moodle install:
 
-    git clone https://bitbucket.org/lsspreadsheet/moodle-qtype_lsspreadsheet.git question/type/lsspreadsheet
-    echo '/question/type/lsspreadsheet/' >> .git/info/exclude
+    git clone https://bitbucket.org/lsciss/moodle-qtype_lsciss.git question/type/lsciss
+    echo '/question/type/lsciss/' >> .git/info/exclude
 
 
 ##PHP Excel

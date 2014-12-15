@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Backup code for the lsspreadsheet question type.
+ * Backup code for the lsciss question type.
  *
- * @package   qtype_lsspreadsheet
+ * @package   qtype_lsciss
  * @category  backup
  * @copyright 2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2010 onwards Eloy Lafuente (stronk7) {@link http://stronk7.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class backup_qtype_lsspreadsheet_plugin extends backup_qtype_plugin {
+class backup_qtype_lsciss_plugin extends backup_qtype_plugin {
 
     /**
      * Returns the qtype information to attach to question element.
@@ -40,7 +40,7 @@ class backup_qtype_lsspreadsheet_plugin extends backup_qtype_plugin {
     protected function define_question_plugin_structure() {
 
         // Define the virtual plugin element with the condition to fulfill.
-        $plugin = $this->get_plugin_element(null, '../../qtype', 'lsspreadsheet');
+        $plugin = $this->get_plugin_element(null, '../../qtype', 'lsciss');
 
         // Create one standard named plugin element (the visible container).
         $pluginwrapper = new backup_nested_element($this->get_recommended_name());
@@ -49,16 +49,16 @@ class backup_qtype_lsspreadsheet_plugin extends backup_qtype_plugin {
         $plugin->add_child($pluginwrapper);
 
         // Now create the qtype own structures.
-        $lsspreadsheetoptions = new backup_nested_element('lsspreadsheetoptions', array('id'), array(
+        $lscissoptions = new backup_nested_element('lscissoptions', array('id'), array(
             'lsspreaddata', 'correctfeedback', 'correctfeedbackformat',
             'partiallycorrectfeedback', 'partiallycorrectfeedbackformat',
             'incorrectfeedback', 'incorrectfeedbackformat'));
 
         // Now the own qtype tree.
-        $pluginwrapper->add_child($lsspreadsheetoptions);
+        $pluginwrapper->add_child($lscissoptions);
 
         // Set source to populate the data.
-        $lsspreadsheetoptions->set_source_table('qtype_lsspreadsheet_options',
+        $lscissoptions->set_source_table('qtype_lsciss_options',
                 array('questionid' => backup::VAR_PARENTID));
 
         // Don't need to annotate ids nor files.

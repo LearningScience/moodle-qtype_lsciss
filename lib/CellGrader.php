@@ -1,7 +1,7 @@
 <?php
 namespace Learnsci;
 
-class LsspreadsheetCellGrader {
+class CellGrader {
 
   public function __construct(){}
 

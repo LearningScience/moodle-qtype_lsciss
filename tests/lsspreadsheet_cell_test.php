@@ -4,16 +4,16 @@
 defined('MOODLE_INTERNAL') || die();
 global $CFG;
 
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCell.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/phpexcel/PHPExcel.php');
-use Learnsci\LsspreadsheetCell;
+require_once($CFG->dirroot . '/question/type/lsciss/lib/Cell.php');
+require_once($CFG->dirroot . '/question/type/lsciss/phpexcel/PHPExcel.php');
+use Learnsci\Cell;
 
-class LsspreadsheetCellTest extends basic_testcase {
+class CellTest extends basic_testcase {
 
 	private $cell;
 
 	protected function setUp() {
-		$this->cell = new LsspreadsheetCell();
+		$this->cell = new Cell();
 	}
 
 	public function testDefaultValues(){
@@ -45,7 +45,7 @@ class LsspreadsheetCellTest extends basic_testcase {
 	}
 
 	public function testInitFromJsonObjectLabelCell(){
-		$cell = new LsspreadsheetCell();
+		$cell = new Cell();
 		$jsonObject = array(
 			"celltype" => "Label_1",
 			"chart" => "",
@@ -65,7 +65,7 @@ class LsspreadsheetCellTest extends basic_testcase {
 	}
 
 	public function testInitFromJsonObjectNoneCell(){
-		$cell = new LsspreadsheetCell();
+		$cell = new Cell();
 		$jsonObject = array(
 			"celltype" => "None_undefined",
       "chart" => "",
@@ -85,7 +85,7 @@ class LsspreadsheetCellTest extends basic_testcase {
 	}
 
 	public function testInitFromJsonObjectSectionHeadingCell(){
-		$cell = new LsspreadsheetCell();
+		$cell = new Cell();
 		$jsonObject = array(
 			"celltype" => "SectionHeading_1",
       "chart" => "",
@@ -105,7 +105,7 @@ class LsspreadsheetCellTest extends basic_testcase {
 	}
 
 	public function testInitFromJsonObjectCalcAnswerCell(){
-		$cell = new LsspreadsheetCell();
+		$cell = new Cell();
 		$jsonObject = array(
 			"celltype" => "CalcAnswer_7",
       "chart" => "",

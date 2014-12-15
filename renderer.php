@@ -15,29 +15,29 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * lsspreadsheet question renderer class.
+ * lsciss question renderer class.
  *
  * @package    qtype
- * @subpackage lsspreadsheet
+ * @subpackage lsciss
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
 defined('MOODLE_INTERNAL') || die();
-use Learnsci\Lsspreadsheet;
-use Learnsci\LsspreadsheetCellGrader;
+use Learnsci\Spreadsheet;
+use Learnsci\CellGrader;
 use Learnsci\LsspreadsheetUtils;
 use Learnsci\LsspreadsheetChart;
 use Learnsci\LsspreadsheetChartStats;
 
 /**
- * Generates the output for lsspreadsheet questions.
+ * Generates the output for lsciss questions.
  *
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_lsspreadsheet_renderer extends qtype_renderer {
+class qtype_lsciss_renderer extends qtype_renderer {
     public function formulation_and_controls(question_attempt $qa,
             question_display_options $options) {
 
@@ -46,9 +46,9 @@ class qtype_lsspreadsheet_renderer extends qtype_renderer {
         //moodle going throughtext and filtering
         $questiontext = $question->format_questiontext($qa);
         
-        $spreadsheetUtils = new LsspreadsheetUtils();
-        $spreadSheet = new Lsspreadsheet();
-        $graded = $spreadSheet->grade_spreadsheet_question($question->lsspreaddata, $qa->get_last_qt_data());
+        $spreadSheet = new Spreadsheet();
+        $spreadSheet->setJsonStringFromDb($question->lsspreaddata);
+        $graded = $spreadSheet->grade_spreadsheet_question($qa->get_last_qt_data());
 
         $feedbackStyles = [
             'correctFeedbackClass' => $this->feedback_class(1),
@@ -57,7 +57,12 @@ class qtype_lsspreadsheet_renderer extends qtype_renderer {
             'wrongFeedbackImage' => $this->feedback_image(0)
         ];
 
-        $html = $spreadsheetUtils->getTakeTableFromLsspreaddata($question->lsspreaddata, $qa->get_field_prefix(), $options, $qa, $graded, $feedbackStyles);
+        $html = $spreadSheet->getTakeTableFromLsspreaddata(
+            $qa->get_field_prefix(),
+            $options,
+            $qa,
+            $graded,
+            $feedbackStyles);
 
         $result = html_writer::tag('div', $questiontext . $html, array('class' => 'qtext'));
 

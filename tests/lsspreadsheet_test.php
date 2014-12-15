@@ -4,22 +4,22 @@
 defined('MOODLE_INTERNAL') || die();
 global $CFG;
 
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/Lsspreadsheet.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCell.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetCellGrader.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChart.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/lib/LsspreadsheetChartStats.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/phpexcel/PHPExcel.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/tests/mocks/QaMock.php');
-use Learnsci\Lsspreadsheet;
+require_once($CFG->dirroot . '/question/type/lsciss/lib/Spreadsheet.php');
+require_once($CFG->dirroot . '/question/type/lsciss/lib/Cell.php');
+require_once($CFG->dirroot . '/question/type/lsciss/lib/CellGrader.php');
+require_once($CFG->dirroot . '/question/type/lsciss/lib/Chart.php');
+require_once($CFG->dirroot . '/question/type/lsciss/lib/ChartStats.php');
+require_once($CFG->dirroot . '/question/type/lsciss/phpexcel/PHPExcel.php');
+require_once($CFG->dirroot . '/question/type/lsciss/tests/mocks/QaMock.php');
+use Learnsci\Spreadsheet;
 
 
-class LsspreadsheetTest extends basic_testcase {
+class SpreadsheetTest extends basic_testcase {
 
 	private $lsspreaddata;
 
 	protected function setUp() {
-		$this->spreadsheet = new Lsspreadsheet();
+		$this->spreadsheet = new Spreadsheet();
 		$this->lsspreaddata = file_get_contents(__DIR__ . '/fixtures/sample_sheet_data.json');
 		$this->lsspreaddataFermentation = file_get_contents(__DIR__ . '/fixtures/measuring_fermentation_lsspreaddata.json');
 		$this->lsspreaddataBigQuestion = file_get_contents(__DIR__ . '/fixtures/big_question_lsspreaddata.json');
@@ -73,7 +73,7 @@ class LsspreadsheetTest extends basic_testcase {
 		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
 		$tableHtml = $this->spreadsheet->getTakeTableFromLsspreaddata('', $options, $qa, $graded, $feedbackStyles);
 		$expectedTableHtml = file_get_contents(__DIR__ . '/fixtures/take-table.html');
-		file_put_contents('/tmp/lsspreadsheet.html', $tableHtml);
+		file_put_contents('/tmp/lsciss.html', $tableHtml);
 		$this->assertEquals($tableHtml, $expectedTableHtml);
 	}
 

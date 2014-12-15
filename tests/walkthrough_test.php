@@ -18,7 +18,7 @@
  * This file contains tests that walks a spreadsheet question through various
  * behaviours.
  *
- * @package   qtype_lsspreadsheet
+ * @package   qtype_lsciss
  * @copyright 2012 The Open University
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 
 require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/tests/helper.php');
+require_once($CFG->dirroot . '/question/type/lsciss/tests/helper.php');
 
 
 /**
@@ -37,9 +37,9 @@ require_once($CFG->dirroot . '/question/type/lsspreadsheet/tests/helper.php');
  * @copyright 2012 The Open University
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_lsspreadsheet_walkthrough_test extends qbehaviour_walkthrough_test_base {
+class qtype_lsciss_walkthrough_test extends qbehaviour_walkthrough_test_base {
     public function test_deferredfeedback_behaviour() {
-        $question = test_question_maker::make_question('lsspreadsheet');
+        $question = test_question_maker::make_question('lsciss');
         $this->start_attempt_at_question($question, 'deferredfeedback', 3);
 
         // Check the initial state.

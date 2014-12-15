@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * lsspreadsheet question type version information.
+ * lsciss question type version information.
  *
- * @package    qtype_lsspreadsheet
+ * @package    qtype_lsciss
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->version   = 2014110700;
 $plugin->requires  = 2013111800;
 $plugin->cron      = 0;
-$plugin->component = 'qtype_lsspreadsheet';
+$plugin->component = 'qtype_lsciss';
 $plugin->maturity  = MATURITY_ALPHA;
 $plugin->release   = 'work-in-progress';
  

@@ -1,7 +1,7 @@
 <?php
 namespace Learnsci;
 
-class Lsspreadsheet {
+class Spreadsheet {
 
 
 	public function __construct() {
@@ -13,7 +13,7 @@ class Lsspreadsheet {
 		 */
 		\PHPExcel_Calculation::getInstance()->setCalculationCacheEnabled(false);
 
-		$this->lsspreadsheetCellGrader = new LsspreadsheetCellGrader();
+		$this->lsspreadsheetCellGrader = new CellGrader();
 	}
 
 	/**
@@ -303,7 +303,7 @@ class Lsspreadsheet {
 
 		foreach ($jsonCells as $cellref => $cell) {
 
-			$lsspreadsheetCell = new LsspreadsheetCell();
+			$lsspreadsheetCell = new Cell();
 			$lsspreadsheetCell->initCellFromJsonObject($cell);
 			$spreadsheet[$cellref] = $lsspreadsheetCell;
 		}
@@ -340,7 +340,7 @@ class Lsspreadsheet {
 	 */
 	public function getTakeTableFromLsspreaddata($nameprefix = '', $options, $qa, $graded, $feedbackStyles, $json_chart_instructions = "", $lschartdata = "") {
 
-		$lschart = new LsspreadsheetChart();
+		$lschart = new Chart();
 
 		$spreadSheet = $this->spreadsheet;
 
@@ -375,7 +375,7 @@ class Lsspreadsheet {
 						}
 					}
 				} else {
-					$cell = new LsspreadsheetCell();
+					$cell = new Cell();
 					$cell->response = $qa->get_last_qt_var($cellref);
 				}
 				$htmltable .= $cell->getTdForCell($cellname, $this->numberOfColumns, $options->readonly);

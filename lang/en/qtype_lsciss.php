@@ -15,17 +15,17 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_lsspreadsheet'.
+ * Strings for component 'qtype_lsciss'.
  *
- * @package   qtype_lsspreadsheet
+ * @package   qtype_lsciss
  * @copyright THEYEAR YOURNAME (YOURCONTACTINFO)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 $string['pleaseananswerallparts'] = 'Please answer all parts of the question.';
-$string['pluginname'] = 'Spreadsheet';
+$string['pluginname'] = 'Learnsci Spreadsheet question';
 $string['pluginname_help'] = 'The grading is based on the spreadsheet you define at the bottom of the form.';
-$string['pluginname_link'] = 'question/type/lsspreadsheet';
+$string['pluginname_link'] = 'question/type/lsciss';
 $string['pluginnameadding'] = 'Adding a spreadsheet question';
 $string['pluginnameediting'] = 'Editing a spreadsheet question';
 $string['pluginnamesummary'] = 'A question type with a number of sudent inputs, that are graded by comparison with a spreadsheet behind the scenes. This allows some answers to depend on other inputs. For example a student may input some lab obervations, and then computed some other information from those observations, and those calculations will be graded.';

@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the editing form for the lsspreadsheet question type.
+ * Defines the editing form for the lsciss question type.
  *
- * @package   qtype_lsspreadsheet
+ * @package   qtype_lsciss
  * @copyright THEYEAR YOURNAME (YOURCONTACTINFO)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,12 +26,12 @@ defined('MOODLE_INTERNAL') || die();
 
 
 /**
- * lsspreadsheet question editing form definition.
+ * lsciss question editing form definition.
  *
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_lsspreadsheet_edit_form extends question_edit_form {
+class qtype_lsciss_edit_form extends question_edit_form {
 
     protected function definition_inner($mform) {
         $mform->addElement('textarea', 'lsspreaddata', 'Spreadsheet JSON');
@@ -61,6 +61,6 @@ class qtype_lsspreadsheet_edit_form extends question_edit_form {
     }
 
     public function qtype() {
-        return 'lsspreadsheet';
+        return 'lsciss';
     }
 }

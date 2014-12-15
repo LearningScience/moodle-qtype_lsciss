@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <quiz>
 <!-- question: 1  -->
-  <question type="lsspreadsheet">
+  <question type="lsciss">
     <name>
       <text>Imported spreadsheet question</text>
     </name>

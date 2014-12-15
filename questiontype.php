@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Question type class for the lsspreadsheet question type.
+ * Question type class for the lsciss question type.
  *
- * @package   qtype_lsspreadsheet
+ * @package   qtype_lsciss
  * @copyright THEYEAR YOURNAME (YOURCONTACTINFO)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,17 +27,17 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/questionlib.php');
 require_once($CFG->dirroot . '/question/engine/lib.php');
-require_once($CFG->dirroot . '/question/type/lsspreadsheet/question.php');
+require_once($CFG->dirroot . '/question/type/lsciss/question.php');
 require_once($CFG->dirroot . '/question/format/xml/format.php');
 
 
 /**
- * The lsspreadsheet question type.
+ * The lsciss question type.
  *
  * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_lsspreadsheet extends question_type {
+class qtype_lsciss extends question_type {
 
     public function move_files($questionid, $oldcontextid, $newcontextid) {
         parent::move_files($questionid, $oldcontextid, $newcontextid);
@@ -54,7 +54,7 @@ class qtype_lsspreadsheet extends question_type {
     public function get_question_options($question) {
         global $DB;
         parent::get_question_options($question);
-        $question->options = $DB->get_record('qtype_lsspreadsheet_options',
+        $question->options = $DB->get_record('qtype_lsciss_options',
                 array('questionid' => $question->id));
         return true;
     }
@@ -63,7 +63,7 @@ class qtype_lsspreadsheet extends question_type {
         global $DB;
         $context = $question->context;
 
-        $options = $DB->get_record('qtype_lsspreadsheet_options',
+        $options = $DB->get_record('qtype_lsciss_options',
                 array('questionid' => $question->id));
         if (!$options) {
             $options = new stdClass();
@@ -72,12 +72,12 @@ class qtype_lsspreadsheet extends question_type {
             $options->correctfeedback = '';
             $options->partiallycorrectfeedback = '';
             $options->incorrectfeedback = '';
-            $options->id = $DB->insert_record('qtype_lsspreadsheet_options', $options);
+            $options->id = $DB->insert_record('qtype_lsciss_options', $options);
         }
     
         $options->lsspreaddata = $question->lsspreaddata;
         $options = $this->save_combined_feedback_helper($options, $question, $context);
-        $DB->update_record('qtype_lsspreadsheet_options', $options);
+        $DB->update_record('qtype_lsciss_options', $options);
 
         $this->save_hints($question);
     }
@@ -85,7 +85,7 @@ class qtype_lsspreadsheet extends question_type {
     public function delete_question($questionid, $contextid) {
         global $DB;
         return parent::delete_question($questionid, $contextid);
-        $DB->delete_records('qtype_lsspreadsheet_options', array('questionid' => $questionid));
+        $DB->delete_records('qtype_lsciss_options', array('questionid' => $questionid));
     }
 
     protected function initialise_question_instance(question_definition $question, $questiondata) {
@@ -107,12 +107,12 @@ class qtype_lsspreadsheet extends question_type {
     }
 
     public function import_from_xml($data, $question, qformat_xml $format, $extra=null) {
-        if (!isset($data['@']['type']) || $data['@']['type'] != 'lsspreadsheet') {
+        if (!isset($data['@']['type']) || $data['@']['type'] != 'lsciss') {
             return false;
         }
 
         $question = $format->import_headers($data);
-        $question->qtype = 'lsspreadsheet';
+        $question->qtype = 'lsciss';
 
         $question->lsspreaddata = $format->getpath($data,
                 array('#', 'lsspreaddata', 0, '#'), '', false, 'lsspreaddata is required');

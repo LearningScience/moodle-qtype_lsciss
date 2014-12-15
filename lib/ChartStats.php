@@ -6,11 +6,11 @@ namespace Learnsci;
  */
 
 /**
- * Description of LsspreadsheetChartingStats
+ * Description of ChartStats
  *
  * @author steve
  */
-class LsspreadsheetChartStats {
+class ChartStats {
 
 	/**
 	 * linear regression function

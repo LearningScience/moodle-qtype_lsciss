@@ -17,7 +17,7 @@
 /**
  * Unit tests for the spreadsheet question definition class.
  *
- * @package   qtype_lsspreadsheet
+ * @package   qtype_lsciss
  * @copyright 2012 The Open University
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -34,10 +34,10 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
  * @copyright  2012 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_lsspreadsheet_question_test extends basic_testcase {
+class qtype_lsciss_question_test extends basic_testcase {
 
     public function test_get_expected_data() {
-        $question = test_question_maker::make_question('lsspreadsheet');
+        $question = test_question_maker::make_question('lsciss');
 
         $this->assertEquals(array(
                     'table0_cell_c1_r10' => PARAM_RAW_TRIMMED,
@@ -52,7 +52,7 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
     public function test_is_complete_response() {
         // TODO is it actually necessary for the students to complete every box?
         // If not change the assertions an the code.
-        $question = test_question_maker::make_question('lsspreadsheet');
+        $question = test_question_maker::make_question('lsciss');
 
         $this->assertFalse($question->is_complete_response(array()));
         $this->assertFalse($question->is_complete_response(array(
@@ -77,7 +77,7 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
     public function test_is_gradable_response() {
         // TODO here, it is probably even less necessary for the students to
         // complete every box, change the assertions an the code.
-        $question = test_question_maker::make_question('lsspreadsheet');
+        $question = test_question_maker::make_question('lsciss');
 
         $this->assertFalse($question->is_gradable_response(array()));
         $this->assertFalse($question->is_gradable_response(array(
@@ -99,7 +99,7 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
     }
 
     public function test_grading() {
-        $question = test_question_maker::make_question('lsspreadsheet');
+        $question = test_question_maker::make_question('lsciss');
 
         list($fraction, $state) = $question->grade_response(array(
                     'table0_cell_c1_r5' => 'male',
@@ -140,13 +140,13 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
 
     //text summary of question human readable
     public function test_get_question_summary() {
-        $question = test_question_maker::make_question('lsspreadsheet');
+        $question = test_question_maker::make_question('lsciss');
         $this->assertEquals('Fill in the boxes.', $question->get_question_summary());
     }
 
     //when previewing question can see these (response history)
     public function test_summarise_response() {
-        $question = test_question_maker::make_question('lsspreadsheet');
+        $question = test_question_maker::make_question('lsciss');
 
         $this->assertEquals('c1_r10: 1.0, c1_r5: 2.0, c1_r6: 3.0, c1_r7: 4.0, c1_r8: 5.0, c1_r9: 6.0',
                 $question->summarise_response(array(
@@ -160,12 +160,12 @@ class qtype_lsspreadsheet_question_test extends basic_testcase {
     }
 
     public function test_get_correct_response() {
-        $question = test_question_maker::make_question('lsspreadsheet');
+        $question = test_question_maker::make_question('lsciss');
         $this->assertNull($question->get_correct_response());
     }
 
     public function test_classify_response() {
-        $question = test_question_maker::make_question('lsspreadsheet');
+        $question = test_question_maker::make_question('lsciss');
         $question->start_attempt(new question_attempt_step(), 1);
 
         $this->assertEquals(array(), $question->classify_response(array()));

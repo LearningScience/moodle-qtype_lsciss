@@ -1,4 +1,4 @@
-@qtype @qtype_lsspreadsheet
+@qtype @qtype_lsciss
 Feature: Test all the basic functionality of this question type
   In order evaluate students analysis of their own data
   As an teacher

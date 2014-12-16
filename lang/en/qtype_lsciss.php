@@ -23,7 +23,7 @@
  */
 
 $string['pleaseananswerallparts'] = 'Please answer all parts of the question.';
-$string['pluginname'] = 'Learnsci Spreadsheet question';
+$string['pluginname'] = 'Learnsci Spreadsheet question (new)';
 $string['pluginname_help'] = 'The grading is based on the spreadsheet you define at the bottom of the form.';
 $string['pluginname_link'] = 'question/type/lsciss';
 $string['pluginnameadding'] = 'Adding a spreadsheet question';

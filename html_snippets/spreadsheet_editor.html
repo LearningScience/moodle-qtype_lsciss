@@ -1,0 +1,183 @@
+<div id="lsscontrols_div">
+
+    <table id="lsspreadcontrols">
+        <tbody id="lsspreadcontrols_tbody">
+            <tr>
+                <td>
+                    <table id="lsspreadcontrol_celltypes" class="lsspreadcontrol_table">
+                        <tbody class="lsspreadcontrol_tbody">
+                            <tr>
+                                <th colspan="3">Cell Type</th>
+                            </tr>
+                            <tr>
+                                <td class="lsNone"><!--
+                                            cell_type none is to remove any cell types that might have
+                                            been added mistakenly to a cell
+                                    --> <input type="radio"
+                                               name="cell_type" value="celltype_None" checked="checked" /> <span
+                                               id="span_celltype_None">None</span></td>
+                                <td class="lsStudentInput"><!--
+                                            Student Input cell type where students type in a number
+                                            In Moodle this will end up as a numerical question input within
+                                                           the multianswer question that is the spreadsheet.
+                                    --> <input type="radio"
+                                               name="cell_type" value="celltype_StudentInput" /> <span
+                                               id="span_celltype_Input">Input</span></td>
+                            </tr>
+
+                            <tr>
+                                <td class="lsLabel"><!--
+                                            Sets a label, if text isnt selected in the spreadsheet it isnt
+                                            rendered to the question (it allows notes to be made by the
+                                            person setting the question within the sheet)
+                          
+                                            The 2 options allow the formatting of the text in the label
+                          
+                                    --> <span id="span_celltype_Label">Label</span>
+                                    <input type="radio" name="cell_type" value="celltype_Label_left"
+                                           checked="checked" /> <img
+                                           src="#questionWWWroot#/images/left_align.png" /> <input type="radio"
+                                           name="cell_type" value="celltype_Label_centre" /> <img
+                                           src="#questionWWWroot#/images/centre_align.png" /></td>
+                                <td class="lsSectionHeading"><!--
+                                            This is a cell that when formatted will create a title across
+                                            the spread sheet.  Allows sections of a spreadsheet to be broken
+                                            up.  Primarily allows styling to be added to the heading
+                                    --> <input type="radio"
+                                               name="cell_type" value="celltype_SectionHeading" /> Section
+            Heading</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="lsCalcAnswer"><!--
+                                            Calc answer is where a formula goes in the admin interface.
+                                            When a spreadsheet question is set it needs to have one cell
+                                            defined as a CalcAnswer cell or it cannot function!
+                                    --> <input type="radio"
+                                               name="cell_type" value="celltype_CalcAnswer" /> Calculated
+            question worth <!--
+                                                       Marks that the question will be worth in the quiz in which it is
+                                                       set.
+                                    --> <input type="text"
+                                               name="cell_mark" value="1" id="cell_marks" /> Mark(s)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table id="lsspreadcontrol_rangetypes" class="lsspreadcontrol_table">
+                        <tbody class="lsspreadcontrol_tbody">
+                            <tr>
+                                <th colspan="3">Range Type</th>
+                                <!--
+                                        The range types are the methods by which the CalcAnswer is checked.
+                                -->
+                            </tr>
+                            <tr>
+                                <td><!--
+                                            An absolute value for the CalcAnswer to be checked against what
+                                            the student has done
+                                    --> <input type="radio"
+                                               name="range_type" value="rangetype_AbsoluteRange"
+                                               checked="checked" /> Absolute</td>
+                                <td rowspan="3" id="rangeval_td">Value<br />
+                                    <input type="text" name="range_value" id="cell_rangeval" value="0" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="range_type"
+                                           value="rangetype_SigfigRange" /> Sig. figs.</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="range_type"
+                                           value="rangetype_DecimalRange" /> Decimal places</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table id="lsspreadcontrol_feedback" class="lsspreadcontrol_table">
+                        <tbody class="lsspreadcontrol_tbody">
+                            <tr>
+                                <th colspan="1">Feedback</th>
+                            </tr>
+                            <tr>
+                                <td id="feedback_td"><textarea id="cell_feedback"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table id="lsspreadcontrol_calcView" class="lsspreadcontrol_table">
+                        <tbody class="lsspreadcontrol_tbody">
+                            <tr>
+                                <td id="calcView_td">
+                                    <div class="button" view="formula" id="toggleView"
+                                         onClick="toggleView();"><span>Showing formula view</span>
+                                    </div>
+                                    <div id="viewStatus">Editing Mode</div>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <div id="lscontrols_chart">
+        <div id="lscontrols_chart_button">Add a chart to this question</div>
+        <div id="lscontrols_chart_options">
+            <div id="lscontrols_manualgrading_div">Grading type:<input type="radio" name="gradingtype_rb" value="manual">Manual<input type="radio" name="gradingtype_rb" value="auto">auto</div>
+            <div id="lscontrols_chart_menu">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="lscontrols_series">
+                                <div>
+                                    <div id="lscontrols_xseriesbutton">X series</div>
+                                    <div class="lscontrols_series_title_div">
+                                    <label for="lscontrols_xseries_title">X-axis title:</label>
+                                    <input type="text" name="textfield_xseries_title" id="lscontrols_xseries_title" value="X-Axis" />
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td class="lscontrols_series">
+                                <div>
+                                    <div id="lscontrols_yseriesbutton">Y series</div>
+                                    <div class="lscontrols_series_title_div">
+                                    <label for="lscontrols_yseries_title">Y-axis title:</label>
+                                    <input type="text" name="textfield_yseries_title" id="lscontrols_yseries_title" value="Y-Axis" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="lscontrols_series">
+                                <div >
+                                <div><label for="lscontrols_chart_title">Chart Title:</label><br><input id="lscontrols_chart_title" type="text"/></div>
+                                </div>
+                            </td>
+                            <td class="lscontrols_series">
+                                 <div>
+                                <div><label for="lscontrols_chart_mark">Mark for Chart:</label><br/><input id="lscontrols_chart_marks" name="lscontrols_chart_marks" type="text"/></div>
+                                 </div>
+                            </td>
+                            <td>
+<!--                                <div id="lscontrols_previewchart">Preview</div>-->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="jQuerySheet" style="height: 550px;"></div>
+
+<span id="inlineMenu" style="display: none;"> <span> </span> </span>

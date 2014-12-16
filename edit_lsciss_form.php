@@ -34,6 +34,27 @@ defined('MOODLE_INTERNAL') || die();
 class qtype_lsciss_edit_form extends question_edit_form {
 
     protected function definition_inner($mform) {
+        global $PAGE, $CFG;
+        //$PAGE->requires->jquery();
+
+        $PAGE->requires->js("/question/type/lsciss/js/jquery-1.4.2.min.js");
+        $PAGE->requires->js("/question/type/lsciss/js/jquery.tooltip.js");
+        $PAGE->requires->js("/question/type/lsciss/js/jquery.dimensions.min.js");
+
+        $PAGE->requires->js("/question/type/lsciss/js/jquery.sheet.js");
+        $PAGE->requires->js("/question/type/lsciss/js/jquery.json-2.2.min.js");
+        $PAGE->requires->js("/question/type/lsciss/js/plugins/mbMenu.min.js");
+        $PAGE->requires->js("/question/type/lsciss/js/plugins/jquery.scrollTo-min.js");
+        $PAGE->requires->js("/question/type/lsciss/js/jquery-ui-1.8.custom.min.js");
+        $PAGE->requires->js("/question/type/lsciss/js/lsspreadsheet.js");
+
+        $PAGE->requires->css("/question/type/lsciss/styles/jquery.sheet.css");
+        $PAGE->requires->css("/question/type/lsciss/styles/styles.css");
+
+        $htmlOfEditor = file_get_contents($CFG->dirroot . "/question/type/lsciss/html_snippets/spreadsheet_editor.html");
+        $questionWWWroot = $CFG->wwwroot . "/question/type/lsciss";
+        $htmlOfEditor = str_replace('#questionWWWroot#', $questionWWWroot, $htmlOfEditor);
+        $mform->addElement('html', $htmlOfEditor);
         $mform->addElement('textarea', 'lsspreaddata', 'Spreadsheet JSON');
 
         $this->add_combined_feedback_fields();

@@ -320,8 +320,8 @@ $(document).ready(function () {
     });
 
     $('#load-json-button').click(function(){
-        var jsonInput = $('#json-input').val();
-        $('textarea[name=lsspreaddata]').val(jsonInput);
+        // var jsonInput = $('#json-input').val();
+        // $('textarea[name=lsspreaddata]').val(jsonInput);
         load_default_lsspreaddata_new();
     });
 

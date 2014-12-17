@@ -318,7 +318,11 @@ class Spreadsheet {
 	}
 
 	private function initChartDataObject(){
-		$this->chartData = $this->lsspreaddata['chartdata'];
+		if(array_key_exists('chartdata', $this->lsspreaddata)){
+			$this->chartData = $this->lsspreaddata['chartdata'];
+		} else {
+			$this->chartData = '';
+		}
 	}
 
 	public function getChartDataObject() {

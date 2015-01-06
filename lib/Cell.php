@@ -76,7 +76,8 @@ class Cell
 
       $this->textvalue = $jsonCell['textvalue'];
       $this->formula = $jsonCell['formula'];
-      $this->feedback = str_replace("'", "\\'", $jsonCell['feedback']);
+      //$this->feedback = str_replace("'", "\\'", $jsonCell['feedback']);
+      $this->feedback = $jsonCell['feedback'];
       $this->labelalign = "";
       $this->marks = 0;
 
@@ -161,7 +162,7 @@ class Cell
 
   private function getInputTagCellReadOnlyMarked($cssClass, $cellname){
     $styles = trim($cssClass . ' ' . $this->feedbackClass );
-    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>'. $this->feedbackImage . '<br/>' . '<span>' . $this->correctanswer . '</span>';
+    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>'. $this->feedbackImage . '<br/>' . '<span>' . $this->correctanswer . '</span>' . '<br>' . '<span>' . $this->feedback . '</span>';
   }
 
   private function getCellHtml($cssClass, $cellname, $isReadOnly){

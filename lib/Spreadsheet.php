@@ -260,6 +260,20 @@ class Spreadsheet {
 		return $this->getGradeFractionFromUserTotalAndMaxMark($userTotal, $maxMark);
 	}
 
+	/**
+	 * This function isnt used by moodle - its a helper function for the migration to the new question type
+	 * @return [type] [description]
+	 */
+	public function get_internal_max_mark(){
+		$maxMark = 0;
+		foreach ($this->spreadsheet as $key => $value) {
+      if($value->celltype === 'CalcAnswer'){
+          $maxMark += $value->marks;
+      }
+    }
+    return $maxMark;
+	}
+
 	private function getGradeFractionFromUserTotalAndMaxMark($userTotal, $maxMark){
 		if($maxMark === 0){
     	$fraction = 1;

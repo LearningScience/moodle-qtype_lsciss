@@ -44,6 +44,12 @@ class SpreadsheetTest extends basic_testcase {
 		$spreadsheet = $this->spreadsheet->getObjectFromLsspreaddata();
 	}
 
+	public function testGetInternalMaxMark(){
+		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddataDifferentlyMarkedCells);
+		$maxMark = $this->spreadsheet->get_internal_max_mark();
+		$this->assertEquals($maxMark, 6);
+	}
+
 	public function testCreateExcelFromSpreadsheet() {
 		$this->spreadsheet->setJsonStringFromDb($this->lsspreaddata);
 		$spreadsheet = $this->spreadsheet->getObjectFromLsspreaddata();

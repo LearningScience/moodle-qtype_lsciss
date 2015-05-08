@@ -32,3 +32,12 @@ Then you need to initialise the test environment using following command.
 
     cd /home/example/moodle
     php admin/tool/phpunit/cli/init.php
+
+## Running Spreadsheet PhpUnit tests
+
+    vendor/bin/phpunit question/type/lsciss/tests/lsspreadsheet_cellgrader_test.php
+    vendor/bin/phpunit question/type/lsciss/tests/lsspreadsheet_cell_test.php
+    vendor/bin/phpunit question/type/lsciss/tests/lsspreadsheet_test.php
+    vendor/bin/phpunit question/type/lsciss/tests/question_test.php
+    vendor/bin/phpunit question/type/lsciss/tests/questiontype_test.php
+    vendor/bin/phpunit question/type/lsciss/tests/phpexcel_test.php

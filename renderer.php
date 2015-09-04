@@ -28,8 +28,8 @@ defined('MOODLE_INTERNAL') || die();
 use Learnsci\Spreadsheet;
 use Learnsci\CellGrader;
 use Learnsci\LsspreadsheetUtils;
-use Learnsci\LsspreadsheetChart;
-use Learnsci\LsspreadsheetChartStats;
+use Learnsci\Chart;
+use Learnsci\ChartStats;
 
 /**
  * Generates the output for lsciss questions.
@@ -40,7 +40,7 @@ use Learnsci\LsspreadsheetChartStats;
 class qtype_lsciss_renderer extends qtype_renderer {
     public function formulation_and_controls(question_attempt $qa,
             question_display_options $options) {
-
+        global $CFG; 
         $question = $qa->get_question();
 
         //moodle going throughtext and filtering
@@ -50,6 +50,10 @@ class qtype_lsciss_renderer extends qtype_renderer {
         $spreadSheet->setJsonStringFromDb($question->lsspreaddata);
         $graded = $spreadSheet->grade_spreadsheet_question($qa->get_last_qt_data());
 
+        $chart = new Chart();
+        $chartJS = $chart->get_chart_javascript($question->id, $CFG->wwwroot, '', '');
+
+        $showChart ='&nbsp;<img alt="" src="'.$CFG->wwwroot.'/question/type/lsciss/ajax_chart.php" /> ';
         $feedbackStyles = [
             'correctFeedbackClass' => $this->feedback_class(1),
             'correctFeedbackImage' => $this->feedback_image(1),
@@ -57,12 +61,15 @@ class qtype_lsciss_renderer extends qtype_renderer {
             'wrongFeedbackImage' => $this->feedback_image(0)
         ];
 
+
         $html = $spreadSheet->getTakeTableFromLsspreaddata(
             $qa->get_field_prefix(),
             $options,
             $qa,
             $graded,
             $feedbackStyles);
+        $html .= $showChart;
+        $html .= '<div style="clear:both;"></div>';
 
         $result = html_writer::tag('div', $questiontext . $html, array('class' => 'qtext'));
 

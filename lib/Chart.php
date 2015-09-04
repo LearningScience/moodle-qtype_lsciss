@@ -1,5 +1,6 @@
 <?php
 namespace Learnsci;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -10,15 +11,27 @@ namespace Learnsci;
  *
  * @author steve
  */
-// require_once(dirname(__FILE__) . '/../' . 'lib/pChart/pData.php');
-// require_once(dirname(__FILE__) . '/../' . 'lib/pChart/pChart.php');
-// require_once ('src/Lsspreadsheet.php');
-// require_once ('src/LsspreadsheetChartStats.php');
+require_once(dirname(__FILE__) . '/../../../../config.php'); 
+global $CFG; 
 
+require_once(dirname(__FILE__) . '/../' . 'pChart/pData.php');
+require_once(dirname(__FILE__) . '/../' . 'pChart/pChart.php');
+// require_once ('src/Lsspreadsheet.php');
+require_once (dirname(__FILE__) . '/../' . 'lib/ChartStats.php');
+
+//display image
+if ($loadChart == true){
+$lschart = new Chart();
+
+$plot = $lschart->xyplot($data);
+
+header('Content-type: image/png');
+imagepng($plot->Picture);
+}
+//endto beremoved
 class Chart {
 
 	public function __construct() {
-
 	}
 
 	public function create_chart_from_lsspreadsheet($spreadsheet) {
@@ -91,7 +104,7 @@ class Chart {
 	}
 	public function xyplot($data) {
 
-		$lsstats = new LsspreadsheetChartStats();
+		$lsstats = new ChartStats();
 		$DataSet = new pData;
 		$Chart = new pChart(300, 300);
 
@@ -99,7 +112,7 @@ class Chart {
 			return $Chart;
 		}
 
-		for ($i = 0; $i <= count($data->xseries); $i++) {
+		for ($i = 0; $i < count($data->xseries); $i++) {
 			$DataSet->AddPoint(floatval($data->xseries[$i]), "Serie2");
 			$DataSet->AddPoint(floatval($data->yseries[$i]), "Serie1");
 		}
@@ -113,9 +126,12 @@ class Chart {
 
 // Initialise the graph
 		// Prepare the graph area
-		$Chart->setFontProperties("Fonts/tahoma.ttf", 10);
+		$Chart->setFontProperties(dirname(__FILE__) . '/../' . 'Fonts/tahoma.ttf', 10);
 
 		$Chart->setGraphArea(55, 30, 270, 230);
+		$DataDescription =$DataSet->GetDataDescription();
+		$XSerieName = $DataDescription["Axis"]["X"];
+		$YSerieName = $DataDescription["Axis"]["Y"];
 		$Chart->drawXYScale($DataSet->GetData(), $DataSet->GetDataDescription(), "Serie1", "Serie2", 0, 0, 0, 0);
 		$Chart->drawGraphArea(255, 255, 255, FALSE);
 

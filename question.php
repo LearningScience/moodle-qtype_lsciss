@@ -64,12 +64,17 @@ class qtype_lsciss_question extends question_graded_automatically {
      */
     public function is_complete_response(array $response) {
         $complete = true;
+        $k=0;
+        $testComplete = array();
         foreach ($this->get_expected_data() as $name => $notused) {
+        $testComplete[$k] = 'true';
             if (!array_key_exists($name, $response) ||
-                    (!$response[$name] && $response[$name] !== '0')) {
-                return false;
+                    (!$response[$name] && $response[$name] !== '0')) {$testComplete[$k] = 'false';
+        //  return false;
             }
+        $k++;
         }
+        if (!in_array('true', $testComplete)) return false;
         return true;
     }
 

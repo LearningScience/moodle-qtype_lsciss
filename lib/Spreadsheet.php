@@ -104,6 +104,8 @@ class Spreadsheet {
 		if ($correct_answer_string === "") {
 			if ($correct_answer > 0) {
 				$correct_answer_string = sprintf("%.2f", $correct_answer);
+			}else{
+				$correct_answer_string = $correct_answer;
 			}
 		}
 

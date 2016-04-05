@@ -26,8 +26,14 @@ class CellGrader {
       $leewayValue = (($rounded_correct_answer / 100.0) * $percentage_leeway);
     }
 
-    $upper_correct_range = $rounded_correct_answer + $leewayValue;
-    $lower_correct_range = $rounded_correct_answer - $leewayValue;
+    //flip the ranges if value is negative
+    if($rounded_correct_answer >= 0){
+      $upper_correct_range = $rounded_correct_answer + $leewayValue;
+      $lower_correct_range = $rounded_correct_answer - $leewayValue;
+    }else{
+      $upper_correct_range = $rounded_correct_answer - $leewayValue;
+      $lower_correct_range = $rounded_correct_answer + $leewayValue;
+    }
 
     if ($rounded_correct_answer < 0) {
       if (($rounded_submitted_answer >= $upper_correct_range)

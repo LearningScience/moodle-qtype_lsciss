@@ -96,7 +96,9 @@ class CellGrader {
     } else {
       $answer->correctanswer = " " . $correct_answer_string . " exactly ";
     }
-    if (($submitted_answer === $correct_answer) ||
+
+    //cast $correct_answer to string so both are same type for comparison
+    if (($submitted_answer === ((String)$correct_answer)) ||
       ($submitted_answer >= ($correct_answer - $rangeval)) && ($submitted_answer <= ($correct_answer + $rangeval))) {
       $answer->iscorrect = true;
     } else {

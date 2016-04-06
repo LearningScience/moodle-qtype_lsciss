@@ -119,7 +119,7 @@ class Spreadsheet {
 		$num_decimals = $this->get_num_decimals($submitted_answer, false);
 		if ($correct_answer_string === "") {
 			if ($correct_answer > 0) {
-				$correct_answer_string = round($submitted_answer, $num_decimals);
+				$correct_answer_string = round($correct_answer, $num_decimals);
 			}else{
 				$correct_answer_string = $correct_answer;
 			}

@@ -99,11 +99,27 @@ class Spreadsheet {
 		return $answer;
 	}
 
-	public function get_cell_correctness($submitted_answer, $correct_answer, $rangetype, $rangeval, $correct_answer_string = "") {
+	// Counts the number of digits after the '.'
+	public function get_num_decimals($value, $include_trailing_zeros) {
+		$decimals = null;
+		//Cast value to a string if it is not already
+		if(is_string($value) !== true){
+			$value = (string)$value;
+		}
+		//Trim trailing zeros if we do not want to count them
+		if($include_trailing_zeros === true){
+			$decimals = strlen(substr(strrchr($value, "."), 1));
+		}else{
+			$decimals = strlen(substr(strrchr(trim($value), "."), 1));
+		}
+		return $decimals;
+	}
 
+	public function get_cell_correctness($submitted_answer, $correct_answer, $rangetype, $rangeval, $correct_answer_string = "") {
+		$num_decimals = $this->get_num_decimals($submitted_answer, false);
 		if ($correct_answer_string === "") {
 			if ($correct_answer > 0) {
-				$correct_answer_string = sprintf("%.2f", $correct_answer);
+				$correct_answer_string = round($submitted_answer, $num_decimals);
 			}else{
 				$correct_answer_string = $correct_answer;
 			}
@@ -125,7 +141,7 @@ class Spreadsheet {
 				$answer = $this->lsspreadsheetCellGrader->getPercentCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string);
 				break;
 			case "AbsoluteRange":
-				$answer = $this->lsspreadsheetCellGrader->getAbsoluteCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string);
+				$answer = $this->lsspreadsheetCellGrader->getAbsoluteCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string, $num_decimals);
 				break;
 		}
 

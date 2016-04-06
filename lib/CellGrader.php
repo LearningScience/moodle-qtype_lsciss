@@ -93,7 +93,7 @@ class CellGrader {
     }
   }
 
-  public function getAbsoluteCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string){
+  public function getAbsoluteCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string, $num_decimals){
     $answer = new \stdClass();
     $answer->correctanswer = "";
     //$submitted_answer = $submitted_answer;
@@ -102,6 +102,8 @@ class CellGrader {
     } else {
       $answer->correctanswer = " " . $correct_answer_string . " exactly ";
     }
+
+    $correct_answer = round($correct_answer, $num_decimals);
 
     //cast $correct_answer to string so both are same type for comparison
     if (($submitted_answer === ((String)$correct_answer)) ||

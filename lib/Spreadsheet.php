@@ -120,6 +120,8 @@ class Spreadsheet {
 		if ($correct_answer_string === "") {
 			if ($correct_answer > 0) {
 				$correct_answer_string = round($correct_answer, $num_decimals);
+				$format = "%." . $num_decimals . "f";
+                $correct_answer_string = sprintf($format, $correct_answer);
 			}else{
 				$correct_answer_string = $correct_answer;
 			}

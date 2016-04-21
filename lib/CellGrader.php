@@ -11,7 +11,6 @@ class CellGrader {
     $rounded_submitted_answer = $this->toPrecision($submitted_answer, $rangeval);
     $rounded_correct_answer = $this->toPrecision($correct_answer, $rangeval);
     $answer->correctanswer = " " . $rounded_correct_answer . " to " . $rangeval . " sig. fig";
-
     $answer->feedbackstring = " " . $rounded_correct_answer . " to " . $rangeval . " sig. fig";
     //$differenceFromCorrectAnswer = $rounded_submitted_answer - $rounded_correct_answer;
 
@@ -26,6 +25,7 @@ class CellGrader {
       $leewayValue = (($rounded_correct_answer / 100.0) * $percentage_leeway);
     }
 
+
     //flip the ranges if value is negative
     if($rounded_correct_answer >= 0){
       $upper_correct_range = $rounded_correct_answer + $leewayValue;
@@ -35,22 +35,13 @@ class CellGrader {
       $lower_correct_range = $rounded_correct_answer + $leewayValue;
     }
 
-    if ($rounded_correct_answer < 0) {
-      if (($rounded_submitted_answer >= $upper_correct_range)
-        && ($rounded_submitted_answer <= $lower_correct_range)) {
-        //Answer is correct within a 2% leeway
-        $answer->iscorrect = true;
-      } else {
-        $answer->iscorrect = false;
-      }
-    } else {
-      if (($rounded_submitted_answer <= $upper_correct_range)
-        && ($rounded_submitted_answer >= $lower_correct_range)) {
-        //Answer is correct within a 2% leeway
-        $answer->iscorrect = true;
-      } else {
-        $answer->iscorrect = false;
-      }
+    if (($rounded_submitted_answer <= $upper_correct_range)
+      && ($rounded_submitted_answer >= $lower_correct_range)) {
+      //Answer is correct within a 2% leeway
+      $answer->iscorrect = true;
+    } 
+    else {
+      $answer->iscorrect = false;
     }
 
     return $answer;

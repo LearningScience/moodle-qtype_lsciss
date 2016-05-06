@@ -152,17 +152,17 @@ class Cell
 
   private function getInputTagCell($cssClass, $cellname){
     $styles = trim($cssClass);
-    return '<input type="text" class="' . $styles  . '" ' . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>';
+    return '<input type="text" class="' . $styles  . '" ' . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '" style="width: 80px;"></input>';
   }
 
   private function getInputTagCellReadOnly($cssClass, $cellname){
     $styles = trim($cssClass);
-    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' .' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>';
+    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' .' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '" style="width: 80px;"></input>';
   }  
 
   private function getInputTagCellReadOnlyMarked($cssClass, $cellname){
     $styles = trim($cssClass . ' ' . $this->feedbackClass );
-    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '"></input>'. $this->feedbackImage . '<br/>' . '<span>' . $this->correctanswer . '</span>' . '<br>' . '<span>' . $this->feedback . '</span>';
+    return '<input type="text" readonly="readonly" class="' . $styles  . '" ' . ' value="' . $this->response . '" id="' . $cellname . '" name="' . $cellname . '" style="width: 80px;"></input>'. $this->feedbackImage . '<br/>' . '<span>' . $this->correctanswer . '</span>' . '<br>' . '<span>' . $this->feedback . '</span>';
   }
 
   private function getCellHtml($cssClass, $cellname, $isReadOnly){

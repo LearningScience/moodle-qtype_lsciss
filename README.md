@@ -1,4 +1,4 @@
-# Spreassheet question type
+# Spreadsheet question type
 
 Created by Learning Science for Bristol University.
 

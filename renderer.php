@@ -53,7 +53,7 @@ class qtype_lsciss_renderer extends qtype_renderer {
         $chart = new Chart();
         $chartJS = $chart->get_chart_javascript($question->id, $CFG->wwwroot, '', '');
 
-        $showChart ='&nbsp;<img alt="" src="'.$CFG->wwwroot.'/question/type/lsciss/ajax_chart.php" /> ';
+        //$showChart ='&nbsp;<img alt="" src="'.$CFG->wwwroot.'/question/type/lsciss/ajax_chart.php" /> ';
         $feedbackStyles = [
             'correctFeedbackClass' => $this->feedback_class(1),
             'correctFeedbackImage' => $this->feedback_image(1),
@@ -68,7 +68,7 @@ class qtype_lsciss_renderer extends qtype_renderer {
             $qa,
             $graded,
             $feedbackStyles);
-        $html .= $showChart;
+        //$html .= $showChart;
         $html .= '<div style="clear:both;"></div>';
 
         $result = html_writer::tag('div', $questiontext . $html, array('class' => 'qtext'));

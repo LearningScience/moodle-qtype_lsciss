@@ -18,7 +18,7 @@
  * Question type class for the lsciss question type.
  *
  * @package   qtype_lsciss
- * @copyright THEYEAR YOURNAME (YOURCONTACTINFO)
+ * @copyright 2016 Learning Science Ltd https://learnsci.co.uk
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -34,7 +34,7 @@ require_once($CFG->dirroot . '/question/format/xml/format.php');
 /**
  * The lsciss question type.
  *
- * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
+ * @copyright  2016 Learning Science Ltd https://learnsci.co.uk
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_lsciss extends question_type {

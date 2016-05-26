@@ -18,7 +18,7 @@
  * Defines the editing form for the lsciss question type.
  *
  * @package   qtype_lsciss
- * @copyright THEYEAR YOURNAME (YOURCONTACTINFO)
+ * @copyright 2016 Learning Science Ltd https://learnsci.co.uk
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * lsciss question editing form definition.
  *
- * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
+ * @copyright  2016 Learning Science Ltd https://learnsci.co.uk
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_lsciss_edit_form extends question_edit_form {

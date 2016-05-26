@@ -18,7 +18,7 @@
  * Strings for component 'qtype_lsciss'.
  *
  * @package   qtype_lsciss
- * @copyright THEYEAR YOURNAME (YOURCONTACTINFO)
+ * @copyright 2016 Learning Science Ltd https://learnsci.co.uk
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

@@ -22,10 +22,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pleaseananswerallparts'] = 'Please answer all parts of the question.';
-$string['pluginname'] = 'Learnsci Spreadsheet question (new)';
+$string['pluginname'] = 'Learnsci Spreadsheet question';
 $string['pluginname_help'] = 'The grading is based on the spreadsheet you define at the bottom of the form.';
 $string['pluginname_link'] = 'question/type/lsciss';
 $string['pluginnameadding'] = 'Adding a spreadsheet question';
 $string['pluginnameediting'] = 'Editing a spreadsheet question';
 $string['pluginnamesummary'] = 'A question type with a number of sudent inputs, that are graded by comparison with a spreadsheet behind the scenes. This allows some answers to depend on other inputs. For example a student may input some lab obervations, and then computed some other information from those observations, and those calculations will be graded.';
+$string['pleaseananswerallparts'] = 'Please answer all parts of the question.';

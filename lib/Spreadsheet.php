@@ -116,6 +116,10 @@ class Spreadsheet {
 	}
 
 	public function get_cell_correctness($submitted_answer, $correct_answer, $rangetype, $rangeval, $correct_answer_string = "") {
+		//Note for scientific notation
+		// $number = 362525200;
+		// echo sprintf("%.3e", $number); // outputs 3.625e+8
+
 		$num_decimals = $this->get_num_decimals($submitted_answer, false);
 		if ($correct_answer_string === "") {
 			if ($correct_answer > 0) {

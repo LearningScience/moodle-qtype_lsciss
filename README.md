@@ -1,4 +1,4 @@
-# Spreadsheet question type
+# LS Spreadsheet Question type
 
 Created by Learning Science for Bristol University.
 
@@ -18,4 +18,4 @@ root of your Moodle install:
 
 ##PHP Excel
 
-This question type ships with PHP Excel 1.8.0 which has been modified to add the ROUNDSIGFIG function, see patch file.  This function is NOT required for the question type itslef to work and was added as a convenience method for the eBiolabs project.
+This question type ships with PHP Excel 1.8.0 which has been modified to add the ROUNDSIGFIG function, see patch file.  This function is NOT required for the question type itself to work and was added as a convenience method for the eBiolabs project.

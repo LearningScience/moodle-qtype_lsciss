@@ -18,18 +18,17 @@
  * lsciss question type version information.
  *
  * @package    qtype_lsciss
- * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
+ * @copyright  2016 Learning Science Ltd https://learnsci.co.uk
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
  
-$plugin->version   = 2014110700;
-$plugin->requires  = 2013111800;
-$plugin->cron      = 0;
+$plugin->version   = 2016052600;
+$plugin->requires  = 2013111800; // Moodle version 2.6+
 $plugin->component = 'qtype_lsciss';
 $plugin->maturity  = MATURITY_ALPHA;
-$plugin->release   = 'work-in-progress';
+$plugin->release   = '0.0.1';
  
 $plugin->dependencies = array(
 );

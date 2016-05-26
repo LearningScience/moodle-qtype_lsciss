@@ -19,6 +19,10 @@ require_once(dirname(__FILE__) . '/../' . 'pChart/pChart.php');
 // require_once ('src/Lsspreadsheet.php');
 require_once (dirname(__FILE__) . '/../' . 'lib/ChartStats.php');
 
+if(isset($loadChart) == false){
+	$loadChart = false;
+}
+
 //display image
 if ($loadChart == true){
 $lschart = new Chart();

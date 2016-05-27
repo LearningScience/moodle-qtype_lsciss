@@ -22,7 +22,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Learnsci Spreadsheet question';
+$string['pluginname'] = 'Learnsci spreadsheet question';
 $string['pluginname_help'] = 'The grading is based on the spreadsheet you define at the bottom of the form.';
 $string['pluginname_link'] = 'question/type/lsciss';
 $string['pluginnameadding'] = 'Adding a spreadsheet question';

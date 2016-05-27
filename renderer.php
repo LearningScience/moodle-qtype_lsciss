@@ -31,12 +31,6 @@ use Learnsci\LsspreadsheetUtils;
 use Learnsci\Chart;
 use Learnsci\ChartStats;
 
-/**
- * Generates the output for lsciss questions.
- *
- * @copyright  2016 Learning Science Ltd https://learnsci.co.uk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class qtype_lsciss_renderer extends qtype_renderer {
     public function formulation_and_controls(question_attempt $qa,
             question_display_options $options) {

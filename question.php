@@ -35,13 +35,6 @@ require_once($CFG->dirroot . '/question/type/lsciss/lib/ChartStats.php');
 require_once($CFG->dirroot . '/question/type/lsciss/phpexcel/PHPExcel.php');
 use Learnsci\Spreadsheet;
 
-
-/**
- * Represents a lsciss question.
- *
- * @copyright  2016 Learning Science Ltd https://learnsci.co.uk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class qtype_lsciss_question extends question_graded_automatically {
 
     /** @var string JSON of the spreadsheet. */

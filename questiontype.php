@@ -54,8 +54,7 @@ class qtype_lsciss extends question_type {
     public function get_question_options($question) {
         global $DB;
         parent::get_question_options($question);
-        $question->options = $DB->get_record('qtype_lsciss_options',
-                array('questionid' => $question->id));
+        $question->options = $DB->get_record('qtype_lsciss_options', array('questionid' => $question->id));
         return true;
     }
 
@@ -63,8 +62,7 @@ class qtype_lsciss extends question_type {
         global $DB;
         $context = $question->context;
 
-        $options = $DB->get_record('qtype_lsciss_options',
-                array('questionid' => $question->id));
+        $options = $DB->get_record('qtype_lsciss_options', array('questionid' => $question->id));
         if (!$options) {
             $options = new stdClass();
             $options->questionid = $question->id;
@@ -78,7 +76,6 @@ class qtype_lsciss extends question_type {
         $options->lsspreaddata = $question->lsspreaddata;
         $options = $this->save_combined_feedback_helper($options, $question, $context);
         $DB->update_record('qtype_lsciss_options', $options);
-
         $this->save_hints($question);
     }
 
@@ -114,26 +111,19 @@ class qtype_lsciss extends question_type {
         $question = $format->import_headers($data);
         $question->qtype = 'lsciss';
 
-        $question->lsspreaddata = $format->getpath($data,
-                array('#', 'lsspreaddata', 0, '#'), '', false, 'lsspreaddata is required');
+        $question->lsspreaddata = $format->getpath($data, array('#', 'lsspreaddata', 0, '#'), '', false, 'lsspreaddata is required');
 
         $format->import_combined_feedback($question, $data, false);
 
-        $format->import_hints($question, $data, false, false,
-                $format->get_format($question->questiontextformat));
+        $format->import_hints($question, $data, false, false, $format->get_format($question->questiontextformat));
 
         return $question;
     }
 
     public function export_to_xml($question, qformat_xml $format, $extra = null) {
         $output = '';
-
-        $output .= $format->write_combined_feedback($question->options,
-                                                    $question->id,
-                                                    $question->contextid);
-        $output .= "    <lsspreaddata>\n" . $format->xml_escape($question->options->lsspreaddata) .
-            "\n    </lsspreaddata>\n";
-
+        $output .= $format->write_combined_feedback($question->options, $question->id, $question->contextid);
+        $output .= "    <lsspreaddata>\n" . $format->xml_escape($question->options->lsspreaddata) . "\n    </lsspreaddata>\n";
         return $output;
     }
 }

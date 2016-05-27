@@ -128,7 +128,7 @@ class Chart {
 		$DataSet->SetXAxisName($data->xaxistitle);
 		$DataSet->SetYAxisName($data->yaxistitle);
 
-// Initialise the graph
+		// Initialise the graph
 		// Prepare the graph area
 		$Chart->setFontProperties(dirname(__FILE__) . '/../' . 'Fonts/tahoma.ttf', 10);
 
@@ -141,11 +141,10 @@ class Chart {
 
 		$Chart->drawGrid(4, FALSE);
 
-//Following function is a Learning Science add on!
+		//Following function is a Learning Science add on!
 		$Chart->drawXYPointsGraph($data->xseries, $data->yseries, $DataDescription, $YSerieName, $XSerieName, $PaletteID = 0, $BigRadius = 5, $SmallRadius = 2, $R2 = -1, $G2 = -1, $B2 = -1, $Shadow = TRUE);
 
-//Following function is a Learning Science add on!
-
+		//Following function is a Learning Science add on!
 		$data->stats = $lsstats->get_lsspreadsheet_stats($data->xseries, $data->yseries);
 		error_log("xyplot");
 		error_log(print_r($data, true));

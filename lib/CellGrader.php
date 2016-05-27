@@ -76,9 +76,7 @@ class CellGrader {
     // Verify if needs to be represented in scientific notation
     $arrDecimaisOriginal = explode('.', $number);
     if (sizeof($arrDecimaisOriginal) >= 2) {
-      return (strlen($arrDecimaisOriginal[0]) > $sf) ?
-      sprintf("%." . ($sf - 1) . "f", $valorFinal) :
-      $valorFinal;
+      return (strlen($arrDecimaisOriginal[0]) > $sf) ? sprintf("%." . ($sf - 1) . "f", $valorFinal) : $valorFinal;
     } else {
       return sprintf("%." . ($sf - 1) . "f", $valorFinal);
     }

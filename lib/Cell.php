@@ -1,8 +1,7 @@
 <?php
 namespace Learnsci;
 
-class Cell 
-{
+class Cell {
   private $cellvalue;
   private $excelref;
 
@@ -12,7 +11,7 @@ class Cell
   private $tdclass;
   private $feedbackstring;
   ///
-  
+
   //make function
   public $celltype;
   public $response;
@@ -34,7 +33,7 @@ class Cell
 
   public function __set($name, $value) {
         throw new \Exception("Cannot add new property \$$name to instance of " . __CLASS__);
-    }
+  }
 
   public function __construct(){
     $this->celltype = "";
@@ -57,14 +56,12 @@ class Cell
   }
 
 
-  public function getCellValue()
-  {
+  public function getCellValue(){
     $text = is_null($this->textvalue) ? ''  : $this->textvalue;
     return html_entity_decode(str_ireplace('&nbsp;', " ", $text));
   }
 
-  public function getExcelRef()
-  {
+  public function getExcelRef(){
     $r = $this->row + 1;
     $c = $this->col;
     return \PHPExcel_Cell::stringFromColumnIndex($c) . $r;

@@ -5,7 +5,7 @@ class Spreadsheet {
 
 
 	public function __construct() {
-				/**
+		/**
 		 * Caching is disabled to stop old values for cells being held in memory,
 		 * less efficient on large spreadsheets but should be ok here.
 		 *
@@ -123,9 +123,9 @@ class Spreadsheet {
 		$num_decimals = $this->get_num_decimals($submitted_answer, false);
 		if ($correct_answer_string === "") {
 			if ($correct_answer > 0) {
-				$correct_answer_string = round($correct_answer, $num_decimals, PHP_ROUND_HALF_UP);
+				// $correct_answer_string = round($correct_answer, $num_decimals, PHP_ROUND_HALF_UP);
 				$format = "%." . $num_decimals . "f";
-                $correct_answer_string = sprintf($format, $correct_answer);
+                // $correct_answer_string = sprintf($format, $correct_answer);
 			}else{
 				$correct_answer_string = $correct_answer;
 			}
@@ -190,13 +190,13 @@ class Spreadsheet {
 	}
 
 	/**
- * Grade the spreadsheet question
- *
- * @param <type> $options
- * @param <type> $responses
- * @param <type> $gradingtype
- * @return int
- */
+	 * Grade the spreadsheet question
+	 *
+	 * @param <type> $options
+	 * @param <type> $responses
+	 * @param <type> $gradingtype
+	 * @return int
+	 */
 	public function grade_spreadsheet_question($responses, $gradingtype = "auto") {
 		$answersArray = [];
 		$spreadSheet = $this->spreadsheet;
@@ -268,18 +268,18 @@ class Spreadsheet {
 		$ans = $this->grade_spreadsheet_question($responses);
 
 		$userTotal = 0;
-    $maxMark = 0;
+    	$maxMark = 0;
 
-    foreach ($ans as $key => $value) {
+	    foreach ($ans as $key => $value) {
 
-      if($value->celltype === 'CalcAnswer'){
-          $maxMark += $this->spreadsheet[$key]->marks;
-      }
+	      if($value->celltype === 'CalcAnswer'){
+	          $maxMark += $this->spreadsheet[$key]->marks;
+	      }
 
-      if($value->iscorrect === true){
-          $userTotal += $this->spreadsheet[$key]->marks;
-      }
-    }
+	      if($value->iscorrect === true){
+	          $userTotal += $this->spreadsheet[$key]->marks;
+	      }
+	    }
         
 		return $this->getGradeFractionFromUserTotalAndMaxMark($userTotal, $maxMark);
 	}
@@ -291,29 +291,29 @@ class Spreadsheet {
 	public function get_internal_max_mark(){
 		$maxMark = 0;
 		foreach ($this->spreadsheet as $key => $value) {
-      if($value->celltype === 'CalcAnswer'){
-          $maxMark += $value->marks;
-      }
-    }
-    return $maxMark;
+	      if($value->celltype === 'CalcAnswer'){
+	          $maxMark += $value->marks;
+	      }
+    	}
+    	return $maxMark;
 	}
 
 	private function getGradeFractionFromUserTotalAndMaxMark($userTotal, $maxMark){
 		if($maxMark === 0){
-    	$fraction = 1;
-    } else {
-	    $fraction = $userTotal / $maxMark;
-    }
-    return $fraction;
+	    	$fraction = 1;
+	    } else {
+		    $fraction = $userTotal / $maxMark;
+	    }
+    	return $fraction;
 	}
 
 	/**
- *
- * @param <type> $spreadSheet
- * @param <type> $objPHPExcel
- * @return spreadsheet
- *   This is a spreadsheet data
- */
+	 *
+	 * @param <type> $spreadSheet
+	 * @param <type> $objPHPExcel
+	 * @return spreadsheet
+	 *   This is a spreadsheet data
+	 */
 	public function get_calculated_sheet_json($spreadSheet, &$objPHPExcel) {
 		\PHPExcel_Calculation::getInstance()->clearCalculationCache();
 
@@ -380,7 +380,7 @@ class Spreadsheet {
 	 * @param  Object  $options             [description]
 	 * @return [type]                           [description]
 	 */
-	public function getTakeTableFromLsspreaddata($nameprefix = '', $options, $qa, $graded, $feedbackStyles, $json_chart_instructions = "", $lschartdata = "") {
+	public function getTakeTableFromLsspreaddata($nameprefix = '', $options, $qa, $graded, $feedbackStyles, $json_chart_instructions = "", $lschartdata = ""){
 
 		$lschart = new Chart();
 
@@ -434,7 +434,6 @@ class Spreadsheet {
 	}
 
 	public function convert_spreadsheet_to_excel($spreadSheet) {
-
 		$objPHPExcel = new \PHPExcel();
 
 		foreach ($spreadSheet as $cellref => $cell) {
@@ -450,9 +449,4 @@ class Spreadsheet {
 
 		return (clone $objPHPExcel);
 	}
-
-
 }
-
-
-

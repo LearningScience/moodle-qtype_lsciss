@@ -123,16 +123,14 @@ class ChartStats {
 
 		try
 		{
-
 			if (($rsquared_numerator == 0) || ($rsquared_denominator == 0)) {
 				return false;
 			}
 
 			$r = $rsquared_numerator / $rsquared_denominator;
-
 			$rsquared->value = pow($r, 2);
 
-// return result
+			// return result
 			return $rsquared;
 		} catch (Exception $e) {
 			return false;

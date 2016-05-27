@@ -67,12 +67,11 @@ class qtype_lsciss_question extends question_graded_automatically {
         $k=0;
         $testComplete = array();
         foreach ($this->get_expected_data() as $name => $notused) {
-        $testComplete[$k] = 'true';
-            if (!array_key_exists($name, $response) ||
-                    (!$response[$name] && $response[$name] !== '0')) {$testComplete[$k] = 'false';
-        //  return false;
+            $testComplete[$k] = 'true';
+            if (!array_key_exists($name, $response) || (!$response[$name] && $response[$name] !== '0')) {$testComplete[$k] = 'false';
+            //return false;
             }
-        $k++;
+            $k++;
         }
         if (!in_array('true', $testComplete)) return false;
         return true;
@@ -87,8 +86,7 @@ class qtype_lsciss_question extends question_graded_automatically {
 
     public function is_same_response(array $prevresponse, array $newresponse) {
         // TODO.
-        return question_utils::arrays_have_same_keys_and_values(
-                $prevresponse, $newresponse);
+        return question_utils::arrays_have_same_keys_and_values($prevresponse, $newresponse);
     }
 
     public function get_correct_response() {
@@ -106,11 +104,9 @@ class qtype_lsciss_question extends question_graded_automatically {
         return implode(', ', $parts);
     }
 
-    public function check_file_access($qa, $options, $component, $filearea,
-            $args, $forcedownload) {
+    public function check_file_access($qa, $options, $component, $filearea, $args, $forcedownload) {
         if ($component == 'question' && $filearea == 'hint') {
             return $this->check_hint_file_access($qa, $options, $args);
-
         } else {
             return parent::check_file_access($qa, $options, $component, $filearea,
                     $args, $forcedownload);

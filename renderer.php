@@ -38,8 +38,7 @@ use Learnsci\ChartStats;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_lsciss_renderer extends qtype_renderer {
-    public function formulation_and_controls(question_attempt $qa,
-            question_display_options $options) {
+    public function formulation_and_controls(question_attempt $qa, question_display_options $options) {
         global $CFG; 
         $question = $qa->get_question();
 
@@ -62,12 +61,7 @@ class qtype_lsciss_renderer extends qtype_renderer {
         ];
 
 
-        $html = $spreadSheet->getTakeTableFromLsspreaddata(
-            $qa->get_field_prefix(),
-            $options,
-            $qa,
-            $graded,
-            $feedbackStyles);
+        $html = $spreadSheet->getTakeTableFromLsspreaddata($qa->get_field_prefix(), $options, $qa, $graded, $feedbackStyles);
         //$html .= $showChart;
         $html .= '<div style="clear:both;"></div>';
 

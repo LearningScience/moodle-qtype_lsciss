@@ -11,23 +11,17 @@ require_once ('Lsspreadsheet.php');
 
 $data = json_decode($_GET['data']);
 
-function get_formatted_stats_html($data)
-    {
-
+function get_formatted_stats_html($data) {
     $stats = LsspreadsheetChartStats::get_lsspreadsheet_stats($data->xseries, $data->yseries);
-
     return $stats;
-    }
+}
 
-if (isset($data->xseries))
-    {
+if (isset($data->xseries)) {
     $stats = get_formatted_stats_html($data);
-
     echo json_encode($stats);
 
-    }
-else
-    {
+}else {
     echo "";
-    }
+}
+
 ?>

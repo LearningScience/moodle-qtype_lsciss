@@ -30,13 +30,6 @@ require_once($CFG->dirroot . '/question/engine/lib.php');
 require_once($CFG->dirroot . '/question/type/lsciss/question.php');
 require_once($CFG->dirroot . '/question/format/xml/format.php');
 
-
-/**
- * The lsciss question type.
- *
- * @copyright  2016 Learning Science Ltd https://learnsci.co.uk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class qtype_lsciss extends question_type {
 
     public function move_files($questionid, $oldcontextid, $newcontextid) {

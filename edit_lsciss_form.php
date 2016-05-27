@@ -24,13 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-
-/**
- * lsciss question editing form definition.
- *
- * @copyright  2016 Learning Science Ltd https://learnsci.co.uk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class qtype_lsciss_edit_form extends question_edit_form {
 
     protected function definition_inner($mform) {

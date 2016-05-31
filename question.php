@@ -61,8 +61,8 @@ class qtype_lsciss_question extends question_graded_automatically {
         $testComplete = array();
         foreach ($this->get_expected_data() as $name => $notused) {
             $testComplete[$k] = 'true';
-            if (!array_key_exists($name, $response) || (!$response[$name] && $response[$name] !== '0')) {$testComplete[$k] = 'false';
-            //return false;
+            if (!array_key_exists($name, $response) || (!$response[$name] && $response[$name] !== '0')) {
+                $testComplete[$k] = 'false';
             }
             $k++;
         }

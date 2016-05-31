@@ -68,8 +68,6 @@ class Spreadsheet {
 	public function create_excel_populated_all_moodle_inputs($responses, $doClone = true) {
 		$moodleinput_excel = new \PHPExcel();
 
-		//PHPExcel_Calculation::getInstance()->clearCalculationCache();
-
 		foreach ($this->spreadsheet as $cellref => $cell) {
 
 			if (in_array($cellref, array_keys($responses))) {
@@ -77,11 +75,11 @@ class Spreadsheet {
 				$cellvalue = $responses[$cellref];
 
 				if (!is_numeric($cellvalue)) {
-					$cellvalue = "null";
+					$cellvalue = 'null';
 				}
 
-				if ($cellvalue == "") {
-					$cellvalue = "null";
+				if ($cellvalue == '') {
+					$cellvalue = 'null';
 				}
 			} else {
 				$cellvalue = strtoupper($cell->formula);
@@ -89,7 +87,6 @@ class Spreadsheet {
 
 			$moodleinput_excel->getActiveSheet()->setCellValue($cell->getExcelref(), $cellvalue);
 		}
-		//PHPExcel_Calculation::getInstance()->clearCalculationCache();
 
 		if ($doClone) {
 			$ret = clone ($moodleinput_excel);
@@ -131,24 +128,24 @@ class Spreadsheet {
 		}
 		//Trim trailing zeros if we do not want to count them
 		if($include_trailing_zeros === true){
-			$decimals = strlen(substr(strrchr($value, "."), 1));
+			$decimals = strlen(substr(strrchr($value, '.'), 1));
 		}else{
-			$decimals = strlen(substr(strrchr(trim($value), "."), 1));
+			$decimals = strlen(substr(strrchr(trim($value), '.'), 1));
 		}
 		return $decimals;
 	}
 
-	public function get_cell_correctness($submitted_answer, $correct_answer, $rangetype, $rangeval, $correct_answer_string = "") {
+	public function get_cell_correctness($submitted_answer, $correct_answer, $rangetype, $rangeval, $correct_answer_string = '') {
 		//Note for scientific notation
 		// $number = 362525200;
-		// echo sprintf("%.3e", $number); // outputs 3.625e+8
+		// echo sprintf('%.3e', $number); // outputs 3.625e+8
 
 		$num_decimals = $this->get_num_decimals($submitted_answer, false);
-		if ($correct_answer_string === "") {
+		if ($correct_answer_string === '') {
 			if ($correct_answer > 0) {
 				// $correct_answer_string = round($correct_answer, $num_decimals, PHP_ROUND_HALF_UP);
-				$format = "%." . $num_decimals . "f";
-                // $correct_answer_string = sprintf($format, $correct_answer);
+				$format = '%.' . $num_decimals . 'f';
+                $correct_answer_string = sprintf($format, $correct_answer);
 			}else{
 				$correct_answer_string = $correct_answer;
 			}
@@ -158,23 +155,23 @@ class Spreadsheet {
 		$submitted_answer = trim($submitted_answer);	
 
 		switch ($rangetype) {
-			case "SigfigRange":
+			case 'SigfigRange':
 				$answer = $this->lsspreadsheetCellGrader->getSigFigCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string);
 				break;
 
-			case "DecimalRange":
+			case 'DecimalRange':
 				$answer = $this->lsspreadsheetCellGrader->getDecimalCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string);
 				break;
 
-			case "PercentRange":
+			case 'PercentRange':
 				$answer = $this->lsspreadsheetCellGrader->getPercentCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string);
 				break;
-			case "AbsoluteRange":
+			case 'AbsoluteRange':
 				$answer = $this->lsspreadsheetCellGrader->getAbsoluteCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string, $num_decimals);
 				break;
 		}
 
-		if ($submitted_answer === "") {
+		if ($submitted_answer === '') {
 			$answer->iscorrect = false;
 		}
 		if (!is_numeric($submitted_answer)) {
@@ -198,7 +195,7 @@ class Spreadsheet {
 
 		foreach ($spreadsheet as $cellref => $cell) {
 			//This adds all the formulas to the spreadsheet but not numbers!
-			if ($cell->formula != "") {
+			if ($cell->formula != '') {
 				$markingExcel->getActiveSheet()->setCellValue($cell->getExcelref(), strtoupper($cell->formula));
 			}
 		}
@@ -220,7 +217,7 @@ class Spreadsheet {
 	 * @param <type> $gradingtype
 	 * @return int
 	 */
-	public function grade_spreadsheet_question($responses, $gradingtype = "auto") {
+	public function grade_spreadsheet_question($responses, $gradingtype = 'auto') {
 		$answersArray = [];
 		$spreadSheet = $this->spreadsheet;
 
@@ -231,12 +228,12 @@ class Spreadsheet {
 		\PHPExcel_Calculation::getInstance()->clearCalculationCache();
 		//populate the excel sheet with the StudentInput Data
 		foreach ($responses as $cellref => $value) {
-			$fields = explode("_", $cellref);
+			$fields = explode('_', $cellref);
 
-			if ($fields[0] == "table0") {
+			if ($fields[0] == 'table0') {
 
 				//dont overwrite the calculation cells!
-				if ($spreadSheet[$cellref]->celltype == "StudentInput") {
+				if ($spreadSheet[$cellref]->celltype == 'StudentInput') {
 					$excel->getActiveSheet()->setCellValue($spreadSheet[$cellref]->getExcelref(), $value);
 				}
 			}
@@ -247,7 +244,7 @@ class Spreadsheet {
 			if (array_key_exists($cellref, $responses)) {
 				$submitted_answer = $responses[$cellref];
 			} else {
-				$submitted_answer = "";
+				$submitted_answer = '';
 			}
 
 			\PHPExcel_Calculation::getInstance()->clearCalculationCache();
@@ -260,7 +257,7 @@ class Spreadsheet {
 			$answer_checked->feedbackstring = '';
 
 			switch ($cell->celltype) {
-				case "CalcAnswer":
+				case 'CalcAnswer':
 					$answer_checked = $this->get_cell_correctness($submitted_answer, $calcAnswer, $cell->rangetype, $cell->rangeval);
 					$answer_checked = $this->method_mark_cell(
 						$moodleinput_excel,
@@ -403,23 +400,20 @@ class Spreadsheet {
 	 * @param  Object  $options             [description]
 	 * @return [type]                           [description]
 	 */
-	public function getTakeTableFromLsspreaddata($nameprefix = '', $options, $qa, $graded, $feedbackStyles, $json_chart_instructions = "", $lschartdata = ""){
+	public function getTakeTableFromLsspreaddata($nameprefix = '', $options, $qa, $graded, $feedbackStyles, $json_chart_instructions = '', $lschartdata = ''){
 
 		$lschart = new Chart();
 
 		$spreadSheet = $this->spreadsheet;
 
-		$htmltable = "";
+		$htmltable = '';
 
-		if ($lschartdata !== "") {
-			//$htmltable .= $lschart->get_chart_javascript($question->id, $CFG->wwwroot, $json_chart_instructions, $lschartdata);
-		}
 		$htmltable .= "<div class=\"lsspreadsheet_table\"><table>";
 		for ($row = 0; $row < $this->numberOfRows; $row++) {
 				$htmltable .= '<tr>';
 			for ($col = 0; $col < $this->numberOfColumns; $col++) {
-				$rowind = "r" . $row;
-				$colind = "c" . $col;
+				$rowind = 'r' . $row;
+				$colind = 'c' . $col;
 				$cellref = 'table0_cell_' . $colind . '_' . $rowind;
 
 				$cellname = '';
@@ -449,10 +443,6 @@ class Spreadsheet {
 		}
 		$htmltable .= "</table></div>";
 
-		if ($lschartdata !== "") {
-			//$htmltable .= $lschart->get_chart_html($question->id, $CFG->wwwroot);
-		}
-
 		return $htmltable;
 	}
 
@@ -461,7 +451,7 @@ class Spreadsheet {
 
 		foreach ($spreadSheet as $cellref => $cell) {
 
-			if ($cell->formula != "") {
+			if ($cell->formula != '') {
 				$val = strtoupper($cell->formula);
 			} else {
 				$val = $cell->textvalue;

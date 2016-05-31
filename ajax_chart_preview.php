@@ -28,7 +28,6 @@ require_once('LsspreadsheetChart.php');
 $lschart = new LsspreadsheetChart();
 
 $json = $_POST['data'];
-//$json = json_encode($json);
 
 $spreadsheet = get_spreadsheetObject($json);
 

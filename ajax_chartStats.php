@@ -37,9 +37,8 @@ function get_formatted_stats_html($data) {
 if (isset($data->xseries)) {
     $stats = get_formatted_stats_html($data);
     echo json_encode($stats);
-
 }else {
-    echo "";
+    echo '';
 }
 
 ?>

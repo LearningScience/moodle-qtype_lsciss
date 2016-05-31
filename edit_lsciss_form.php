@@ -28,7 +28,6 @@ class qtype_lsciss_edit_form extends question_edit_form {
 
     protected function definition_inner($mform) {
         global $PAGE, $CFG;
-        //$PAGE->requires->jquery();
 
         $PAGE->requires->js('/question/type/lsciss/js/jquery-1.4.2.min.js');
         $PAGE->requires->js('/question/type/lsciss/js/jquery.tooltip.js');

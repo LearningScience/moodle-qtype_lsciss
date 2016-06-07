@@ -90,7 +90,7 @@ class CellGrader {
       $arrDecimais[1] = '';
     }
     if (strlen($number) > strlen($numberFinal) && $dp > strlen($arrDecimais[1])) {
-      $valorFinal = sprintf('%.' . ($dp - 1) . 'f', $number);
+      $valorFinal = sprintf('%.' . ($sf - 1) . 'f', $number);
     } else {
       //Leave the formatting to format_number(), but always format 0 to 0dp.
       $valorFinal = str_replace(',', '', number_format($numberFinal, 0 == $numberFinal ? 0 : $dp));
@@ -98,11 +98,11 @@ class CellGrader {
 
     // Verify if needs to be represented in scientific notation
     $arrDecimaisOriginal = explode('.', $number);
-    if (sizeof($arrDecimaisOriginal) >= 2) {
-      return (strlen($arrDecimaisOriginal[0]) > $sf) ? sprintf('%.' . ($sf - 1) . 'f', $valorFinal) : $valorFinal;
-    } else {
-      return sprintf('%.' . ($sf - 1) . 'f', $valorFinal);
+    if ((sizeof($arrDecimaisOriginal) >= 2) && (strlen($arrDecimaisOriginal[0]) > $sf)) {
+      $valorFinal = sprintf('%.' . ($sf - 1) . 'e', $valorFinal);
     }
+
+    return $valorFinal;
   }
 
   public function getAbsoluteCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string, $num_decimals){

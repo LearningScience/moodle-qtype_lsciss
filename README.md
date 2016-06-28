@@ -30,6 +30,9 @@ This version works with Moodle 2013111800 2.6 and above.
 4. Login to your site as admin and follow the standard plugin update notification.
 5. Exit 'Maintenance Mode'
 
+## Usage
+See the [wiki](https://github.com/LearningScience/moodle-qtype_lsciss/wiki).
+
 ## PHP Excel
 
 This question type ships with PHP Excel 1.8.0 which has been modified to add the ROUNDSIGFIG function, see patch file.  This function is NOT required for the question type itself to work and was added as a convenience method.

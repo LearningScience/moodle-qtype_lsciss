@@ -31,8 +31,10 @@ class CellGrader {
   public function getSigFigCellCorrectness($submitted_answer, $correct_answer, $rangeval){
     $answer = new \stdClass();
     $answer->correctanswer = '';
+    // echo $submitted_answer;
     $rounded_submitted_answer = $this->toPrecision($submitted_answer, $rangeval);
     $rounded_correct_answer = $this->toPrecision($correct_answer, $rangeval);
+
     $answer->correctanswer = ' ' . $rounded_correct_answer . ' to ' . $rangeval . ' sig. fig';
     $answer->feedbackstring = ' ' . $rounded_correct_answer . ' to ' . $rangeval . ' sig. fig';
 
@@ -76,30 +78,34 @@ class CellGrader {
    * @number <float> value to round
    * @sf <int> Number of significant figures
    */
-  public function toPrecision($number, $sf) {
+  function toPrecision($number, $sf) {
     // How many decimal places do we round and format to?
     // @note May be negative.
-    $dp = floor($sf - log10(abs($number)));
-
+    $number = (float)$number;
+    if((($number % 10) == 0) || $number == 1){
+        $dp = floor($sf - log10(abs($number+0.000000001)));
+    }else{
+        $dp = floor($sf - log10(abs($number)));
+    }
+    
     // Round as a regular number.
     $numberFinal = round($number, $dp);
-
-    //If the original number it's halp up rounded, don't need the last 0
+ 
+    //If the original number it's half up rounded, don't need the last 0
     $arrDecimais = explode('.', $numberFinal);
     if (!isset($arrDecimais[1])) {
-      $arrDecimais[1] = '';
+        $arrDecimais[1] = '';
     }
+   
     if (strlen($number) > strlen($numberFinal) && $dp > strlen($arrDecimais[1])) {
-      $valorFinal = sprintf('%.' . ($sf - 1) . 'f', $number);
+        $valorFinal = sprintf('%.' . ($sf - 1) . 'f', $number);
     } else {
-      //Leave the formatting to format_number(), but always format 0 to 0dp.
-      $valorFinal = str_replace(',', '', number_format($numberFinal, 0 == $numberFinal ? 0 : $dp));
+        //Leave the formatting to format_number(), but always format 0 to 0dp.
+        $valorFinal = str_replace(',', '', number_format($numberFinal, 0 == $numberFinal ? 0 : $dp));
     }
-
-    // Verify if needs to be represented in scientific notation
-    $arrDecimaisOriginal = explode('.', $number);
-    if ((sizeof($arrDecimaisOriginal) >= 2) && (strlen($arrDecimaisOriginal[0]) > $sf)) {
-      $valorFinal = sprintf('%.' . ($sf - 1) . 'e', $valorFinal);
+ 
+    if(($number <= 0.1 || $number >= 1000) || ($dp < 0)){
+        $valorFinal = sprintf('%.' . ($sf - 1) . 'E', $valorFinal);
     }
 
     return $valorFinal;

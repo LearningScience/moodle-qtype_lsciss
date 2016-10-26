@@ -1068,11 +1068,16 @@ background-color:#A8DB75;
 
 .lsspreadcontrol_tbody td
 {
-  font-family:"Times New Roman",Georgia,Serif;
+  /*font-family:"Times New Roman",Georgia,Serif;*/
   color:black;
   font-style:normal;
   text-align:left;
-  }
+  padding: 3px 5px;
+}
+.lsspreadcontrol_tbody td input[type="radio"], .lsspreadcontrol_tbody td input[type="checkbox"] {
+    margin-top: -2px;
+    margin-right: 2px;
+}
 
 #feedback_td 
 {

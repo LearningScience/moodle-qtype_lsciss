@@ -74,7 +74,7 @@ class CellGrader {
         $valorFinal = str_replace(',', '', number_format($numberFinal, 0 == $numberFinal ? 0 : $dp));
     }
  
-    if(($number <= 0.1 || $number >= 1000) || ($dp < 0)){
+    if(($dp < 0)){
         $valorFinal = sprintf('%.' . ($sf - 1) . 'E', $valorFinal);
     }
 

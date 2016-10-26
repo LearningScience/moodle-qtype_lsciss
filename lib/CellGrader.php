@@ -29,10 +29,9 @@ class CellGrader {
   public function __construct(){}
 
 
-  public function isSubmittedAnswerInScientificNotation($rounded_submitted_answer){
-    // \d = any digit, \. = matches ".", \d+ = any digit 1 or more times
-    // e = matches "e", [-+] = matches "+" or "-", \d+ = any digit 1 or more times, i = ignore case
-    $matches = preg_match('/\d\.\d+e[-+]\d+/i', $rounded_submitted_answer);
+  public function isSubmittedAnswerInExponentialNotation($rounded_submitted_answer){
+    // e = match "e", [-+]? = match "-" or "+" 0 or more times, \d+ = match a digit 1 or more times, i = case insensitive
+    $matches = preg_match_all('/e[-+]?\d+/i', $rounded_submitted_answer);
     //check if in scientific notation
     return $matches;
   }
@@ -87,7 +86,7 @@ class CellGrader {
     $rounded_correct_answer = $this->toPrecision($correct_answer, $rangeval);
 
     //if answer is given in scientific notation, format feedback to display in scientific notation
-    if($this->isSubmittedAnswerInScientificNotation($rounded_submitted_answer) && $submitted_answer != ""){
+    if($this->isSubmittedAnswerInExponentialNotation($submitted_answer)){
       $rounded_correct_answer = $this->convertToScientificNotation($rangeval, $rounded_correct_answer);
     }
 

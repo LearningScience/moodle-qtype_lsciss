@@ -1102,17 +1102,22 @@ background-color:#A8DB75;
 #cell_marks
 {
   width:2em;
-  }
+  margin-top: 4px;
+}
 
 #cell_rangeval
 {
   width:2em;
-  }
+    margin-left: 4px;
+}
 
 #cell_feedback
 {
   width:35em;
-  }
+}
+#feedback_header{
+  padding-left: 6px;
+}
 
 div.button:active {
     background-position: bottom right;

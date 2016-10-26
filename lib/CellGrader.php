@@ -50,6 +50,13 @@ class CellGrader {
     return strlen($str2);
   }
 
+  public function countDecimalPlaces($input){
+    // Regex to grab the integer, fraction and exponent ($1, $2, $3)
+    $regex = '/.*?(?=[\d.e]+)(?:([-+]?\d*))?(?:\.(\d*))?(?:e([-+]?\d*))?(?![\d.e]+).*/i';
+    $str = preg_replace($regex, '$2', $input); //Grabs everything after the decimal
+    return strlen($str);
+  }
+
 
   /**
    * Rounding to significant digits ( just like JS toPrecision() )
@@ -166,11 +173,10 @@ class CellGrader {
     $rounded_correct_answer = round($correct_answer, 0 + $rangeval);
 
     $answer->correctanswer = ' ' . number_format($rounded_correct_answer, $rangeval, '.', '') . ' to ' . $rangeval . ' dec. places';
-
+    $countedDecimals = $this->countDecimalPlaces($submitted_answer);
     //Add a 2% (percent) leeway for students carrying exact numbers through
     //an equation.
     $percentage_leeway = 2.0;
-
     if ($rounded_correct_answer === 0) {
       //We want to avoid divide by zero errors!
       $leewayValue = 0.0;
@@ -188,8 +194,7 @@ class CellGrader {
       $lower_correct_range = $rounded_correct_answer + $leewayValue;
     }
 
-    if (($rounded_submitted_answer <= $upper_correct_range)
-      && ($rounded_submitted_answer >= $lower_correct_range)) {
+    if (($rounded_submitted_answer <= $upper_correct_range) && ($rounded_submitted_answer >= $lower_correct_range) && ($countedDecimals == $rangeval)) {
       //Answer is correct within a 2% leeway
       $answer->iscorrect = true;
     } else {

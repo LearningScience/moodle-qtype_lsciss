@@ -40,6 +40,16 @@ class CellGrader {
     return sprintf('%.' . ($sigFigs - 1) . 'E', $answer);
   }
 
+  public function countSigFigs($input){
+    // Regex to grab the integer, fraction and exponent ($1, $2, $3)
+    $regex1 = '/.*?(?=[\d.e]+)(?:([-+]?\d*))?(?:\.(\d*))?(?:e([-+]?\d*))?(?![\d.e]+).*/i';
+    // Regex to remove leading zeros
+    $regex2 = '/^(?:[-+]?)(?:[0]*?)([^0]\d*|[0]*)$/';
+    $str = preg_replace($regex1, '$1$2', $input);
+    $str2 = preg_replace($regex2, '$1', $str);
+    return strlen($str2);
+  }
+
 
   /**
    * Rounding to significant digits ( just like JS toPrecision() )
@@ -89,9 +99,9 @@ class CellGrader {
     if($this->isSubmittedAnswerInExponentialNotation($submitted_answer)){
       $rounded_correct_answer = $this->convertToScientificNotation($rangeval, $rounded_correct_answer);
     }
-
     $answer->correctanswer = ' ' . $rounded_correct_answer . ' to ' . $rangeval . ' sig. fig';
     $answer->feedbackstring = ' ' . $rounded_correct_answer . ' to ' . $rangeval . ' sig. fig';
+    $countedSigFigs = $this->countSigFigs($submitted_answer);
 
     //Add a 2% (percent) leeway for students carrying exact numbers through
     //an equation.
@@ -103,7 +113,7 @@ class CellGrader {
     } else {
       $leewayValue = (($rounded_correct_answer / 100.0) * $percentage_leeway);
     }
-    //$leewayValue = 0; - For testing sig figs
+    $leewayValue = 0; //- For testing sig figs
 
 
     //flip the ranges if value is negative
@@ -115,8 +125,7 @@ class CellGrader {
       $lower_correct_range = $rounded_correct_answer + $leewayValue;
     }
 
-    if (($rounded_submitted_answer <= $upper_correct_range)
-      && ($rounded_submitted_answer >= $lower_correct_range)) {
+    if (($rounded_submitted_answer <= $upper_correct_range) && ($rounded_submitted_answer >= $lower_correct_range) && ($countedSigFigs == $rangeval)) {
       //Answer is correct within a 2% leeway
       $answer->iscorrect = true;
     } 

@@ -52,11 +52,9 @@ class CellGrader {
     // How many decimal places do we round and format to?
     // @note May be negative.
     $number = (float)$number;
-    if((($number % 10) == 0) || $number == 1){
-        $dp = floor($sf - log10(abs($number+0.000000001)));
-    }else{
-        $dp = floor($sf - log10(abs($number)));
-    }
+    
+    $orderOfMagnitude = floor(log10(abs($number)));
+    $dp = $sf - $orderOfMagnitude - 1;
     
     // Round as a regular number.
     $numberFinal = round($number, $dp);

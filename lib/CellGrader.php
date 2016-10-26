@@ -28,49 +28,19 @@ class CellGrader {
 
   public function __construct(){}
 
-  public function getSigFigCellCorrectness($submitted_answer, $correct_answer, $rangeval){
-    $answer = new \stdClass();
-    $answer->correctanswer = '';
-    // echo $submitted_answer;
-    $rounded_submitted_answer = $this->toPrecision($submitted_answer, $rangeval);
-    $rounded_correct_answer = $this->toPrecision($correct_answer, $rangeval);
 
-    $answer->correctanswer = ' ' . $rounded_correct_answer . ' to ' . $rangeval . ' sig. fig';
-    $answer->feedbackstring = ' ' . $rounded_correct_answer . ' to ' . $rangeval . ' sig. fig';
-
-    //Add a 2% (percent) leeway for students carrying exact numbers through
-    //an equation.
-    $percentage_leeway = 2.0;
-
-    if ($rounded_correct_answer === 0) {
-      //We want to avoid divide by zero errors!
-      $leewayValue = 0.0;
-    } else {
-      $leewayValue = (($rounded_correct_answer / 100.0) * $percentage_leeway);
-    }
-    //$leewayValue = 0; - For testing sig figs
-
-
-    //flip the ranges if value is negative
-    if($rounded_correct_answer >= 0){
-      $upper_correct_range = $rounded_correct_answer + $leewayValue;
-      $lower_correct_range = $rounded_correct_answer - $leewayValue;
-    }else{
-      $upper_correct_range = $rounded_correct_answer - $leewayValue;
-      $lower_correct_range = $rounded_correct_answer + $leewayValue;
-    }
-
-    if (($rounded_submitted_answer <= $upper_correct_range)
-      && ($rounded_submitted_answer >= $lower_correct_range)) {
-      //Answer is correct within a 2% leeway
-      $answer->iscorrect = true;
-    } 
-    else {
-      $answer->iscorrect = false;
-    }
-
-    return $answer;
+  public function isSubmittedAnswerInScientificNotation($rounded_submitted_answer){
+    // \d = any digit, \. = matches ".", \d+ = any digit 1 or more times
+    // e = matches "e", [-+] = matches "+" or "-", \d+ = any digit 1 or more times, i = ignore case
+    $matches = preg_match('/\d\.\d+e[-+]\d+/i', $rounded_submitted_answer);
+    //check if in scientific notation
+    return $matches;
   }
+
+  public function convertToScientificNotation($sigFigs, $answer){
+    return sprintf('%.' . ($sigFigs - 1) . 'E', $answer);
+  }
+
 
   /**
    * Rounding to significant digits ( just like JS toPrecision() )
@@ -110,6 +80,56 @@ class CellGrader {
 
     return $valorFinal;
   }
+
+  public function getSigFigCellCorrectness($submitted_answer, $correct_answer, $rangeval){
+    $answer = new \stdClass();
+    $answer->correctanswer = '';
+    // echo $submitted_answer;
+    $rounded_submitted_answer = $this->toPrecision($submitted_answer, $rangeval);
+    $rounded_correct_answer = $this->toPrecision($correct_answer, $rangeval);
+
+    //if answer is given in scientific notation, format feedback to display in scientific notation
+    if($this->isSubmittedAnswerInScientificNotation($rounded_submitted_answer) && $submitted_answer != ""){
+      $rounded_correct_answer = $this->convertToScientificNotation($rangeval, $rounded_correct_answer);
+    }
+
+    $answer->correctanswer = ' ' . $rounded_correct_answer . ' to ' . $rangeval . ' sig. fig';
+    $answer->feedbackstring = ' ' . $rounded_correct_answer . ' to ' . $rangeval . ' sig. fig';
+
+    //Add a 2% (percent) leeway for students carrying exact numbers through
+    //an equation.
+    $percentage_leeway = 2.0;
+
+    if ($rounded_correct_answer === 0) {
+      //We want to avoid divide by zero errors!
+      $leewayValue = 0.0;
+    } else {
+      $leewayValue = (($rounded_correct_answer / 100.0) * $percentage_leeway);
+    }
+    //$leewayValue = 0; - For testing sig figs
+
+
+    //flip the ranges if value is negative
+    if($rounded_correct_answer >= 0){
+      $upper_correct_range = $rounded_correct_answer + $leewayValue;
+      $lower_correct_range = $rounded_correct_answer - $leewayValue;
+    }else{
+      $upper_correct_range = $rounded_correct_answer - $leewayValue;
+      $lower_correct_range = $rounded_correct_answer + $leewayValue;
+    }
+
+    if (($rounded_submitted_answer <= $upper_correct_range)
+      && ($rounded_submitted_answer >= $lower_correct_range)) {
+      //Answer is correct within a 2% leeway
+      $answer->iscorrect = true;
+    } 
+    else {
+      $answer->iscorrect = false;
+    }
+
+    return $answer;
+  }
+
 
   public function getAbsoluteCellCorrectness($submitted_answer, $correct_answer, $rangeval, $correct_answer_string, $num_decimals){
     $answer = new \stdClass();

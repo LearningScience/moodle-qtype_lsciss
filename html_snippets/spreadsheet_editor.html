@@ -104,7 +104,7 @@
                     </table>
                 </td>
                 <td>
-                    <table id="lsspreadcontrol_calcView" class="lsspreadcontrol_table">
+                    <!-- <table id="lsspreadcontrol_calcView" class="lsspreadcontrol_table">
                         <tbody class="lsspreadcontrol_tbody">
                             <tr>
                                 <td id="calcView_td">
@@ -116,7 +116,7 @@
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
                 </td>
             </tr>
 
@@ -124,9 +124,15 @@
     </table>
 
     <div id="lscontrols_chart">
-        <div id="lscontrols_chart_button">Add a chart to this question</div>
-        <div id="lscontrols_chart_options">
-            <div id="lscontrols_manualgrading_div">Grading type:<input type="radio" name="gradingtype_rb" value="manual">Manual<input type="radio" name="gradingtype_rb" value="auto" checked="checked">auto</div>
+        <!-- <div id="lscontrols_chart_button">Add a chart to this question</div> -->
+         <!-- <div id="lscontrols_chart_options">
+            <div id="lscontrols_manualgrading_div"> -->
+            <!-- Grading type: -->
+                <!-- <input type="radio" name="gradingtype_rb" value="manual">Manual
+                <input type="radio" name="gradingtype_rb" value="auto" checked="checked">auto -->
+                <input type="hidden" name="gradingtype_rb" value="manual">
+                <input type="hidden" name="gradingtype_rb" value="auto" checked="checked">
+            <!-- </div>
             <div id="lscontrols_chart_menu">
                 <table>
                     <tbody>
@@ -135,9 +141,10 @@
                                 <div>
                                     <div id="lscontrols_xseriesbutton">X series</div>
                                     <div class="lscontrols_series_title_div">
-                                    <label for="lscontrols_xseries_title">X-axis title:</label>
-                                    <input type="text" name="textfield_xseries_title" id="lscontrols_xseries_title" value="X-Axis" />
-                                    </div>
+                                    <label for="lscontrols_xseries_title">X-axis title:</label> -->
+                                    <!-- <input type="text" name="textfield_xseries_title" id="lscontrols_xseries_title" value="X-Axis" /> -->
+                                    <input type="hidden" name="textfield_xseries_title" id="lscontrols_xseries_title" value="X-Axis" />
+              <!--                       </div>
                                 </div>
                             </td>
 
@@ -145,23 +152,30 @@
                                 <div>
                                     <div id="lscontrols_yseriesbutton">Y series</div>
                                     <div class="lscontrols_series_title_div">
-                                    <label for="lscontrols_yseries_title">Y-axis title:</label>
-                                    <input type="text" name="textfield_yseries_title" id="lscontrols_yseries_title" value="Y-Axis" />
-                                    </div>
+                                    <label for="lscontrols_yseries_title">Y-axis title:</label> -->
+                                    <!-- <input type="text" name="textfield_yseries_title" id="lscontrols_yseries_title" value="Y-Axis" /> -->
+                                    <input type="hidden" name="textfield_yseries_title" id="lscontrols_yseries_title" value="Y-Axis" />
+               <!--                      </div>
                                 </div>
                             </td>
                             <td class="lscontrols_series">
                                 <div >
-                                <div><label for="lscontrols_chart_title">Chart Title:</label><br><input id="lscontrols_chart_title" type="text"/></div>
+                                <div><label for="lscontrols_chart_title">Chart Title:</label><br> -->
+                                    <!-- <input id="lscontrols_chart_title" type="text"/> -->
+                                    <input id="lscontrols_chart_title" type="hidden"/>
+               <!--                  </div>
                                 </div>
                             </td>
                             <td class="lscontrols_series">
-                                 <div>
-                                <div><label for="lscontrols_chart_mark">Mark for Chart:</label><br/><input id="lscontrols_chart_marks" name="lscontrols_chart_marks" type="text"/></div>
+                                 <div> -->
+              <!--                   <div><label for="lscontrols_chart_mark">Mark for Chart:</label><br/> -->
+                                    <!-- <input id="lscontrols_chart_marks" name="lscontrols_chart_marks" type="text"/> -->
+                                    <input id="lscontrols_chart_marks" name="lscontrols_chart_marks" type="hidden"/>
+               <!--                  </div>
                                  </div>
                             </td>
-                            <td>
-<!--                                <div id="lscontrols_previewchart">Preview</div>-->
+                            <td> -->
+<!--                                <div id="lscontrols_previewchart">Preview</div>
                             </td>
                         </tr>
                     </tbody>
@@ -169,7 +183,7 @@
 
             </div>
 
-        </div>
+        </div> -->
     </div>
 </div>
 <div id="jQuerySheet" style="height: 550px;"></div>

@@ -87,8 +87,8 @@ class CellGrader {
         //Leave the formatting to format_number(), but always format 0 to 0dp.
         $valorFinal = str_replace(',', '', number_format($numberFinal, 0 == $numberFinal ? 0 : $dp));
     }
- 
-    if(($dp < 0)){
+    
+    if(($dp < 0) || ($valorFinal >= 1000) || ($valorFinal <= 0.001)){
         $valorFinal = sprintf('%.' . ($sf - 1) . 'E', $valorFinal);
     }
 

@@ -132,7 +132,7 @@ class CellGrader {
       $lower_correct_range = $rounded_correct_answer + $leewayValue;
     }
 
-    if (($rounded_submitted_answer <= $upper_correct_range) && ($rounded_submitted_answer >= $lower_correct_range) && ($countedSigFigs == $rangeval)) {
+    if (($rounded_submitted_answer <= $upper_correct_range) && ($rounded_submitted_answer >= $lower_correct_range)) {//&& ($countedSigFigs == $rangeval)
       //Answer is correct within a 2% leeway
       $answer->iscorrect = true;
     } 
@@ -194,7 +194,7 @@ class CellGrader {
       $lower_correct_range = $rounded_correct_answer + $leewayValue;
     }
 
-    if (($rounded_submitted_answer <= $upper_correct_range) && ($rounded_submitted_answer >= $lower_correct_range) && ($countedDecimals == $rangeval)) {
+    if (($rounded_submitted_answer <= $upper_correct_range) && ($rounded_submitted_answer >= $lower_correct_range) ) {//&& ($countedDecimals == $rangeval)
       //Answer is correct within a 2% leeway
       $answer->iscorrect = true;
     } else {

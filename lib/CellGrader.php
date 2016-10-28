@@ -150,15 +150,17 @@ class CellGrader {
 
     if ($rangeval != 0) {
       if(($correct_answer <= 0.001) || ($correct_answer >= 1000)){
-        $feedback1 = $this->convertToScientificNotation(3, $correct_answer-$rangeval);
-        $feedback2 = $this->convertToScientificNotation(3, $correct_answer+$rangeval);
+        $numSigFigs = $this->countSigFigs($correct_answer);
+        $feedback1 = $this->convertToScientificNotation($numSigFigs, $correct_answer-$rangeval);
+        $feedback2 = $this->convertToScientificNotation($numSigFigs, $correct_answer+$rangeval);
         $answer->correctanswer = '  between ' . $feedback1 . ' and ' . $feedback2;
       }else{
         $answer->correctanswer = '  between ' . sprintf('%.2f', ($correct_answer - $rangeval)) . ' and ' . sprintf('%.2f', (($correct_answer + $rangeval)));
       }
     } else {
       if(($correct_answer <= 0.001) || ($correct_answer >= 1000)){
-        $feedback = $this->convertToScientificNotation(3, $correct_answer);
+        $numSigFigs = $this->countSigFigs($correct_answer);
+        $feedback = $this->convertToScientificNotation($numSigFigs, $correct_answer);
         $answer->correctanswer = ' ' . $feedback . ' exactly ';
       }else{
         $answer->correctanswer = ' ' . $correct_answer_string . ' exactly ';

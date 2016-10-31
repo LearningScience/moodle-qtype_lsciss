@@ -120,7 +120,6 @@ class CellGrader {
     } else {
       $leewayValue = (($rounded_correct_answer / 100.0) * $percentage_leeway);
     }
-    $leewayValue = 0; //- For testing sig figs
 
 
     //flip the ranges if value is negative
@@ -196,7 +195,6 @@ class CellGrader {
     } else {
       $leewayValue = (($rounded_correct_answer / 100.0) * $percentage_leeway);
     }
-    //$leewayValue = 0; - For testing sig figs
 
     //flip the ranges if value is negative
     if($rounded_correct_answer >= 0){

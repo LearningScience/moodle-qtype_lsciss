@@ -148,6 +148,7 @@ class Cell {
         $cellcontent = $this->getCellHtml('lsInputStudentCell', $cellname, $isReadOnly);
         break;
       case 'Label':
+        $inLineTdStyle .= ' style="text-align:' . $this->labelalign . ';"';
         $tdclass = 'lsLabelTd_' . $this->labelalign;
         $cellcontent = $this->getCellValue();
         break;

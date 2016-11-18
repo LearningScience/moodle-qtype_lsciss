@@ -12,8 +12,8 @@
   }
 #jQuerySheet
 {
-  background:#69B61C;
-  }
+  background: #ddd;
+}
 #jSheetLog
 {
   height: 100px;
@@ -146,7 +146,7 @@
   margin: 0px ! important;
   padding: 0px ! important;
   font-size: 12px ! important;
-  height: 17px ! important;
+  height: 20px ! important;
   background-color: transparent;
   color:  inherit;
 }
@@ -206,6 +206,7 @@
   overflow: hidden ! important;
   cursor: pointer;
   overflow: hidden ! important;
+  height: 474px ! important;
   }
 
 .jSheetEditPane
@@ -341,13 +342,12 @@
 .ui-widget { font-family: Verdana,Arial,sans-serif; font-size: 1.1em; }
 .ui-widget .ui-widget { font-size: 1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Verdana,Arial,sans-serif; font-size: 1em; }
-.ui-widget-content { border: 1px solid #a6c9e2; background: #fcfdfd ; color: #222222; }
+.ui-widget-content { border: 1px solid #ccc; background: #fcfdfd ; color: #222222; }
 .ui-widget-content a { color: #222222; }
 .ui-widget-header
 {
   border: 1px solid #000000;
   border-top: none;
-  background-color:#69B61C;
   color: #000000;
   font-weight: bold; 
 }
@@ -359,13 +359,13 @@
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #ffffff; text-decoration: none; }
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus { border: 1px solid #448dae; background: #79c9ec url(../js/theme/images/ui-bg_glass_75_79c9ec_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #026890; }
 .ui-state-hover a, .ui-state-hover a:hover { color: #026890; text-decoration: none; }
-.ui-state-active, .ui-widget-content .ui-state-active { border: 1px solid #acdd4a; background: #6eac2c url(../js/theme/images/ui-bg_gloss-wave_50_6eac2c_500x100.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; }
+.ui-state-active, .ui-widget-content .ui-state-active {     background: #999; font-weight: normal; color: #ffffff; }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #ffffff; text-decoration: none; }
 .ui-widget :active { outline: none; }
 
 /* Interaction Cues
    */
-.ui-state-highlight, .ui-widget-content .ui-state-highlight {border: 2px solid #fc0113 !important; background: #f8da4e; color: #915608; }
+.ui-state-highlight, .ui-widget-content .ui-state-highlight {background: #eee; color: #000; outline: 2px solid #F2545B;}
 .ui-state-highlight a, .ui-widget-content .ui-state-highlight a { color: #915608; }
 .ui-state-error, .ui-widget-content .ui-state-error {border: 1px solid #cd0a0a; background: #e14f1c url(../js/theme/images/ui-bg_gloss-wave_45_e14f1c_500x100.png) 50% top repeat-x; color: #ffffff; }
 .ui-state-error a, .ui-widget-content .ui-state-error a { color: #ffffff; }
@@ -980,20 +980,20 @@ button.ui-button:-moz-focus-inner { border: 0; padding: 0; } /* reset extra padd
 
 .lsCalcAnswer
 {
-  background-color:#FFBA73!important;
+  background-color:#F8FA90!important;
   }
 
 .lsStudentInput
 {
-  background-color:#BFF66F !important;
+  background-color:#38D9A4 !important;
   }
 .lsLabel
 {
-  background-color:#EE6BA6!important;
+  background-color:#FF8181!important;
   }
 .lsSectionHeading
 {
-  background-color:#63BCD6 !important;
+  background-color:#88e3fd !important;
   }
 
 
@@ -1035,14 +1035,14 @@ button.ui-button:-moz-focus-inner { border: 0; padding: 0; } /* reset extra padd
 {  }
 #lsspreadcontrols_tbody
 {
-  background-color: #A8DB75;
+  background-color: #eee;
   }
 #jSheetControls #lsspreadcontrol_celltypes,
 #jSheetControls #lsspreadcontrol_rangetypes,
 #jSheetControls #lsspreadcontrol_feedback,
 #jSheetControls #lsspreadcontrol_calcView
 {
-  border:1px outset #69B61C ;
+  border:1px outset #63BCD6 ;
   height:80px;
   width:98%;
   float:left;
@@ -1256,4 +1256,7 @@ width:100%;
     height:3.5em;
     border: 1px solid #000;
     background-color: #eeffcc;
+}
+#fitem_id_lsspreaddata{
+  display: none;
 }

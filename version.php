@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
  
-$plugin->version   = 2016052601;
+$plugin->version   = 2016052607;
 $plugin->requires  = 2013111800; // Moodle version 2.6+
 $plugin->component = 'qtype_lsciss';
 $plugin->maturity  = MATURITY_ALPHA;
